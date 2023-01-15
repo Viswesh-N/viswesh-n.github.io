@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts | Somnath Kumar</title>
+    <link>https://hex-plex.github.io/post/</link>
+      <atom:link href="https://hex-plex.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <description>Posts</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Somnath Sendhil Kumar `2023`</copyright><lastBuildDate>Sat, 17 Jul 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://hex-plex.github.io/images/icon_hucffb9d42d7c693bd257413760c4b1fda_31806_512x512_fill_lanczos_center_2.png</url>
+      <title>Posts</title>
+      <link>https://hex-plex.github.io/post/</link>
+    </image>
+    
+    <item>
+      <title>Proposal for Flipkart Grid 3.0</title>
+      <link>https://hex-plex.github.io/post/fundraiser/</link>
+      <pubDate>Sat, 17 Jul 2021 00:00:00 +0000</pubDate>
+      <guid>https://hex-plex.github.io/post/fundraiser/</guid>
+      <description>&lt;p&gt;Flipkart Grid is a national robotics challenge that is organised by Flipkart annually. It is a distinguished event in which &lt;strong&gt;2000+ teams&lt;/strong&gt; representing different institutes participate from &lt;strong&gt;across the nation&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Grid 3.0 is being organised by Flipkart this year and the problem statement requires a swarm of hardware bots to be built. Here is the link to this year’s problem statement-&lt;div style=&#34;text-align: center;&#34;&gt;
+&lt;a href=&#34;https://dare2compete.com/api/competition/get-attachment/60e573fc7e126_Grid_3.0_Problem_Statement.pdf&#34;&gt;Flipkart Grid 3.0 - Robotics Challenge : Problem Statement&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;(Building a swarm of bots with active communication for autonomous package sortation with a central monitoring system in an industrial environment.)&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Our team named &lt;strong&gt;“NoSignal”&lt;/strong&gt; comprising 15 students with expertise across different fields has registered for the event and we are looking forward to ace the competition this year and bring laurels to our institute.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;We just need your support to do it well!!&lt;/strong&gt;&lt;/p&gt;
+&lt;div style=&#34;text-align: center;&#34;&gt;
+&lt;!-- &lt;form&gt;&lt;script src=&#34;https://checkout.razorpay.com/v1/payment-button.js&#34; data-payment_button_id=&#34;pl_HaSckP1ZbFeP4S&#34; async&gt; &lt;/script&gt; &lt;/form&gt; --&gt;
+&lt;div class=&#34;progress&#34; style=&#34;margin:20px auto;padding:0;width:90%;height:30px;overflow:hidden;background:#e5e5e5;border-radius:6px;&#34;&gt;
+	&lt;div class=&#34;bar&#34; style=&#34;width:70.1%;position:relative;float:left;min-width:1%;height:100%;background:cornflowerblue;&#34;&gt;
+		&lt;p class=&#34;percent&#34; style=&#34;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);margin:0;font-family:tahoma,arial,helvetica;font-size:12px;
+  color:white;&#34;&gt;&lt;b&gt;Recieved Rs.51,200 out of Rs.73000&lt;/b&gt; &lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;p align=&#34;center&#34;&gt;Help us reach there!!.&lt;/p&gt;
+&lt;button name=&#34;button&#34;&gt; &lt;a href=&#34;#payment-options&#34;&gt;Support Us&lt;/a&gt;&lt;/button&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;our-voyage-so-far-&#34;&gt;Our Voyage so far-&lt;/h2&gt;
+&lt;p&gt;We started by forming a team in 2020 to take part in Grid 2.0. It consisted of &lt;strong&gt;3 novice juniors and 3 experienced seniors&lt;/strong&gt;. The team worked hard and learned a lot of things through the event. The journey included sleepless nights, long brainstorming sessions and a lot of innovation and hard work.&lt;/p&gt;
+&lt;p&gt;We designed a novel hardware and implemented software algorithms to predict the positions and orientations of the gripper to grab various objects. &lt;strong&gt;Here are some results&lt;/strong&gt; from our endeavor -&lt;/p&gt;
+&lt;div style=&#34;text-align: center;&#34;&gt;
+&lt;img src=&#34;head1.gif&#34;/&gt;
+&lt;img src=&#34;head2.gif&#34;/&gt;
+&lt;b&gt; Predicting grabbing points for a headphone&lt;/b&gt;
+&lt;/div&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;img src=&#34;head3.gif&#34; alt=&#34;a&#34;&gt;&lt;/th&gt;
+&lt;th&gt;&lt;img src=&#34;head4.gif&#34; alt=&#34;b&#34;&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;a&lt;/td&gt;
+&lt;td&gt;b&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div style=&#34;text-align: center;&#34;&gt;&lt;b&gt;Hardware at work in simulation&lt;/b&gt;&lt;br/&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;The team&lt;/strong&gt;, representing our prestigious institute, &lt;strong&gt;took part in Grid 2.0 last year&lt;/strong&gt; and were able to make it to &lt;strong&gt;the national finals in our very first attempt&lt;/strong&gt; at such a competition, among the top 3 teams  from all over the nation. From then, it has only motivated us to proceed further and prepare ourselves for the next iteration of Flipkart.. Throughout the  year, &lt;strong&gt;we have trained our team on various skill sets required for the real world deployment of robotics&lt;/strong&gt; through various competitions and events. This has made our current team members better mentors and our incoming new members better roboticists. Thus we are now ready to embark upon the next big challenge with a bigger and a better team.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;FlipKartGrid2Poster.jpg&#34; alt=&#34;flip2&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;current-progress-and-plan&#34;&gt;Current Progress and Plan&lt;/h2&gt;
+&lt;p&gt;We are planning to solve the problem statement using very modest hardware and our innovative solutions. In this harsh time we are facing great difficulty in fabricating the robots due to lack of funds and collaboration space. For now we were able to solve a genuine amount of the problem statement while having built one prototype that is &lt;strong&gt;autonomously controlled by ROS&lt;/strong&gt;.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;img src=&#34;proto.jpg&#34; width=&#34;375&#34;/&gt;&lt;/th&gt;
+&lt;th&gt;&lt;img src=&#34;proto1.jpg&#34; width=&#34;310&#34;/&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;a&lt;/td&gt;
+&lt;td&gt;b&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div style=&#34;text-align: center;&#34;&gt; 
+&lt;i&gt;Our First Prototype&lt;/i&gt; &lt;/div&gt;
+&lt;p&gt;This is a modest hardware consisting of BO motors with encoders, Raspberry pi zero W (For Onboard computation), and a off shell Chassis with caster wheels. We are continuously testing out Mechanisms for Package Dropping.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;swarm.gif&#34; width=&#34;500&#34;&gt;&lt;div style=&#34;text-align: center;&#34;&gt;&lt;em&gt;Swarm of robots moving around a Warehouse&lt;/em&gt;&lt;/div&gt;&lt;/img&gt;&lt;/p&gt;
+&lt;p&gt;Even Before testing out our algorithms we test them on &lt;strong&gt;Gazebo&lt;/strong&gt; (DARPA accepted simulator), And iterate to make better algorithms. We see this technology to scale up in any Industry as we are using &lt;strong&gt;State of the Art&lt;/strong&gt; algorithms for Controlling and Trajectory Planning.&lt;/p&gt;
+&lt;h2 id=&#34;expenses&#34;&gt;Expenses&lt;/h2&gt;
+&lt;p&gt;Given below is the estimate for building &lt;strong&gt;8 robots&lt;/strong&gt; with tools at our disposal.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Name&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Quantity&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Cost&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Link&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;2WD chassis&lt;/td&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;td&gt;499*8 = 3992&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://robu.in/product/red-2wd-aluminum-smart-robot-car-chassis-kit-diy/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Buy 2WD Aluminum Smart Robot Car Chassis Kit Red Online&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;N20 motors&lt;/td&gt;
+&lt;td&gt;32&lt;/td&gt;
+&lt;td&gt;469*24 = 11256&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://robu.in/product/n20-6v-100rpm-micro-metal-gear-motor-with-encoder/?gclid=Cj0KCQjw_8mHBhClARIsABfFgphNos2eE8Vs5mcJfAy-3r_hHlnJ4MKGB80tvpEyOUE1s0eVacfclJYaAsUKEALw_wcB&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;150:1 Micro Metal Gearmotor HP 6V&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1300 3S Lipo&lt;/td&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;td&gt;1000*8 = 8000&lt;/td&gt;
+&lt;td&gt;&amp;ndash;offline&amp;ndash;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;LN298&lt;/td&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;td&gt;125*16 = 2000&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://robu.in/product/l298-based-motor-driver-module-2a/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Buy L298N 2A Motor Driver Module Online at the Best Price&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Mini Buck&lt;/td&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;td&gt;60*8 = 480&lt;/td&gt;
+&lt;td&gt;&amp;ndash;offline&amp;ndash;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Raspberry pi zero w+ microsd card&lt;/td&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;td&gt;1800*8 = 14400&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://robu.in/product/raspberry-pi-zero-w/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Buy Raspberry Pi Zero W (Wireless) With In-Built Wifi and Bluetooth&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Omni Wheels 38dia&lt;/td&gt;
+&lt;td&gt;24&lt;/td&gt;
+&lt;td&gt;24*460 = 11040&lt;/td&gt;
+&lt;td&gt;&amp;ndash;offline&amp;ndash;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;IMU 9 axis&lt;/td&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;td&gt;415*8 = 3320&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://robu.in/product/mpu9250-9-axis-attitude-gyro-accelerator-magnetometer-sensor-module/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Buy 9DOF 3Axis Gyro Accelero and Magnetometer Sensor Module In India&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Cameras&lt;/td&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;1900*4 = 7600&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.amazon.in/HP-Webcam-Wide-Angle-Calling-Microsoft/dp/B08FTH8G8B/ref=sr_1_6?crid=126STUMKWCW33&amp;amp;dchild=1&amp;amp;keywords=webcam&amp;amp;qid=1625427683&amp;amp;s=electronics&amp;amp;sprefix=we%2Celectronics%2C459&amp;amp;sr=1-6&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;HP w200 HD 720p/30 Fps Webcam, Built-in Mic, Plug and Play, Wide-Angle View for Video Calling, Skype, Zoom, Microsoft Teams&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Acrylic sheets&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;999* 3 = 2997&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.amazon.in/Acrylic-Sheet-3MM-Clear-16x24inch/dp/B08K48SQW8/ref=asc_df_B08K48SQW8/?tag=googleshopdes-21&amp;amp;linkCode=df0&amp;amp;hvadid=397082163833&amp;amp;hvpos=&amp;amp;hvnetw=g&amp;amp;hvrand=13054231399609441511&amp;amp;hvpone=&amp;amp;hvptwo=&amp;amp;hvqmt=&amp;amp;hvdev=c&amp;amp;hvdvcmdl=&amp;amp;hvlocint=&amp;amp;hvlocphy=1007768&amp;amp;hvtargid=pla-1105382281902&amp;amp;psc=1&amp;amp;ext_vrnc=hi&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Acrylic Sheet 3MM Clear (16x24inch)&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Servo motors&lt;/td&gt;
+&lt;td&gt;16&lt;/td&gt;
+&lt;td&gt;250* 16 = 4000&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.electronicscomp.com/mg996r-metal-gear-servo-motor&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Tower Pro MG996R Digital Metal Gear High Torque Servo Motor (180 Degree Rotation)&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&lt;/td&gt;
+&lt;td&gt;&amp;ndash;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Total&lt;/td&gt;
+&lt;td&gt;69085&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Overhead Expn.&lt;/td&gt;
+&lt;td&gt;3915&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;TOTAL&lt;/strong&gt;:&lt;/td&gt;
+&lt;td&gt;73000&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Do consider consider contributing :)&lt;/p&gt;
+&lt;h2 id=&#34;payment-options&#34;&gt;Payment Options&lt;/h2&gt;
+&lt;br/&gt;
+&lt;p&gt;With the generous support of our donors we have reached such a huge milestone.&lt;/p&gt;
+&lt;div class=&#34;progress&#34; style=&#34;margin:20px auto;padding:0;width:90%;height:30px;overflow:hidden;background:#e5e5e5;border-radius:6px;&#34;&gt;
+	&lt;div class=&#34;bar&#34; style=&#34;width:70.1%;position:relative;float:left;min-width:1%;height:100%;background:cornflowerblue;&#34;&gt;
+		&lt;p class=&#34;percent&#34; style=&#34;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);margin:0;font-family:tahoma,arial,helvetica;font-size:12px;
+  color:white;&#34;&gt;&lt;b&gt;Recieved Rs.51,200 out of Rs.73000&lt;/b&gt; &lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;p align=&#34;center&#34;&gt;Help us reach there!!.&lt;/p&gt;
+&lt;div style=&#34;text-align: center;&#34;&gt;
+&lt;!-- &lt;form&gt;&lt;script src=&#34;https://checkout.razorpay.com/v1/payment-button.js&#34; data-payment_button_id=&#34;pl_HaSckP1ZbFeP4S&#34; async&gt; &lt;/script&gt; &lt;/form&gt; --&gt;
+For now we are taking payments only through &lt;b&gt;UPI&lt;/b&gt;, for paying use the qr code or UPI id
+&lt;/div&gt;
+&lt;p&gt;&lt;img src=&#34;bhim.jpeg&#34; alt=&#34;qr&#34;&gt;&lt;/p&gt;
+&lt;div align=&#34;center&#34;&gt;
+Upi ID : &lt;input type=&#34;text&#34; value=&#34;9149222275@upi&#34; id=&#34;myUpi&#34; readonly/&gt;
+&lt;button onclick=&#34;myFunction2()&#34; onmouseout=&#34;outFunc2()&#34; style=&#34;border-radius: 8px; height: 50px; text-align: center; display: inline-block;margin: 100px 0px 0px 20px&#34;&gt;&lt;div id=&#34;img_f&#34;&gt;
+&lt;img src=&#34;https://toppng.com/uploads/preview/clipboard-png-11553939506tjekgt7rej.png&#34; width=&#34;30&#34; heigth=&#34;30&#34; style=&#34;margin: 5px;&#34;&gt;
+&lt;/img&gt; &lt;/div&gt;&lt;/button&gt;
+&lt;/div&gt;
+&lt;hr/&gt;
+&lt;!-- &lt;style&gt;
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 140px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -75px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: &#34;&#34;;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+&lt;/style&gt; --&gt;
+&lt;div style=&#34;text-align: center;&#34;&gt;
+If you are facing any technical difficulty you can pay the below number through &lt;b&gt;UPI&lt;/b&gt;, or you may choose to contact through Phone or Whatsapp.
+&lt;p&gt;Phone Number : &lt;input type=&#34;text&#34; value=&#34;+919897367156&#34; id=&#34;myInput&#34; readonly/&gt;&lt;/p&gt;
+&lt;button onclick=&#34;myFunction()&#34; onmouseout=&#34;outFunc()&#34;&gt;
+  &lt;span class=&#34;tooltiptext&#34; id=&#34;myTooltip&#34;&gt;Copy to clipboard&lt;/span&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;script&gt;
+  function myFunction() {
+  var copyText = document.getElementById(&#34;myInput&#34;);
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  document.execCommand(&#34;copy&#34;);
+  
+  var tooltip = document.getElementById(&#34;myTooltip&#34;);
+  tooltip.innerHTML = &#34;Copied!&#34;;
+}
+
+function outFunc() {
+  
+  setTimeout(function(){ 
+    var tooltip = document.getElementById(&#34;myTooltip&#34;);
+    tooltip.innerHTML = &#34;Copy to clipboard&#34;; },
+     1000);
+  
+}
+
+function myFunction2() {
+  var copyText = document.getElementById(&#34;myUpi&#34;);
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  document.execCommand(&#34;copy&#34;);
+  
+  var tooltip = document.getElementById(&#34;img_f&#34;);
+  tooltip.innerHTML = `&lt;img src=&#34;https://www.pinclipart.com/picdir/middle/538-5383865_correct-tick-clip-art-at-clker-right-clipart.png&#34; width=&#34;30&#34; heigth=&#34;30&#34; style=&#34;margin: 5px;&#34;&gt;&lt;/img&gt;`;
+}
+
+function outFunc2() {
+  
+  setTimeout(function(){ 
+    var tooltip = document.getElementById(&#34;img_f&#34;);
+    tooltip.innerHTML = `&lt;img src=&#34;https://toppng.com/uploads/preview/clipboard-png-11553939506tjekgt7rej.png&#34; width=&#34;30&#34; heigth=&#34;30&#34; style=&#34;margin: 5px;&#34;&gt;&lt;/img&gt;`; },
+     1000);
+  
+}
+
+&lt;/script&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Welcome to Wowchemy, the website builder for Hugo</title>
+      <link>https://hex-plex.github.io/post/getting-started/</link>
+      <pubDate>Sun, 13 Dec 2020 00:00:00 +0000</pubDate>
+      <guid>https://hex-plex.github.io/post/getting-started/</guid>
+      <description>&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;The Wowchemy website builder for Hugo, along with its starter templates, is designed for professional creators, educators, and teams/organizations - although it can be used to create any kind of site&lt;/li&gt;
+&lt;li&gt;The template can be modified and customised to suit your needs. It&amp;rsquo;s a good platform for anyone looking to take control of their data and online identity whilst having the convenience to start off with a &lt;strong&gt;no-code solution (write in Markdown and customize with YAML parameters)&lt;/strong&gt; and having &lt;strong&gt;flexibility to later add even deeper personalization with HTML and CSS&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;You can work with all your favourite tools and apps with hundreds of plugins and integrations to speed up your workflows, interact with your readers, and much more&lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-the-template-is-mobile-first-with-a-responsive-design-to-ensure-that-your-site-looks-stunning-on-every-device&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://raw.githubusercontent.com/wowchemy/wowchemy-hugo-modules/master/academic.png&#34; data-caption=&#34;The template is mobile first with a responsive design to ensure that your site looks stunning on every device.&#34;&gt;
+
+
+  &lt;img src=&#34;https://raw.githubusercontent.com/wowchemy/wowchemy-hugo-modules/master/academic.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    The template is mobile first with a responsive design to ensure that your site looks stunning on every device.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;get-started&#34;&gt;Get Started&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;👉 &lt;a href=&#34;https://wowchemy.com/templates/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Create a new site&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;📚 &lt;a href=&#34;https://wowchemy.com/docs/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Personalize your site&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;💬 &lt;a href=&#34;https://discord.gg/z8wNYzb&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Chat with the &lt;strong&gt;Wowchemy community&lt;/strong&gt;&lt;/a&gt; or &lt;a href=&#34;https://discourse.gohugo.io&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Hugo community&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;🐦 Twitter: &lt;a href=&#34;https://twitter.com/wowchemy&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;@wowchemy&lt;/a&gt; &lt;a href=&#34;https://twitter.com/GeorgeCushen&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;@GeorgeCushen&lt;/a&gt; &lt;a href=&#34;https://twitter.com/search?q=%28%23MadeWithWowchemy%20OR%20%23MadeWithAcademic%29&amp;amp;src=typed_query&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#MadeWithWowchemy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;💡 &lt;a href=&#34;https://github.com/wowchemy/wowchemy-hugo-modules/issues&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Request a &lt;strong&gt;feature&lt;/strong&gt; or report a &lt;strong&gt;bug&lt;/strong&gt; for &lt;em&gt;Wowchemy&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;⬆️ &lt;strong&gt;Updating Wowchemy?&lt;/strong&gt; View the &lt;a href=&#34;https://wowchemy.com/docs/guide/update/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Update Guide&lt;/a&gt; and &lt;a href=&#34;https://wowchemy.com/updates/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Release Notes&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;crowd-funded-open-source-software&#34;&gt;Crowd-funded open-source software&lt;/h2&gt;
+&lt;p&gt;To help us develop this template and software sustainably under the MIT license, we ask all individuals and businesses that use it to help support its ongoing maintenance and development via sponsorship.&lt;/p&gt;
+&lt;h3 id=&#34;-click-here-to-become-a-sponsor-and-help-support-wowchemys-future-httpswowchemycomplans&#34;&gt;&lt;a href=&#34;https://wowchemy.com/plans/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;❤️ Click here to become a sponsor and help support Wowchemy&amp;rsquo;s future ❤️&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;As a token of appreciation for sponsoring, you can &lt;strong&gt;unlock &lt;a href=&#34;https://wowchemy.com/plans/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;these&lt;/a&gt; awesome rewards and extra features 🦄✨&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;ecosystem&#34;&gt;Ecosystem&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/wowchemy/hugo-academic-cli&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Hugo Academic CLI&lt;/a&gt;:&lt;/strong&gt; Automatically import publications from BibTeX&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;inspiration&#34;&gt;Inspiration&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://academic-demo.netlify.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Check out the latest &lt;strong&gt;demo&lt;/strong&gt;&lt;/a&gt; of what you&amp;rsquo;ll get in less than 10 minutes, or &lt;a href=&#34;https://wowchemy.com/user-stories/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;view the &lt;strong&gt;showcase&lt;/strong&gt;&lt;/a&gt; of personal, project, and business sites.&lt;/p&gt;
+&lt;h2 id=&#34;features&#34;&gt;Features&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Page builder&lt;/strong&gt; - Create &lt;em&gt;anything&lt;/em&gt; with &lt;a href=&#34;https://wowchemy.com/docs/page-builder/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;widgets&lt;/strong&gt;&lt;/a&gt; and &lt;a href=&#34;https://wowchemy.com/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;elements&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Edit any type of content&lt;/strong&gt; - Blog posts, publications, talks, slides, projects, and more!&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Create content&lt;/strong&gt; in &lt;a href=&#34;https://wowchemy.com/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Markdown&lt;/strong&gt;&lt;/a&gt;, &lt;a href=&#34;https://wowchemy.com/docs/import/jupyter/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Jupyter&lt;/strong&gt;&lt;/a&gt;, or &lt;a href=&#34;https://wowchemy.com/docs/install-locally/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;RStudio&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Plugin System&lt;/strong&gt; - Fully customizable &lt;a href=&#34;https://wowchemy.com/docs/customization/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;color&lt;/strong&gt; and &lt;strong&gt;font themes&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Display Code and Math&lt;/strong&gt; - Code highlighting and &lt;a href=&#34;https://en.wikibooks.org/wiki/LaTeX/Mathematics&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;LaTeX math&lt;/a&gt; supported&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Integrations&lt;/strong&gt; - &lt;a href=&#34;https://analytics.google.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Google Analytics&lt;/a&gt;, &lt;a href=&#34;https://disqus.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Disqus commenting&lt;/a&gt;, Maps, Contact Forms, and more!&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Beautiful Site&lt;/strong&gt; - Simple and refreshing one page design&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Industry-Leading SEO&lt;/strong&gt; - Help get your website found on search engines and social media&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Media Galleries&lt;/strong&gt; - Display your images and videos with captions in a customizable gallery&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mobile Friendly&lt;/strong&gt; - Look amazing on every screen with a mobile friendly version of your site&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Multi-language&lt;/strong&gt; - 34+ language packs including English, 中文, and Português&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Multi-user&lt;/strong&gt; - Each author gets their own profile page&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Privacy Pack&lt;/strong&gt; - Assists with GDPR&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Stand Out&lt;/strong&gt; - Bring your site to life with animation, parallax backgrounds, and scroll effects&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;One-Click Deployment&lt;/strong&gt; - No servers. No databases. Only files.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;themes&#34;&gt;Themes&lt;/h2&gt;
+&lt;p&gt;Wowchemy and its templates come with &lt;strong&gt;automatic day (light) and night (dark) mode&lt;/strong&gt; built-in. Alternatively, visitors can choose their preferred mode - click the moon icon in the top right of the &lt;a href=&#34;https://academic-demo.netlify.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Demo&lt;/a&gt; to see it in action! Day/night mode can also be disabled by the site admin in &lt;code&gt;params.toml&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://wowchemy.com/docs/customization&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Choose a stunning &lt;strong&gt;theme&lt;/strong&gt; and &lt;strong&gt;font&lt;/strong&gt;&lt;/a&gt; for your site. Themes are fully customizable.&lt;/p&gt;
+&lt;h2 id=&#34;license&#34;&gt;License&lt;/h2&gt;
+&lt;p&gt;Copyright 2016-present &lt;a href=&#34;https://georgecushen.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;George Cushen&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Released under the &lt;a href=&#34;https://github.com/wowchemy/wowchemy-hugo-modules/blob/master/LICENSE.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MIT&lt;/a&gt; license.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
