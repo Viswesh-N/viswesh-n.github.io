@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://hex-plex.github.io/talk/example-talk/</loc>
+    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/event/</loc>
+    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/</loc>
+    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc></loc>
+    <lastmod>2022-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/publication-type/1/</loc>
+    <lastmod>2022-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc></loc>
+    <lastmod>2022-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc></loc>
+    <lastmod>2022-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc></loc>
+    <lastmod>2022-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc></loc>
+    <lastmod>2022-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/publication_types/</loc>
+    <lastmod>2022-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/publication/</loc>
+    <lastmod>2022-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/publication/exploration/</loc>
+    <lastmod>2022-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc></loc>
+    <lastmod>2022-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc></loc>
+    <lastmod>2022-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc></loc>
+    <lastmod>2022-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc></loc>
+    <lastmod>2022-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/publication/vidmodex/</loc>
+    <lastmod>2022-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc></loc>
+    <lastmod>2022-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc></loc>
+    <lastmod>2022-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/project/model-extraction/</loc>
+    <lastmod>2022-03-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/tag/computer-vision/</loc>
+    <lastmod>2022-03-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/tag/deep-learning/</loc>
+    <lastmod>2022-03-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/tag/model-extraction/</loc>
+    <lastmod>2022-03-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/project/</loc>
+    <lastmod>2022-03-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/tags/</loc>
+    <lastmod>2022-03-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/tag/graph-neural-network/</loc>
+    <lastmod>2021-12-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/project/gnn-marl/</loc>
+    <lastmod>2021-12-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/tag/multiagent/</loc>
+    <lastmod>2021-12-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/tag/reinforcement-learning/</loc>
+    <lastmod>2021-12-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/tag/starcraft-ii/</loc>
+    <lastmod>2021-12-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/tag/3d-modelling/</loc>
+    <lastmod>2021-11-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/project/multi-agent-coverage/</loc>
+    <lastmod>2021-11-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/tag/robotics/</loc>
+    <lastmod>2021-11-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/tag/ros/</loc>
+    <lastmod>2021-11-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/project/nanodrone-rlampc/</loc>
+    <lastmod>2021-10-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/tag/optimal-control/</loc>
+    <lastmod>2021-10-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/tag/control-theory/</loc>
+    <lastmod>2021-08-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/tag/embedded-system/</loc>
+    <lastmod>2021-08-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/project/dot-bot/</loc>
+    <lastmod>2021-08-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/tag/navigation-stack/</loc>
+    <lastmod>2021-08-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/tag/academic/</loc>
+    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/categories/</loc>
+    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/category/competetions/</loc>
+    <lastmod>2020-07-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/tag/funds/</loc>
+    <lastmod>2020-07-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/post/</loc>
+    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/tag/proposal/</loc>
+    <lastmod>2020-07-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/post/fundraiser/</loc>
+    <lastmod>2020-07-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/category/robotics/</loc>
+    <lastmod>2020-07-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/project/optimal-control_quadruped/</loc>
+    <lastmod>2021-07-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/publication-type/2/</loc>
+    <lastmod>2021-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/publication/bgaitrnet/</loc>
+    <lastmod>2021-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc></loc>
+    <lastmod>2021-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc></loc>
+    <lastmod>2021-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/project/modularbot_planner/</loc>
+    <lastmod>2021-04-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/project/gait-occlusion-gan/</loc>
+    <lastmod>2021-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/category/demo/</loc>
+    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/post/getting-started/</loc>
+    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc></loc>
+    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/tag/%E5%BC%80%E6%BA%90/</loc>
+    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/category/%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/tag/embedded-systems/</loc>
+    <lastmod>2020-12-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/tag/linux/</loc>
+    <lastmod>2020-12-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/project/paucibot/</loc>
+    <lastmod>2020-12-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/project/kilobot-multiagentrl/</loc>
+    <lastmod>2020-09-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/tag/multiagent-systems/</loc>
+    <lastmod>2020-09-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/tag/openai-gym/</loc>
+    <lastmod>2020-09-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/tag/pygame/</loc>
+    <lastmod>2020-09-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/project/hand-imitation/</loc>
+    <lastmod>2020-06-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/tag/pybullet/</loc>
+    <lastmod>2020-06-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/project/pong-reinforcementlearning/</loc>
+    <lastmod>2020-05-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/tag/video-game/</loc>
+    <lastmod>2020-05-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/project/light-gun/</loc>
+    <lastmod>2020-04-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/tag/raspberry-pi/</loc>
+    <lastmod>2020-04-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/slides/</loc>
+    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hex-plex.github.io/slides/example/</loc>
+    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
+  </url>
+  
+</urlset>
