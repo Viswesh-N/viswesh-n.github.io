@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Raspberry Pi | Somnath Kumar</title>
+    <link>https://hex-plex.github.io/tag/raspberry-pi/</link>
+      <atom:link href="https://hex-plex.github.io/tag/raspberry-pi/index.xml" rel="self" type="application/rss+xml" />
+    <description>Raspberry Pi</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Somnath Sendhil Kumar `2023`</copyright><lastBuildDate>Thu, 02 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://hex-plex.github.io/images/icon_hucffb9d42d7c693bd257413760c4b1fda_31806_512x512_fill_lanczos_center_2.png</url>
+      <title>Raspberry Pi</title>
+      <link>https://hex-plex.github.io/tag/raspberry-pi/</link>
+    </image>
+    
+    <item>
+      <title>Light Gun</title>
+      <link>https://hex-plex.github.io/project/light-gun/</link>
+      <pubDate>Thu, 02 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://hex-plex.github.io/project/light-gun/</guid>
+      <description>&lt;p&gt;Bored in the quarantine period, revisiting my old video games with light gun inspired an idea of light gun with a LCD display , I went on to build it mainly as a android package as it would be more accessable to anyone. Then ended up using a Raspberry Pi as a standalone device to enable it&amp;rsquo;s use accross many platforms and devices.&lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The Explanation for the working can be found in &lt;a href=&#34;https://github.com/hex-plex/Light-Gun/blob/master/EXPLANATION.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;EXPLANATION.md&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;glimpse&#34;&gt;Glimpse:&lt;/h2&gt;
+&lt;p&gt;This is the glimpse of the prototype made with Raspberry pi on a toy gun with all the number-munching done on the Raspberry and transmites messages to the local server through bluetooth. The previous method of running the proccessing and the actions is documented in &lt;strong&gt;Win-Py&lt;/strong&gt; directory.&lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/Light-Gun/master/images/Complete_setup.jpg&#34; width=&#34;370&#34; align=&#34;right&#34; border=&#34;20&#34;&gt;&lt;/img&gt;
+&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;p align=&#34;left&#34;&gt;This is a prototype of the light gun with a camera module attached onto a toy-gun and with a Raspberry pi 3 b+ (unneccessary I know) and a 7.4 V li-ion battery, regulated with a buck converter to which two switches are connected on the Raspi&#39;s interrupt pins.&lt;/p&gt;&lt;hr/&gt;
+&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/Light-Gun/master/images/display_setup.jpg&#34; width=&#34;370&#34; align=&#34;left&#34;&gt;&lt;/img&gt;
+&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
+This is the display setup with 4 IR-LEDs attached to the corners of the display which makes it very easy for detection in a wide range of lighting conditions.&lt;hr/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
+&lt;p&gt;And after Installation the main code using &lt;a href=&#34;https://github.com/hex-plex/Light-Gun/tree/master/Raspi-c&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Raspi&lt;/a&gt; version or &lt;a href=&#34;https://github.com/hex-plex/Light-Gun/tree/master/Win-py&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Local&lt;/a&gt; version, continue using it according to the guide lines for the same which is present in their respective folders itself.&lt;/p&gt;
+&lt;p&gt;The Modules then should create a virtual mouse and start following the edge vector of the camera module.
+The following is a demonstration of it in action&amp;hellip;. (😅 coming up shortly, as I am fixing few deviation errors.)&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://drive.google.com/file/d/1hIYBv8l2JCylOfQS9Cc5D5Hp50Ui55D-/view?usp=sharing&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Demo Link&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;contribution&#34;&gt;Contribution&lt;/h2&gt;
+&lt;p&gt;Any kind of Contribution is always welcomed. The rules for any Contribution for now is Non existent as I am the only one working on it and I have not really structurized the project so well as mostly in its prototyping stage, So its not possible to do a lot(Anyways feel free to report any errors or bugs 😄 ), Any Idea for a better implementation is also welcomed.&lt;/p&gt;
+&lt;h2 id=&#34;reference&#34;&gt;Reference:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;This is for getting R and t matrix  &lt;a href=&#34;https://www.learnopencv.com/head-pose-estimation-using-opencv-and-dlib/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;This is for adjusting focal length (approximation) &lt;a href=&#34;https://www.learnopencv.com/approximate-focal-length-for-webcams-and-cell-phone-cameras/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;This is for getting accurate intrensic matrix &lt;a href=&#34;https://www.learnopencv.com/camera-calibration-using-opencv/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Cmake&lt;/li&gt;
+&lt;li&gt;Bluez&lt;/li&gt;
+&lt;li&gt;Raspberry pi interupts&lt;/li&gt;
+&lt;li&gt;Asynchronous coding&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

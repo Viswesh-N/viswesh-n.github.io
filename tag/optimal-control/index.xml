@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Optimal Control | Somnath Kumar</title>
+    <link>https://hex-plex.github.io/tag/optimal-control/</link>
+      <atom:link href="https://hex-plex.github.io/tag/optimal-control/index.xml" rel="self" type="application/rss+xml" />
+    <description>Optimal Control</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Somnath Sendhil Kumar `2023`</copyright><lastBuildDate>Fri, 01 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://hex-plex.github.io/images/icon_hucffb9d42d7c693bd257413760c4b1fda_31806_512x512_fill_lanczos_center_2.png</url>
+      <title>Optimal Control</title>
+      <link>https://hex-plex.github.io/tag/optimal-control/</link>
+    </image>
+    
+    <item>
+      <title>NanoDrone RL Aided MPC</title>
+      <link>https://hex-plex.github.io/project/nanodrone-rlampc/</link>
+      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>https://hex-plex.github.io/project/nanodrone-rlampc/</guid>
+      <description>&lt;h2 id=&#34;modding-the-hardware-platform&#34;&gt;Modding the hardware platform&lt;/h2&gt;
+&lt;p&gt;With a simple a simple RC drone with modified &lt;a href=&#34;https://github.com/betaflight/betaflight&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;BetaFlight&lt;/a&gt; Firmware to allow mavlink communication and a external companion PC such as Banana pi zero m2 we plan to deploy swarm of these drones in to real world problems.&lt;/p&gt;
+&lt;p&gt;Our Major targets were,&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Visual odometry&lt;/li&gt;
+&lt;li&gt;Optimal Controller for tracing trajectory&lt;/li&gt;
+&lt;li&gt;Trajectory optimization for multi agent systems.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;We have been able to answer 2 of the above.&lt;/p&gt;
+&lt;h3 id=&#34;visual-odometry&#34;&gt;Visual odometry&lt;/h3&gt;
+&lt;p&gt;We have been able to modify the &lt;a href=&#34;http://wiki.ros.org/viso2_ros&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Viso2ROS&lt;/a&gt; to run with a less number of feature points and with reduced map foot print for easier localization with help of few apriltags, for global coordinates and not using the whole map.
+We also to utilize the MALI GPU of the onboard computer compiled opencv with OpenCL to get a slightly better performance in the framerate of the localization. There is not much more novelty introduced from our end.&lt;/p&gt;
+&lt;h3 id=&#34;optimal-controller---rl-aided-mpc&#34;&gt;Optimal controller - RL Aided MPC&lt;/h3&gt;
+&lt;p&gt;With limited computation, running an onboard MPC with non-linear Dynamics will fail to provide responsive control. Another Famous approach is RL-based controllers, where the feedback is a learned approximation of an expert demonstration from something like an MPC. But these policies are many layers deep and make it difficult to run in constrained hardware. Shallower policies tend to approximate the dynamics a lot and learn a sub-optimal policy that fails to work in many scenarios that are not desirable in multi-agent systems.&lt;/p&gt;
+&lt;p&gt;Hence I propose use of a small RL policies output as the hot solution to the MPC. Conceptually its a very simple task but this requires a responsive pipeline for being able to execute at a desired Rate. Below is our pipeline in Simulation and in Hardware.&lt;/p&gt;
+&lt;img src=&#34;pipeline.png&#34;/&gt;
+&lt;p&gt;I have used the &lt;a href=&#34;https://github.com/utiasDSL/gym-pybullet-drones&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;gym-pybullet-drones&lt;/a&gt;, as the base environment for our drone. We have imported our designs into the environment, Along with parameters for the drone like Air Drag coefficients.&lt;/p&gt;
+&lt;p&gt;For the MPC I have used the mpc.pytorch library from locuslab. As this uses pytorch backend for computation and optimization. This increased the efficiency and drastically decreased train time from 2 hrs to 45 mins.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;mpc_pytorch.png&#34;/&gt;
+&lt;/p&gt;
+&lt;p&gt;For the training I implemented a simple 3 layer deep policy implemented using Pytorch and I used simple Policy Gradient algorithm, I trained using Ray Library with multiple workers while extending the dimension of the control of the MPC for optimizing the Training Loop.&lt;/p&gt;
+&lt;p&gt;We have tried using both the linear and the non-linear dynamics of the MPC, we resorted on using the linear dynamics along with RL for better deployment keeping the hardware limitation in mind&lt;/p&gt;
+&lt;h4 id=&#34;reward&#34;&gt;Reward&lt;/h4&gt;
+&lt;p&gt;We have used a simple curriculum of running the RL based estimations of the optimal force values for each properllers.
+As a low level PID controller is running for maintaining the altitude altitude, our main goal was to learn the force value estimation directly from a expert policy like the mpc, and later we could work on how the RL algorithm would optimize hot solutions than estimating better optimal control inputs. This is a key difference as here it would not have to model higher non-linearity of the horizon while optimizing the hot solution to the MPC.&lt;/p&gt;
+&lt;p&gt;Later in the curriculum we add and extra term for decreasing the number of iterations taken to converge by an MPC. This reward is given from the MPC node and is just taken along side the state reward given from the environment.&lt;/p&gt;
+&lt;p&gt;Hence our net Reward is as follows&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.codecogs.com/eqnedit.php?latex=\dpi{150}&amp;space;\bg_white&amp;space;\large&amp;space;R&amp;space;=&amp;space;\alpha_1|\ddot{x}|&amp;space;&amp;plus;&amp;space;\alpha_2|x-x_{des}|&amp;space;&amp;plus;&amp;space;\alpha_3|u|&amp;space;&amp;plus;&amp;space;\alpha_4\omega^2&amp;space;&amp;plus;\alpha_5(\dot{x}-\dot{x}_{des})^2&amp;space;&amp;plus;&amp;space;\kappa&amp;space;t_{conv}&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://latex.codecogs.com/png.latex?\dpi{150}&amp;space;\bg_white&amp;space;\large&amp;space;R&amp;space;=&amp;space;\alpha_1|\ddot{x}|&amp;space;&amp;plus;&amp;space;\alpha_2|x-x_{des}|&amp;space;&amp;plus;&amp;space;\alpha_3|u|&amp;space;&amp;plus;&amp;space;\alpha_4\omega^2&amp;space;&amp;plus;\alpha_5(\dot{x}-\dot{x}_{des})^2&amp;space;&amp;plus;&amp;space;\kappa&amp;space;t_{conv}&#34; title=&#34;\large R = \alpha_1|\ddot{x}| + \alpha_2|x-x_{des}| + \alpha_3|u| + \alpha_4\omega^2 +\alpha_5(\dot{x}-\dot{x}_{des})^2 + \kappa t_{conv}&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;results&#34;&gt;Results&lt;/h4&gt;
+&lt;p&gt;After training for 8000 episodes we reach a decent point with high enough reward and good amount of speculation to use our Policy with current Architecture. Below is the demonstration of the robot trying to trace a figure 8 using the current Control architecture.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;Drone_RLAMPC.gif&#34;/&gt;&lt;i&gt;tracing the figure 8 while running at 70 Hz&lt;/i&gt;
+&lt;/p&gt;
+&lt;p&gt;As it can be seen this is able to trace the given trajectory. Below is the example of the Optimization the MPC provides over the RL Estimations&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;RL_estimated.png&#34;/&gt;
+&lt;i&gt;Policy Estimations for significant angles of Rolls and Pitches&lt;/i&gt;
+&lt;img src=&#34;MPC_optimized.png&#34;/&gt;
+&lt;i&gt;MPC based optimization reducing the Unsafe values of the Thrusts for smoother long horizon performance&lt;/i&gt;
+&lt;/p&gt;
+&lt;p&gt;A more analytic study shows the improvement in performance by the need of steps to converge the optimization and the rate of diverge or failure in optimizing the policy within the limit.&lt;/p&gt;
+&lt;img src=&#34;mpc_conv.png&#34;/&gt;  
+&lt;p&gt;For feasible run time of the MPC we use a threshold of optimal 5 iterations and maximum of 10 iterations would allow use to run the Pipeline on our desired system. Here we are optimizing the trajectories within a certain amount of cost which are experimented for suiting both performance and efficiency.&lt;/p&gt;
+&lt;p&gt;As can be seen from the curve performance of Pipeline increases continuing to train it further hence a proportional correlation confirms the proof of concept.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;mpc_fail.png&#34; align=&#34;left&#34; width=&#34;60%&#34; style=&#34;padding-right: 20px&#34;/&gt;&lt;img src=&#34;mpc_fail_log.png&#34; align=&#34;right&#34; width=&#34;60%&#34; style=&#34;padding-left: 10px&#34;/&gt;
+&lt;/p&gt;
+&lt;p&gt;The second metrics we are using the rate of failures in either not being able to find a solution or not converging before the 10 iterations threshold, as we have used the approximated linear dynamics of the Drone we are entitled to diverge in prediction of the future states and hence give an sub optimal response, We see this is also improved with the current architecture and is able to robustly work in a bigger configuration space.&lt;/p&gt;
+&lt;p&gt;Given the improvement of the performance against only MPC based control makes it a very good fit for our application. Currently hardware code structured would have to finalized as we would have to make utilize most of all the onboard computation for both the RL policy forward propagation and the MPC optimization. Hence we are working on modifing &lt;a href=&#34;https://github.com/ethz-asl/mav_control_rw&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Mav_Control_RW&lt;/a&gt; for our needs to use a betaflight firmware as the lowlevel controller and communicated through MavLink.&lt;/p&gt;
+&lt;h2 id=&#34;future-works&#34;&gt;Future works&lt;/h2&gt;
+&lt;p&gt;We are currently working on implementing the hardware pipline for feasible hardware results. And constantly estimating optimal parameters to run the pipe line with.&lt;/p&gt;
+&lt;p&gt;As Specified in the start of the post we are also trying to solve the problem of trajectory optimization of Multi-Agent systems for which we would be more than happy to collaborate or hear from you.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Optimal control and trajectory optimization for Quadruped</title>
+      <link>https://hex-plex.github.io/project/optimal-control_quadruped/</link>
+      <pubDate>Sat, 03 Jul 2021 00:00:00 +0000</pubDate>
+      <guid>https://hex-plex.github.io/project/optimal-control_quadruped/</guid>
+      <description>&lt;p&gt;This post is a collection of Optimal Control algorithm that I either implemented or Integrated with the quadruped &amp;lsquo;Stochlite&amp;rsquo; at Stochlab, IISc. These are implemented in ROS so that we can deploy them directly on the hardware. My major contribution was to integrate these well established optimal control algorithms with the ROS framework of the Quadruped.&lt;/p&gt;
+&lt;p&gt;Majority of the Optimal control do not have significant difference in performance in Hardware as I was unable to test them in many scenarios through the simulators.&lt;/p&gt;
+&lt;h2 id=&#34;model-predictive-control&#34;&gt;Model Predictive Control&lt;/h2&gt;
+&lt;p&gt;Inspired from &lt;a href=&#34;#1&#34;&gt;[1]&lt;/a&gt; implemented the convex mpc for the quadruped. along with &lt;a href=&#34;#2&#34;&gt;[2]&lt;/a&gt; a whole body impulse Controller which will help to trace the estimated foot forces estimated from the Controller. While the MPC uses an approximate Linear model of the quadruped. The whole body impulse controller considers the Floating base dynamics of the robot, while the MPC uses the Single Rigid body Dynamics. I also implemented a modified version of the State Estimator for the quadruped need for the Algorithms&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;stochlite_mpc.gif&#34;/&gt;
+&lt;i&gt;Estimated Foot forces from the MPC&lt;/i&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;output&#34;&gt;Output&lt;/h3&gt;
+&lt;p&gt;Below are a few clips where the MPC stablizes the torso and attains a&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;stochlite_convmpc_hill.gif&#34;/&gt;
+&lt;i&gt;Using the MPC on the Hilly terrain, with no prior knowledge of the terrain&lt;/i&gt;
+&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;stochlite_convmpc_rough.gif&#34;/&gt;
+&lt;i&gt;Using the MPC and WBiC on Rough terrain, with no prior knowledge of the terrain&lt;/i&gt;
+&lt;/p&gt;
+&lt;p&gt;As it can be seen from the above output the quadruped stablizes itself instantaniously as it has no prior knowledge like an heightmap of the world.&lt;/p&gt;
+&lt;h2 id=&#34;trajectory-optimization&#34;&gt;Trajectory optimization&lt;/h2&gt;
+&lt;p&gt;We have used TOWR&lt;a href=&#34;#3&#34;&gt;[3]&lt;/a&gt; for trajectory optimization, Below is the output from the towr gui, for the quadruped.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;stochlite_towr.gif&#34;/&gt;
+&lt;i&gt;Stochlite in TOWR&lt;/i&gt;
+&lt;/p&gt;
+&lt;p&gt;As seen in the above output towr is able to produce feasible trajectories of foot positions and forces for the quadruped in differnt terrains.&lt;/p&gt;
+&lt;p&gt;Integrating towr would require a heightmap of the world which would need an online 3D Mapping of the world using a depth camera which currently was not available on the platform hence limiting the developing towards it.&lt;/p&gt;
+&lt;p&gt;But later I integrate towr, only for Flat ground and ran it at 4 Hz for updating the optimal foot positions. As the rate is too slow and the difference between the state at the start of the optimization and current would be drastically different, I implemented towr to run parallely with estimation of the current state of the robot based on the control input of the previous optimized solution and the dynamics model of the robot solved to fetch the state at a future timestep.&lt;/p&gt;
+&lt;h2 id=&#34;reinforcement-learning&#34;&gt;Reinforcement Learning&lt;/h2&gt;
+&lt;p&gt;We are further working towards improving the performance of these algorithm by using Reinforcement Learning with formulations to work along side these algorithms and also in tandom with these algorithm.&lt;/p&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;p&gt;&lt;a id=&#34;1&#34;&gt;[1]&lt;/a&gt;&lt;strong&gt;Dynamic Locomotion in the MIT Cheetah 3 Through Convex Model-Predictive Control&lt;/strong&gt;, DOI: 10.1109/IROS.2018.8594448, Jared Di Carlo, Patrick Wensing, Benjamin Katz, Sangbae Kim&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;2&#34;&gt;[2]&lt;/a&gt;&lt;strong&gt;Highly Dynamic Quadruped Locomotion via Whole-Body Impulse Control and Model Predictive Control&lt;/strong&gt;, Donghyun Kim, Jared Di Carlo, Benjamin Katz, Gerado Bledt, Sangbae Kim&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;3&#34;&gt;[3]&lt;/a&gt;&lt;strong&gt;Gait and Trajectory Optimization for Legged Systems Through Phase-Based End-Effector Parameterization&lt;/strong&gt;, Alexander W. Winkler, C. Dario Bellicoso, Marco Hutter, jonas Buchli&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

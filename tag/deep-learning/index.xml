@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Deep Learning | Somnath Kumar</title>
+    <link>https://hex-plex.github.io/tag/deep-learning/</link>
+      <atom:link href="https://hex-plex.github.io/tag/deep-learning/index.xml" rel="self" type="application/rss+xml" />
+    <description>Deep Learning</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Somnath Sendhil Kumar `2023`</copyright><lastBuildDate>Thu, 03 Mar 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://hex-plex.github.io/images/icon_hucffb9d42d7c693bd257413760c4b1fda_31806_512x512_fill_lanczos_center_2.png</url>
+      <title>Deep Learning</title>
+      <link>https://hex-plex.github.io/tag/deep-learning/</link>
+    </image>
+    
+    <item>
+      <title>Black Box Model Extraction</title>
+      <link>https://hex-plex.github.io/project/model-extraction/</link>
+      <pubDate>Thu, 03 Mar 2022 00:00:00 +0000</pubDate>
+      <guid>https://hex-plex.github.io/project/model-extraction/</guid>
+      <description>&lt;p&gt;Please go through the slides linked above or watch through our presentation below.&lt;/p&gt;
+&lt;iframe src=&#34;https://drive.google.com/file/d/1l75HNPUfXPEQmIOUbBsiiD6kHIoHM8gi/preview?t=2823&amp;end=3080&#34; width=&#34;720&#34; height=&#34;405&#34; &gt;&lt;/iframe&gt;
+&lt;h2 id=&#34;end-to-end-approach&#34;&gt;End to End Approach&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/COPS-IITBHU/Model-Extraction-Attacks-Video-Classification/master/media/end_to_end.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ pip install vidmodex ## Stable version
+$ pip install git+https://github.com/hex-plex/Model-Extraction-Attacks-Video-Classification ## Latest development
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
+&lt;p&gt;Simple snippet explaining the usage :&lt;/p&gt;
+&lt;h3 id=&#34;blackbox-extraction&#34;&gt;BlackBox Extraction&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Black Box Victim: SwinT, Student: ViViT, Generator: Tgan
+
+from vidmodex.models import ViViT as Student
+from vidmodex.models import SwinT as Victim
+from vidmodex.generator import Tgan as Generator
+
+custom_config = {}
+custom_config[&amp;quot;num_classes&amp;quot;] = 400
+
+blackbox_main(custom_config)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;greybox-extraction&#34;&gt;GreyBox Extraction&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Grey Box Victim: SwinT, Student: ViViT, Generator: Tgan, Dataset: Kinetics 400
+
+from vidmodex.models import ViViT as Student
+from vidmodex.models import SwinT as Victim
+from vidmodex.generator import Tgan as Generator
+
+custom_config = {}
+custom_config[&amp;quot;csv_file&amp;quot;] = &amp;quot;ENTER-THE-LOCATION-OF-DATA-CSV&amp;quot;
+custom_config[&amp;quot;root_dir&amp;quot;] = &amp;quot;ENTER-THE-LOCATION-OF-DATA-ROOT&amp;quot;
+custom_config[&amp;quot;ucf_gan_weights&amp;quot;] = &amp;quot;ENTER-THE-LOCATION-OF-UCF-WEIGHTS&amp;quot; or &amp;quot;state_normal81000.ckpt&amp;quot;
+custom_config[&amp;quot;num_classes&amp;quot;] = 400
+
+greybox_main(custom_config)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;#1&#34;&gt;[1]&lt;/a&gt; &lt;strong&gt;ViViT: A Video Vision Transformer&lt;/strong&gt; [https://arxiv.org/abs/2103.15691] [cs.CV] 1 Nov 2021&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;#2&#34;&gt;[2]&lt;/a&gt; &lt;strong&gt;MoViNets: Mobile Video Networks for Efficient Video Recognition&lt;/strong&gt; [https://arxiv.org/abs/2103.11511] [cs.CV] 18 Apr 2021&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;#3&#34;&gt;[3]&lt;/a&gt; &lt;strong&gt;Swin Transformer: Hierarchical Vision Transformer using Shifted Windows&lt;/strong&gt; [https://arxiv.org/abs/2103.14030] [cs.CV] 17 Aug 2021&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;#4&#34;&gt;[4]&lt;/a&gt; &lt;strong&gt;Temporal Generative Adversarial Nets with Singular Value Clipping&lt;/strong&gt; [https://arxiv.org/abs/1611.06624] [cs.LG] 18 Aug 2017&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;#5&#34;&gt;[5]&lt;/a&gt; &lt;strong&gt;Data-Free Model Extraction&lt;/strong&gt; [https://arxiv.org/abs/2011.14779] [cs.LG] 31 Mar 2021&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;#6&#34;&gt;[6]&lt;/a&gt; &lt;strong&gt;MAZE: Data-Free Model Stealing Attack Using Zeroth-Order Gradient Estimation&lt;/strong&gt; [https://arxiv.org/abs/2005.03161] [stat.ML] 6 May 2020&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;#7&#34;&gt;[7]&lt;/a&gt; &lt;strong&gt;Robustness and Diversity Seeking Data-Free Knowledge Distillation&lt;/strong&gt; [https://arxiv.org/abs/2011.03749] [cs.LG] 10 Feb 2021&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>KiloBot MultiAgent Reinforcement Learning</title>
+      <link>https://hex-plex.github.io/project/kilobot-multiagentrl/</link>
+      <pubDate>Thu, 03 Sep 2020 00:00:00 +0000</pubDate>
+      <guid>https://hex-plex.github.io/project/kilobot-multiagentrl/</guid>
+      <description>&lt;p&gt;This is an experimentation to learn about Swarm Robotics with help of MultiAgent Reinforcement learning. We have used KiloBot as a platform as these are very simple in the actions space and have very high degree of symmetry. The Main inspiration of this project is this paper&lt;a href=&#34;#1&#34;&gt;[1]&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;setting-up&#34;&gt;Setting Up&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git clone https://github.com/hex-plex/KiloBot-MultiAgent-RL
+cd KiloBot-MultiAgent-RL
+pip install --upgrade absl-python \
+                      tensorflow \
+                      gym \
+                      opencv-python \
+                      tensorflow_probability \
+                      keras \
+                      pygame
+pip install -e gym-kiloBot
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This should fetch and install the basics packages needed and should install the environment&lt;/p&gt;
+&lt;h3 id=&#34;sample-of-environment&#34;&gt;Sample of environment&lt;/h3&gt;
+&lt;p&gt;These envs are running on a constant &lt;strong&gt;Dummy-actions!!&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Env with Graph Objective&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;Env with Localization Objective&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img src=&#34;https://github.com/hex-plex/KiloBot-MultiAgent-RL/blob/master/images/env_test_graph_compress.gif?raw=true&#34; alt=&#34;Output-1&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://github.com/hex-plex/KiloBot-MultiAgent-RL/blob/master/images/env_test_localize_compress.gif?raw=true&#34; alt=&#34;Output-2&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;python env-test.py ## This will help you check the functionality of the environement and should give the sample code to understand the apis as well.
+python model-train.py \
+        --headless=True \             ## for headless training default False
+        --objective=&amp;quot;localization&amp;quot; \  ## defines the objective default is graph
+        --modules=10 \                ## This defines the no of modules to be initialized default 10
+        --time_steps=100000 \         ## This is the total no of steps the agent will take while learning
+        --histRange=10 \              ## This is the no of mu values for the histograms
+        --logdir=&amp;quot;logs&amp;quot; \             ## This specifies the log location for TensorBoard
+        --checkpoints=&amp;quot;checkpoints&amp;quot;   ## This is for defining the location where the model is to be saved
+        --load_checkpoint=&amp;quot;checkpoints/iter-500&amp;quot; ## This loads the specified iteration
+
+python play-model.py \ ## This should load trained weights and show the performance
+        --load_checkpoint=&amp;quot;checkpoints/graphs/10&amp;quot; \ ## loads this model
+        --modules=10  \                             ## no of modules in the env
+        --objective=&amp;quot;localization&amp;quot; \                ## Sets the objective function
+        --time_steps=10000 \                        ## No of iterations to be run
+        --histRange=10                              ## Same def as above
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;results&#34;&gt;Results&lt;/h2&gt;
+&lt;p&gt;After a exhaustive amount of training on varies combinations of no_of_modules and task in hand I have obtained results of the following algorithm for these parameters.
+I have used &lt;code&gt;[5, 10, 15, 20, 25, 50]&lt;/code&gt; number of modules to carryout the tests.&lt;/p&gt;
+&lt;p&gt;One may find the Tensorboard log files here:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://drive.google.com/file/d/11NtimYoXOBGopIxziAojti0k1kfbaVBQ/view?usp=sharing&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; log_kilobot [Drive Link] (403MB)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;and the Model Weights for each parameters here:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://drive.google.com/file/d/12qpbPIOrC-hLGVn2a8GETrkNL89bt8Dt/view?usp=sharing&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; checkpoint_kilobot [Drive Link] (63.3MB)&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;graph-problem&#34;&gt;Graph Problem&lt;/h3&gt;
+&lt;p&gt;The below table is based on the number of modules used but for result tabulation I am considering
+&lt;code&gt;[5, 10, 20, 50]&lt;/code&gt;
+number of modules. To infer many insights of the algorithm in hand.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;b&gt;Please click on the image to zoom in&lt;/b&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Model Trained on &lt;strong&gt;\&lt;/strong&gt; Model Run on&lt;/th&gt;
+&lt;th&gt;10&lt;/th&gt;
+&lt;th&gt;20&lt;/th&gt;
+&lt;th&gt;50&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;10&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://github.com/hex-plex/KiloBot-MultiAgent-RL/blob/master/images/10trainon10.gif?raw=true&#34; alt=&#34;Success1&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://github.com/hex-plex/KiloBot-MultiAgent-RL/blob/master/images/10trainon20.gif?raw=true&#34; alt=&#34;Success2&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://github.com/hex-plex/KiloBot-MultiAgent-RL/blob/master/images/10trainon50.gif?raw=true&#34; alt=&#34;Success3&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;20&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://github.com/hex-plex/KiloBot-MultiAgent-RL/blob/master/images/20trainon20.gif?raw=true&#34; alt=&#34;Random1&#34;&gt;&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;50&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://github.com/hex-plex/KiloBot-MultiAgent-RL/blob/master/images/50trainon50.gif?raw=true&#34; alt=&#34;Random2&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+The policies trained on 20 and 50 module system is completely random in sense it just goes forward.
+&lt;p&gt;We can see clearly the policy trained with 10 modules have yield a very good amount of coordination between each other that is the critic model taking in the input image of the system is able to specify the bots and guide them, Hence a very good amount of generalization is found when we use this model with system with different number of modules as can be seen with the 20 module system but the non stationarity of a higher order system makes it complex for the critic to reward or give baseline to the actor, As the&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The order of the reward changes drastically.&lt;/li&gt;
+&lt;li&gt;The Reading from the histogram becomes Muddy.&lt;/li&gt;
+&lt;li&gt;The correlation of a reward to action of a single agent reduces drastically.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;Hence the Model trained with 10 modules is not able to generalize to the 50 module system, &lt;strong&gt;BUT&lt;/strong&gt; It looks more promising than the policy trained for the 50 module system itself, hence a curiculum learning based approach seems promising to solve such a transfer learning problem.&lt;/p&gt;
+&lt;h4 id=&#34;plots-for-training-with-10-modules&#34;&gt;Plots for Training with 10 modules&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Actor Loss&lt;/th&gt;
+&lt;th&gt;Critic Loss&lt;/th&gt;
+&lt;th&gt;Reward&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img src=&#34;https://github.com/hex-plex/KiloBot-MultiAgent-RL/blob/master/images/actor10.jpg?raw=true&#34; alt=&#34;Actor Loss&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://github.com/hex-plex/KiloBot-MultiAgent-RL/blob/master/images/critic10.jpg?raw=true&#34; alt=&#34;Critic Loss&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://github.com/hex-plex/KiloBot-MultiAgent-RL/blob/master/images/reward10.jpg?raw=true&#34; alt=&#34;Reward&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;for-5-modules&#34;&gt;For 5 modules&lt;/h4&gt;
+&lt;p&gt;The system can&amp;rsquo;t comphensate for the negetive reward got by using fuel as the reward got for graphing is much smaller in order than it that it chooses to be stagnent.
+&lt;img src=&#34;https://github.com/hex-plex/KiloBot-MultiAgent-RL/blob/master/images/5trainon5.gif?raw=true&#34; alt=&#34;Failed&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;localization-problem&#34;&gt;Localization Problem&lt;/h3&gt;
+&lt;p&gt;Here the task was much easier but the training didnt yield any satisfactory result as.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;there were a lot of non stationarities and the fact the system was modelled based on a fashion which couldn&amp;rsquo;t extend more than a small system of at best 10 modules &lt;a href=&#34;1&#34;&gt;[1]&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;And the fact that the reward of localization couldnt exceed the negetive reward for moving the bot that is the bots choose to stand still to save fuel over exploring in most of the senarios.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Below are few runs with &lt;code&gt;[10, 25]&lt;/code&gt;
+Number of modules.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Localization trained for small n(=10)&lt;/th&gt;
+&lt;th&gt;Localization trained for big n(=25)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img src=&#34;https://github.com/hex-plex/KiloBot-MultiAgent-RL/blob/master/images/15loc15.gif?raw=True&#34; alt=&#34;loc10&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://github.com/hex-plex/KiloBot-MultiAgent-RL/blob/master/images/25loc25.gif?raw=True&#34; alt=&#34;loc25&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Here it is clearly visible that because of randomness and the fact more number of can cover a larger space of the system exploration is much easier than being greedy to stay at a point and save fuel.&lt;/p&gt;
+&lt;h2 id=&#34;acknowledgment&#34;&gt;Acknowledgment&lt;/h2&gt;
+&lt;p&gt;To Center for Computing and Information Services, IIT (BHU) varanasi to provide the computational power, i.e., The Super Computer on which I was able to train for over &lt;strong&gt;10 Million Timesteps&lt;/strong&gt; for about 1.5 months.&lt;/p&gt;
+&lt;p&gt;For any other query feel free to reachout.&lt;/p&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;p&gt;&lt;a id=&#34;1&#34;&gt;[1]&lt;/a&gt;
+&lt;strong&gt;Guided Deep Reinforcement Learning for Swarm Systems&lt;/strong&gt; &lt;a href=&#34;https://arxiv.org/abs/1709.06011&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[arXiv:1709.06011v1]&lt;/a&gt; [cs.MA] 18 Sep 2017&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

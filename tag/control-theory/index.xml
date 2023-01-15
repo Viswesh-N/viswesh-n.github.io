@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Control Theory | Somnath Kumar</title>
+    <link>https://hex-plex.github.io/tag/control-theory/</link>
+      <atom:link href="https://hex-plex.github.io/tag/control-theory/index.xml" rel="self" type="application/rss+xml" />
+    <description>Control Theory</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Somnath Sendhil Kumar `2023`</copyright><lastBuildDate>Sun, 01 Aug 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://hex-plex.github.io/images/icon_hucffb9d42d7c693bd257413760c4b1fda_31806_512x512_fill_lanczos_center_2.png</url>
+      <title>Control Theory</title>
+      <link>https://hex-plex.github.io/tag/control-theory/</link>
+    </image>
+    
+    <item>
+      <title>Mini Swarm Bot</title>
+      <link>https://hex-plex.github.io/project/dot-bot/</link>
+      <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://hex-plex.github.io/project/dot-bot/</guid>
+      <description>&lt;p&gt;This is fully ROS integrated robot, which can be used in various purposes our main use case was to test out multiagent algorithms. We used it to take part in the national level competition, FlipKart Grid 3.0 Robotics challenge 2021.&lt;/p&gt;
+&lt;p&gt;I have worked on building the platform and the integrating ROS with the following robot. The localization was done using a Apriltag_ros and a array of cameras. Also worked on implementing autonomously navigating in the environment and computing the optimal path while considering other robots in the arena.&lt;/p&gt;
+&lt;p&gt;The complete package including the controller and the planner can be found at &lt;a href=&#34;https://github.com/Robotics-Club-IIT-BHU/Dot-Bot&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Dot-Bot&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;robot-control&#34;&gt;Robot control&lt;/h2&gt;
+&lt;p&gt;The robots control architecture is a state-of-the-art implementation using a microprocessor and a microcontroller along with sensor fusion for position estimation with external cameras for deteciton of apriltags that denote the robot.&lt;/p&gt;
+&lt;p&gt;The exact control architecture is briefly given in the below image which later is elaborated in 3 bulletin points&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;dotbot_control.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Communication: Communication between the robot and the remote PC is done through &lt;a href=&#34;http://wiki.ros.org/ROS/Tutorials/MultipleMachines&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Networking of multiple machines&lt;/a&gt;. The communication between the microprocessor and the Microcontroller is done through UART at a baudrate of 2000000.&lt;/li&gt;
+&lt;li&gt;Pose Estimation: Pose estimation is done through using Encoder and Imu fusion for odometry(i.e., odom to base frame). Then we use and external camera for ground truth (i.e., map to base frame).&lt;/li&gt;
+&lt;li&gt;Controller: We have used a simple velocity based 3 wheel omni drive to control the robot. The omni drive node works at 100 hz on the raspberrypi and the micro controller controls individual motors to trace the given velocity this made it very easy to transfer from the simulation to real world.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The whole implementation of the control architecture can be found at &lt;a href=&#34;https://github.com/Robotics-Club-IIT-BHU/Swarm-Bot-Hardware&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Swarm-bot-hardware&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;simulation&#34;&gt;Simulation&lt;/h2&gt;
+&lt;p&gt;We have setup the whole simulation for these robots as we have modelled the real robot. We have also added the 2DOF droppers that can be seen on top of each robot.&lt;/p&gt;
+&lt;p&gt;We have setup Rviz to visualize the robots both in simulation and hardware.
+&lt;img src=&#34;gazebo.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;i&gt;An demo of the robot in gazebo&lt;/i&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;flipkart-grid-challenge&#34;&gt;Flipkart grid Challenge&lt;/h2&gt;
+&lt;p&gt;The main task was to drop packages using the most optimal path, We had used &lt;a href=&#34;https://github.com/PathPlanning/Continuous-CBS&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CBS&lt;/a&gt; with minor changes to best suite our problem statement. We also used &lt;a href=&#34;https://github.com/nobleo/tracking_pid&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Tracking PID&lt;/a&gt; for tracing these trajectories and making it more general and robust to be used with other algorithms and systems.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;arena.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;i&gt;Example of the arena in which it drops the package&lt;/i&gt;
+&lt;/p&gt;
+&lt;p&gt;The robot is now a developmental platform for other multiagent research at Indian Institute of Technology, Varanasi
+The robot is now about to have minor upgrades for it be used in a more real world use case by addition of lidars and better on board computation.&lt;/p&gt;
+&lt;p&gt;A preliminary result of the path planning algorithm with package dropping can be seen below.&lt;/p&gt;
+&lt;iframe src=&#34;https://drive.google.com/file/d/1NhuapFy1Y12LVFoKoIaRP3BYm-ReoEHW/preview&#34; width=&#34;700&#34; height=&#34;500&#34;/&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

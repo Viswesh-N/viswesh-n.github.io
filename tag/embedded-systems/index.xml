@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Embedded Systems | Somnath Kumar</title>
+    <link>https://hex-plex.github.io/tag/embedded-systems/</link>
+      <atom:link href="https://hex-plex.github.io/tag/embedded-systems/index.xml" rel="self" type="application/rss+xml" />
+    <description>Embedded Systems</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Somnath Sendhil Kumar `2023`</copyright><lastBuildDate>Tue, 01 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://hex-plex.github.io/images/icon_hucffb9d42d7c693bd257413760c4b1fda_31806_512x512_fill_lanczos_center_2.png</url>
+      <title>Embedded Systems</title>
+      <link>https://hex-plex.github.io/tag/embedded-systems/</link>
+    </image>
+    
+    <item>
+      <title>PauciBot</title>
+      <link>https://hex-plex.github.io/project/paucibot/</link>
+      <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
+      <guid>https://hex-plex.github.io/project/paucibot/</guid>
+      <description>&lt;h2 id=&#34;abstract&#34;&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;This Repository contains the hardware designs of the Two Wheeled ROS enabled robot capable of self - balancing and also able to run SLAM and Localize itself with just Odometry, Encoders on the wheel and the Camera used with Depth Maps&lt;a href=&#34;#1&#34;&gt;[1]&lt;/a&gt; to get a partially accurate Depth information of the surronding. This is partially inspired from the Turtlebot&lt;a href=&#34;#2&#34;&gt;[2]&lt;/a&gt; but it must be kept in mind the algorithm has be able to model the two wheeled bot to even account for its self balancing action which was solved using accurate System Modelling&lt;a href=&#34;#3&#34;&gt;[3]&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/PauciBot-Hardware/master/images/Paucibot.jpg&#34; alt=&#34;Bot in all its glory&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;design&#34;&gt;Design&lt;/h2&gt;
+&lt;p&gt;The above is the bot in all its glory, I had built The Hardware before running simulations and testing out its stability as its quite an symmetrical and simple design. This surely resembles turtlebot but has a few changes. Basically the idea was to have a worthy replacement for a turtlebot to test out all the mapping and planning algorithms on it.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;After the construction it was quite easy to make a 3D design for the simulators. My Weapon of choice Phobos&lt;a href=&#34;#4&#34;&gt;[4]&lt;/a&gt; and &lt;a href=&#34;https://www.blender.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Blender&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Below is a simple design of the bot in blender.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/PauciBot-Hardware/master/images/Blender_Modelling.png&#34; alt=&#34;Blender Design&#34;&gt;&lt;/p&gt;
+&lt;p&gt;With some Phobos magics 🎉🎉&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/PauciBot-Hardware/master/images/URDF_generation.png&#34; alt=&#34;Phobos&#34;&gt;&lt;/p&gt;
+&lt;p&gt;We can set the parameters required for generating URDF of the bot.&lt;/p&gt;
+&lt;p&gt;Exporting it just makes the work run naturally with Gazebo, PyBullet and any other Simulator of choice. The below is a simple &lt;strong&gt;PID control on the Pitch&lt;/strong&gt; of the Bot.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/PauciBot-Hardware/master/images/PyBullet-PID.png&#34; alt=&#34;PyBullet PID&#34;&gt;&lt;/p&gt;
+&lt;p&gt;You can get the same output running the following in the terminal.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git clone https://github.com/hex-plex/PauciBot-Hardware.git
+cd PauciBot-Hardware
+python scripts/trial.py
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;under-development&#34;&gt;Under-Development&lt;/h2&gt;
+&lt;p&gt;The Main objective was that I wanted to explore the Difficulties faced when taking the Project from simulation to reality and vice versa. The Main tool is &lt;strong&gt;ROS&lt;/strong&gt; as its a well established community with most useful tools opensourced for all. Hence I would like to release The bot with a ROS package. I have been currently working on the same for the past few months.&lt;/p&gt;
+&lt;p&gt;Hope to see you there soon. : )&lt;/p&gt;
+&lt;h2 id=&#34;components&#34;&gt;Components&lt;/h2&gt;
+&lt;p&gt;The whole body is made of Ply wood and solid wood. And the wheels are just off the shelf RC car wheels with a 11.1 V LiPo battery.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;arduino-mega-2560&#34;&gt;Arduino Mega 2560&lt;/h4&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I have used this for controlling the motor drivers and getting a Odometry and runnning a baseline self balancing algorithm.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;nvidia-jetson-nano-4gb&#34;&gt;Nvidia Jetson Nano 4GB&lt;/h4&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This is the ROS hardware Node on the Robot which communicates to a master on the localhost using UDP protocol. This is also used to give the neccesary computational power for onboard Computer Vision algorithms.
+&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/PauciBot-Hardware/master/images/Jetson.jpg&#34; alt=&#34;Jetson&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;mpu9250&#34;&gt;MPU9250&lt;/h4&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Simple sensor for Odometry.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;l298-motor-driver&#34;&gt;L298 Motor Driver&lt;/h4&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Motor driver for controlling 2 Motors&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;lm2596s-buck&#34;&gt;LM2596S Buck&lt;/h4&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For regulating voltage comming from the battery.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;logitech-c290&#34;&gt;Logitech C290&lt;/h4&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This is a high quality webcam that can be easily used for capturing images at incredibly high resolution and quality.
+&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/PauciBot-Hardware/master/images/Logi_C290.jpg&#34; alt=&#34;Camera&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;p&gt;&lt;a id=&#34;1&#34;&gt;[1]&lt;/a&gt; Unsupervised Learning of Depth and Ego-Motion from Monocular Video Using 3D Geometric Constraints. Reza Mahjourian, Martin Wicke, Anelia Angelova &lt;a href=&#34;https://sites.google.com/view/vid2depth&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[link]&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;2&#34;&gt;[2]&lt;/a&gt; Turtlebot is a ROS standard platform robot. &lt;a href=&#34;https://emanual.robotis.com/docs/en/platform/turtlebot3/overview/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[link]&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;3&#34;&gt;[3]&lt;/a&gt;
+A Tutorial on Modelling and Control of Two- Wheeled Self-Balancing Robot with Stepper Motor &lt;a href=&#34;https://www.researchgate.net/publication/334731253_A_Tutorial_on_Modelling_and_Control_of_Two-_Wheeled_Self-Balancing_Robot_with_Stepper_Motor&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[link]&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;4&#34;&gt;[4]&lt;/a&gt; Phobos is an add-on for Blender. &lt;a href=&#34;https://github.com/dfki-ric/phobos&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[link]&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Light Gun</title>
+      <link>https://hex-plex.github.io/project/light-gun/</link>
+      <pubDate>Thu, 02 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://hex-plex.github.io/project/light-gun/</guid>
+      <description>&lt;p&gt;Bored in the quarantine period, revisiting my old video games with light gun inspired an idea of light gun with a LCD display , I went on to build it mainly as a android package as it would be more accessable to anyone. Then ended up using a Raspberry Pi as a standalone device to enable it&amp;rsquo;s use accross many platforms and devices.&lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The Explanation for the working can be found in &lt;a href=&#34;https://github.com/hex-plex/Light-Gun/blob/master/EXPLANATION.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;EXPLANATION.md&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;glimpse&#34;&gt;Glimpse:&lt;/h2&gt;
+&lt;p&gt;This is the glimpse of the prototype made with Raspberry pi on a toy gun with all the number-munching done on the Raspberry and transmites messages to the local server through bluetooth. The previous method of running the proccessing and the actions is documented in &lt;strong&gt;Win-Py&lt;/strong&gt; directory.&lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/Light-Gun/master/images/Complete_setup.jpg&#34; width=&#34;370&#34; align=&#34;right&#34; border=&#34;20&#34;&gt;&lt;/img&gt;
+&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;p align=&#34;left&#34;&gt;This is a prototype of the light gun with a camera module attached onto a toy-gun and with a Raspberry pi 3 b+ (unneccessary I know) and a 7.4 V li-ion battery, regulated with a buck converter to which two switches are connected on the Raspi&#39;s interrupt pins.&lt;/p&gt;&lt;hr/&gt;
+&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/Light-Gun/master/images/display_setup.jpg&#34; width=&#34;370&#34; align=&#34;left&#34;&gt;&lt;/img&gt;
+&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
+This is the display setup with 4 IR-LEDs attached to the corners of the display which makes it very easy for detection in a wide range of lighting conditions.&lt;hr/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
+&lt;p&gt;And after Installation the main code using &lt;a href=&#34;https://github.com/hex-plex/Light-Gun/tree/master/Raspi-c&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Raspi&lt;/a&gt; version or &lt;a href=&#34;https://github.com/hex-plex/Light-Gun/tree/master/Win-py&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Local&lt;/a&gt; version, continue using it according to the guide lines for the same which is present in their respective folders itself.&lt;/p&gt;
+&lt;p&gt;The Modules then should create a virtual mouse and start following the edge vector of the camera module.
+The following is a demonstration of it in action&amp;hellip;. (😅 coming up shortly, as I am fixing few deviation errors.)&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://drive.google.com/file/d/1hIYBv8l2JCylOfQS9Cc5D5Hp50Ui55D-/view?usp=sharing&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Demo Link&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;contribution&#34;&gt;Contribution&lt;/h2&gt;
+&lt;p&gt;Any kind of Contribution is always welcomed. The rules for any Contribution for now is Non existent as I am the only one working on it and I have not really structurized the project so well as mostly in its prototyping stage, So its not possible to do a lot(Anyways feel free to report any errors or bugs 😄 ), Any Idea for a better implementation is also welcomed.&lt;/p&gt;
+&lt;h2 id=&#34;reference&#34;&gt;Reference:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;This is for getting R and t matrix  &lt;a href=&#34;https://www.learnopencv.com/head-pose-estimation-using-opencv-and-dlib/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;This is for adjusting focal length (approximation) &lt;a href=&#34;https://www.learnopencv.com/approximate-focal-length-for-webcams-and-cell-phone-cameras/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;This is for getting accurate intrensic matrix &lt;a href=&#34;https://www.learnopencv.com/camera-calibration-using-opencv/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Cmake&lt;/li&gt;
+&lt;li&gt;Bluez&lt;/li&gt;
+&lt;li&gt;Raspberry pi interupts&lt;/li&gt;
+&lt;li&gt;Asynchronous coding&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

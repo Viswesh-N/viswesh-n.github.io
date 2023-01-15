@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Model Extraction | Somnath Kumar</title>
+    <link>https://hex-plex.github.io/tag/model-extraction/</link>
+      <atom:link href="https://hex-plex.github.io/tag/model-extraction/index.xml" rel="self" type="application/rss+xml" />
+    <description>Model Extraction</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Somnath Sendhil Kumar `2023`</copyright><lastBuildDate>Thu, 03 Mar 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://hex-plex.github.io/images/icon_hucffb9d42d7c693bd257413760c4b1fda_31806_512x512_fill_lanczos_center_2.png</url>
+      <title>Model Extraction</title>
+      <link>https://hex-plex.github.io/tag/model-extraction/</link>
+    </image>
+    
+    <item>
+      <title>Black Box Model Extraction</title>
+      <link>https://hex-plex.github.io/project/model-extraction/</link>
+      <pubDate>Thu, 03 Mar 2022 00:00:00 +0000</pubDate>
+      <guid>https://hex-plex.github.io/project/model-extraction/</guid>
+      <description>&lt;p&gt;Please go through the slides linked above or watch through our presentation below.&lt;/p&gt;
+&lt;iframe src=&#34;https://drive.google.com/file/d/1l75HNPUfXPEQmIOUbBsiiD6kHIoHM8gi/preview?t=2823&amp;end=3080&#34; width=&#34;720&#34; height=&#34;405&#34; &gt;&lt;/iframe&gt;
+&lt;h2 id=&#34;end-to-end-approach&#34;&gt;End to End Approach&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/COPS-IITBHU/Model-Extraction-Attacks-Video-Classification/master/media/end_to_end.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ pip install vidmodex ## Stable version
+$ pip install git+https://github.com/hex-plex/Model-Extraction-Attacks-Video-Classification ## Latest development
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
+&lt;p&gt;Simple snippet explaining the usage :&lt;/p&gt;
+&lt;h3 id=&#34;blackbox-extraction&#34;&gt;BlackBox Extraction&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Black Box Victim: SwinT, Student: ViViT, Generator: Tgan
+
+from vidmodex.models import ViViT as Student
+from vidmodex.models import SwinT as Victim
+from vidmodex.generator import Tgan as Generator
+
+custom_config = {}
+custom_config[&amp;quot;num_classes&amp;quot;] = 400
+
+blackbox_main(custom_config)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;greybox-extraction&#34;&gt;GreyBox Extraction&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Grey Box Victim: SwinT, Student: ViViT, Generator: Tgan, Dataset: Kinetics 400
+
+from vidmodex.models import ViViT as Student
+from vidmodex.models import SwinT as Victim
+from vidmodex.generator import Tgan as Generator
+
+custom_config = {}
+custom_config[&amp;quot;csv_file&amp;quot;] = &amp;quot;ENTER-THE-LOCATION-OF-DATA-CSV&amp;quot;
+custom_config[&amp;quot;root_dir&amp;quot;] = &amp;quot;ENTER-THE-LOCATION-OF-DATA-ROOT&amp;quot;
+custom_config[&amp;quot;ucf_gan_weights&amp;quot;] = &amp;quot;ENTER-THE-LOCATION-OF-UCF-WEIGHTS&amp;quot; or &amp;quot;state_normal81000.ckpt&amp;quot;
+custom_config[&amp;quot;num_classes&amp;quot;] = 400
+
+greybox_main(custom_config)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;#1&#34;&gt;[1]&lt;/a&gt; &lt;strong&gt;ViViT: A Video Vision Transformer&lt;/strong&gt; [https://arxiv.org/abs/2103.15691] [cs.CV] 1 Nov 2021&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;#2&#34;&gt;[2]&lt;/a&gt; &lt;strong&gt;MoViNets: Mobile Video Networks for Efficient Video Recognition&lt;/strong&gt; [https://arxiv.org/abs/2103.11511] [cs.CV] 18 Apr 2021&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;#3&#34;&gt;[3]&lt;/a&gt; &lt;strong&gt;Swin Transformer: Hierarchical Vision Transformer using Shifted Windows&lt;/strong&gt; [https://arxiv.org/abs/2103.14030] [cs.CV] 17 Aug 2021&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;#4&#34;&gt;[4]&lt;/a&gt; &lt;strong&gt;Temporal Generative Adversarial Nets with Singular Value Clipping&lt;/strong&gt; [https://arxiv.org/abs/1611.06624] [cs.LG] 18 Aug 2017&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;#5&#34;&gt;[5]&lt;/a&gt; &lt;strong&gt;Data-Free Model Extraction&lt;/strong&gt; [https://arxiv.org/abs/2011.14779] [cs.LG] 31 Mar 2021&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;#6&#34;&gt;[6]&lt;/a&gt; &lt;strong&gt;MAZE: Data-Free Model Stealing Attack Using Zeroth-Order Gradient Estimation&lt;/strong&gt; [https://arxiv.org/abs/2005.03161] [stat.ML] 6 May 2020&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;#7&#34;&gt;[7]&lt;/a&gt; &lt;strong&gt;Robustness and Diversity Seeking Data-Free Knowledge Distillation&lt;/strong&gt; [https://arxiv.org/abs/2011.03749] [cs.LG] 10 Feb 2021&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

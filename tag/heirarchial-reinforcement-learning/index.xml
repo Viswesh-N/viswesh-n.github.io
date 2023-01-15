@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Heirarchial Reinforcement Learning | Somnath Kumar</title>
+    <link>https://hex-plex.github.io/tag/heirarchial-reinforcement-learning/</link>
+      <atom:link href="https://hex-plex.github.io/tag/heirarchial-reinforcement-learning/index.xml" rel="self" type="application/rss+xml" />
+    <description>Heirarchial Reinforcement Learning</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Somnath Sendhil Kumar `2022`</copyright><lastBuildDate>Mon, 04 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://hex-plex.github.io/images/icon_hucffb9d42d7c693bd257413760c4b1fda_31806_512x512_fill_lanczos_center_2.png</url>
+      <title>Heirarchial Reinforcement Learning</title>
+      <link>https://hex-plex.github.io/tag/heirarchial-reinforcement-learning/</link>
+    </image>
+    
+    <item>
+      <title>iOTA - Modular Bot</title>
+      <link>https://hex-plex.github.io/project/gym-iota/</link>
+      <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>https://hex-plex.github.io/project/gym-iota/</guid>
+      <description>&lt;p&gt;This is an Open-AI gym environment developed with a modular bot platform named &amp;lsquo;&lt;strong&gt;iOTA&lt;/strong&gt;&amp;rsquo;. The motive of this gym is to allow us to test out and develop Algorithms for such a MultiAgent System. This is further used to learn heirarchial planning of such a MultiAgent systems to develop a generalized swarm behaviour in the robots (i.e., Colabortively working towards achieving a objective). This is an project that is being developed under the &lt;strong&gt;RoBoReG division of the Robotics Club, IIT Varanasi.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Here the robot is designed in &lt;em&gt;SolidWorks&lt;/em&gt; and being Simulated in &lt;em&gt;pybullet&lt;/em&gt;.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://github.com/Robotics-Club-IIT-BHU/gym-iOTA/raw/master/media/Random.gif&#34;/&gt;&lt;/p&gt;&lt;br/&gt;
+&lt;p align=&#34;center&#34;&gt;Here the robots where controlled to form into this specified constellation.&lt;/p&gt;
+&lt;h2 id=&#34;iota&#34;&gt;IOTA&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/Robotics-Club-IIT-BHU/gym-iOTA/raw/master/media/bRoll.gif&#34; width=300 align=&#34;right&#34;&gt;&lt;/img&gt;&lt;/p&gt;
+&lt;p&gt;This is a cost effective modular robot platform developed by us, This contains two docking plates enabling it to dock with other robots at those locations. This has got a very antique WW1 tank inspired designed which allows the bot too with enough traction when used with catpillar tracks.&lt;/p&gt;
+&lt;p&gt;For more info on the bot hardware and designs please visit this page &lt;a href=&#34;https://github.com/Robotics-Club-IIT-BHU/gym-iOTA/blob/master/hardware_Designs/README.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt; or &lt;a href=&#34;https://onedrive.live.com/view.aspx?resid=3B7945FE006E67D!4175&amp;amp;ithint=file%2cdocx&amp;amp;authkey=!AA_ziTqK6vYo80c&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;doc&lt;/a&gt;
+&lt;br/&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
+&lt;p&gt;To install the latest features one could clone and install like so.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git clone https://github.com/Robotics-Club-IIT-BHU/gym-iOTA
+cd gym-iOTA
+pip install -e gym-iOTA
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;else for stable releases. the below would work fine.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;pip install gym-iOTA
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;depedencies&#34;&gt;Depedencies&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;gym&lt;/li&gt;
+&lt;li&gt;pybullet&lt;/li&gt;
+&lt;li&gt;opencv-python&lt;/li&gt;
+&lt;li&gt;Pillow&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
+&lt;p&gt;This environment can be accessed using gym api, and a small demo scipt is given below.&lt;/p&gt;
+&lt;h4 id=&#34;demopy&#34;&gt;demo.py&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import gym
+import gym_iOTA
+
+env = gym.make(&#39;iOTA-v0&#39;,
+                render=True,                  ## This runs the simulator in GUI mode
+                no_of_modules=10,             ## This spawns so many no of robots
+                no_of_clusters=10,            ## This is for subdividing the total no of robots in cluster for efficient accessing.
+                arena=(2,2),                  ## This sets the dimension of the forseeable space for the system
+                low_control=True,             ## This flag enables the low level control of the bot to the user.
+                )
+while True:
+  action = np.ones((env.no_of_modules, 4))    ## Where for each row we have four velocities
+  dock = np.zeros(
+              (env.no_of_modules,
+              env.no_of_modules))             ## This is the adjancy matrix storing all the docking relationships
+
+  observation, reward, done, info = env.step(action, dock)
+
+  observation                                 ## This is the coordinates+orientation of each bot
+  env.render(mode=&#39;cluster&#39;)                  ## This would return the image and even render if was not in GUI mode earlier.
+
+  if done:
+    break
+env.close()                                   ## simply removes all the docks and the bots and disconnects from the simulator.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;objective&#34;&gt;Objective&lt;/h2&gt;
+&lt;p&gt;The objective of the environment is to use these robots to push the box from one side of the arena to the other. The below is a dry run with classical localization algorithm - &lt;strong&gt;Particle Swarm Optimization Algorithm&lt;/strong&gt;.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;img src=&#34;https://github.com/Robotics-Club-IIT-BHU/gym-iOTA/raw/master/media/Objective.gif&#34;/&gt; &lt;/p&gt;&lt;br/&gt;
+&lt;p align=&#34;center&#34;&gt;Here the swarm of bots try to localize the box in the 3D environment&lt;/p&gt;&lt;br/&gt;
+&lt;p&gt;The Reward function is defined as the negetive of the distance between the position of the cube to the end point which is on the other side of the arena.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;a href=&#34;https://www.codecogs.com/eqnedit.php?latex=\dpi{150}&amp;space;\bg_white&amp;space;\fn_phv&amp;space;\large&amp;space;R&amp;space;=&amp;space;-&amp;space;\sum&amp;space;_{axes}&amp;space;(Cube_{pos}&amp;space;-&amp;space;End_{pos})^{2}&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://latex.codecogs.com/png.latex?\dpi{150}&amp;space;\bg_white&amp;space;\fn_phv&amp;space;\large&amp;space;R&amp;space;=&amp;space;-&amp;space;\sum&amp;space;_{axes}&amp;space;(Cube_{pos}&amp;space;-&amp;space;End_{pos})^{2}&#34; title=&#34;\large R = - \sum _{axes} (Cube_{pos} - End_{pos})^{2}&#34; /&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;info&#34;&gt;Info&lt;/h2&gt;
+&lt;p&gt;This section contains details about the environment API&amp;rsquo;s and utils available in it for developement.&lt;/p&gt;
+&lt;h4 id=&#34;low_control-boolean-&#34;&gt;&lt;code&gt;low_control&lt;/code&gt; &lt;em&gt;(Boolean)&lt;/em&gt; :&lt;/h4&gt;
+&lt;p&gt;rather confusing term is present to allow the user to get low level control of individual bot that is the to set the desired velocities of each wheel touching the ground. else the environment would by itself control the robot and listen to the planner that plans trajectory to the given setpoint.&lt;/p&gt;
+&lt;h4 id=&#34;envaction_space-gymbox-&#34;&gt;&lt;code&gt;env.action_space&lt;/code&gt; &lt;em&gt;(gym.Box)&lt;/em&gt; :&lt;/h4&gt;
+&lt;p&gt;The action space varies if one chooses &lt;code&gt;low_control&lt;/code&gt; to be &lt;strong&gt;True&lt;/strong&gt; or &lt;strong&gt;False&lt;/strong&gt;, if the low_control is set True then action space is vector of velocities of 4 wheel for each robot.&lt;br/&gt;
+i.e., action_space shape = (no_of_modules, 4) &lt;br/&gt;
+for each row [right_forward_wheel, left_forward_wheel, right_back_wheel, left_back_wheel] of that bot.&lt;/p&gt;
+&lt;h4 id=&#34;envdockmatrix-npndarray-&#34;&gt;&lt;code&gt;env.dockMatrix&lt;/code&gt; &lt;em&gt;(np.ndarray)&lt;/em&gt; :&lt;/h4&gt;
+&lt;p&gt;This contains all the joints or dockings that exist in the system, this a array containing if a bot is connected with another.&lt;br/&gt;
+i.e., dockMatrix shape = (no_of_modules, no_of_modules)&lt;br/&gt;
+So if &lt;strong&gt;env.dockMatrix[i][j]&lt;/strong&gt; =  0 then it means there is no joint or docking between robot number i and j. similarly if &lt;strong&gt;env.dockMatrix[i][j]&lt;/strong&gt; = 1 then it means these two robots are docked together.&lt;br/&gt;
+&lt;strong&gt;note&lt;/strong&gt; : &lt;strong&gt;env.dockMatrix[i][j]&lt;/strong&gt; = &lt;strong&gt;env.dockMatrix[j][i]&lt;/strong&gt; are same as they can have only one constrain between them. And no self docking is possible i.e., &lt;strong&gt;env.dockMatrix[i][i]&lt;/strong&gt; = 1 is not possible.&lt;br/&gt;
+We pass a similar matrix to &lt;a href=&#34;#envstep-gymenvstep-&#34;&gt;&lt;code&gt;env.step&lt;/code&gt;&lt;/a&gt; function where-in we denote new joints that we want to make.&lt;/p&gt;
+&lt;h4 id=&#34;envobservation_space-gymbox-&#34;&gt;&lt;code&gt;env.observation_space&lt;/code&gt; &lt;em&gt;(gym.Box)&lt;/em&gt; :&lt;/h4&gt;
+&lt;p&gt;The observation space is simply vector of position and orientation of each robot.&lt;br/&gt;
+i.e., observation_space shape = (no_of_modules, 6)&lt;br/&gt;
+for each row [x_coor, y_coor, z_coor, roll, pitch, yaw] of that bot.&lt;/p&gt;
+&lt;h4 id=&#34;enviotas-class-iota-&#34;&gt;&lt;code&gt;env.iotas&lt;/code&gt; &lt;em&gt;(class iOTA)&lt;/em&gt; :&lt;/h4&gt;
+&lt;p&gt;This is a list of robots that have been spawned into the simulator and gives us individual control over each robot. A list API&amp;rsquo;s and variables are given &lt;a href=&#34;https://hex-plex.github.io/gym-iOTA/gym_iOTA/envs&#34;&gt;here&lt;/a&gt;. &lt;br/&gt;
+The index of each robot in the list the robot number assigned to it which is the convection we use through out.&lt;/p&gt;
+&lt;h4 id=&#34;envstep-gymenvstep-&#34;&gt;&lt;code&gt;env.step&lt;/code&gt; &lt;em&gt;(gym.Env.step)&lt;/em&gt; :&lt;/h4&gt;
+&lt;p&gt;This takes in two inputs one action being the &lt;a href=&#34;#envaction_space-gymbox-&#34;&gt;&lt;code&gt;env.action_space&lt;/code&gt;&lt;/a&gt; and a dock matrix similar to the &lt;a href=&#34;#envdockmatrix-npndarray-&#34;&gt;&lt;code&gt;env.dockingMatrix&lt;/code&gt;&lt;/a&gt; &lt;br/&gt;
+it returns the usual &lt;br/&gt;
+&lt;em&gt;&lt;code&gt;observation, reward, done, info&lt;/code&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;h4 id=&#34;envrender-npndarray-&#34;&gt;&lt;code&gt;env.render&lt;/code&gt; &lt;em&gt;(np.ndarray)&lt;/em&gt; :&lt;/h4&gt;
+&lt;p&gt;This returns the image of the top view of the arena. The image is also rendered using PIL&amp;rsquo;s Image class if &lt;code&gt;mode = &#39;human&#39;&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;envclose-gymenvclose&#34;&gt;&lt;code&gt;env.close&lt;/code&gt; &lt;em&gt;(gym.Env.close)&lt;/em&gt;:&lt;/h4&gt;
+&lt;p&gt;This simply removes all the joints and dockings and removes all the bodies and closes the connection to the physics server.&lt;/p&gt;
+&lt;h2 id=&#34;the-team&#34;&gt;The Team&lt;/h2&gt;
+&lt;table&gt;
+ &lt;td align=&#34;center&#34;&gt;
+     &lt;a href=&#34;https://github.com/hex-plex&#34;&gt;
+    &lt;img src=&#34;https://avatars0.githubusercontent.com/u/56990337?s=460&amp;v=4&#34; width=&#34;100px;&#34; alt=&#34;&#34;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Somnath Sendhil Kumar &lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;
+    &lt;/td&gt;
+    &lt;td align=&#34;center&#34;&gt;
+     &lt;a href=&#34;https://github.com/surabhit-08&#34;&gt;
+    &lt;img src=&#34;https://avatars3.githubusercontent.com/u/62366465?s=460&amp;v=4&#34; width=&#34;100px;&#34; alt=&#34;&#34;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Surabhit Gupta&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;
+	&lt;/td&gt;
+	&lt;td align=&#34;center&#34;&gt;
+     &lt;a href=&#34;https://github.com/rtharungowda&#34;&gt;
+    &lt;img src=&#34;https://avatars1.githubusercontent.com/u/55887709?s=460&amp;v=4&#34; width=&#34;100px;&#34; alt=&#34;&#34;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;R Tharun Gowda&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;
+	&lt;/td&gt;
+	&lt;td align=&#34;center&#34;&gt;
+     &lt;a href=&#34;https://github.com/Kritika-Bansal&#34;&gt;
+    &lt;img src=&#34;https://avatars2.githubusercontent.com/u/57754061?s=460&amp;v=4&#34; width=&#34;100px;&#34; alt=&#34;&#34;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Kritika Bansal&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;
+	&lt;/td&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;mentors&#34;&gt;Mentors&lt;/h2&gt;
+&lt;table&gt;
+ &lt;td align=&#34;center&#34;&gt;
+     &lt;a href=&#34;https://github.com/lok-i&#34;&gt;
+    &lt;img src=&#34;https://avatars1.githubusercontent.com/u/54435909?s=460&amp;u=29af076049dab351b2e43621e9a433919bf50fb1&amp;v=4&#34; width=&#34;100px;&#34; alt=&#34;&#34;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Lokesh Krishna&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;
+    &lt;/td&gt;
+    &lt;td align=&#34;center&#34;&gt;
+     &lt;a href=&#34;https://github.com/NiranthS&#34;&gt;
+    &lt;img src=&#34;https://media-exp1.licdn.com/dms/image/C4D03AQE0VSQ1pjwEJQ/profile-displayphoto-shrink_200_200/0/1597415223546?e=1616025600&amp;v=beta&amp;t=MLymy6q1n58MV2aL2l-13cnGJytixf5qnQV7HhZ4itE&#34; width=&#34;100px;&#34; alt=&#34;&#34;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Niranth Sai&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;
+	&lt;/td&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;p&gt;&lt;a id=&#34;1&#34;&gt;[1]&lt;/a&gt;
+&lt;strong&gt;Swarmbot-Hardware&lt;/strong&gt;: Mondada, F., Pettinaro, G.C., Guignard, A. et al. Swarm-Bot: A New Distributed Robotic Concept. Autonomous Robots 17, 193–221 (2004). doi: 10.1023/B:AURO.0000033972.50769.1c.&lt;br/&gt;
+This contains the Idea behind Swarmbot which was the bot we are inspired by. &lt;a href=&#34;http://people.idsia.ch/~luca/swarmbot-hardware.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Link]&lt;/a&gt; &amp;amp; &lt;a href=&#34;https://www.youtube.com/watch?v=77SEQ-kj8PI&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Video]&lt;/a&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;2&#34;&gt;[2]&lt;/a&gt;
+&lt;strong&gt;Self-reconfiguring modular robot.&lt;/strong&gt; This contains all the pre-existing works in Modular robots and information of their prototypes &lt;a href=&#34;https://en.wikipedia.org/wiki/Self-reconfiguring_modular_robot&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Wikipedia]&lt;/a&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;3&#34;&gt;[3]&lt;/a&gt;
+&lt;strong&gt;SMORES-EP&lt;/strong&gt; : Researchers develop modular bots that combine to form a single flexible machine. This article contains few bot ideas we adopted &lt;a href=&#34;https://www.engadget.com/2019-07-23-modular-robots-configure-smores.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Link]&lt;/a&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;4&#34;&gt;[4]&lt;/a&gt;
+&lt;strong&gt;Modular Self-Reconfiguring Robots&lt;/strong&gt; Rus Robotics laboratory&amp;rsquo;s work in the field Modular Robots &lt;a href=&#34;https://groups.csail.mit.edu/drl/modular_robots/modular_robots.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[MIT]&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;5&#34;&gt;[5]&lt;/a&gt;
+&lt;strong&gt;An integrated system for perception-driven autonomy with modular robots&lt;/strong&gt; J. Daudelin, G. Jing, T. Tosun, et al. An integrated system for perception-driven autonomy with modular robots Science Robotics  31 Oct 2018: Vol. 3, Issue 23, eaat4983 DOI: 10.1126/scirobotics.aat4983 &lt;a href=&#34;https://robotics.sciencemag.org/content/3/23/eaat4983.full?ijkey=iBq7yW7Z8vmjE&amp;amp;keytype=ref&amp;amp;siteid=robotics&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Link]&lt;/a&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;6&#34;&gt;[6]&lt;/a&gt;
+&lt;strong&gt;Symbrion&lt;/strong&gt; S. Kernbach, E. Meister, F. Schlauter, et al. Symbiotic robot organisms: Replicator and Symbrion projects January 2008 DOI: 10.1145/1774674.1774685 Conference: Proceedings of the 8th Workshop on Performance Metrics for Intelligent Systems. This is one such project from which we have been immensily inspired &lt;a href=&#34;https://www.researchgate.net/publication/234116421_Symbiotic_robot_organisms_Replicator_and_Symbrion_projects&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Paper]&lt;/a&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;7&#34;&gt;[7]&lt;/a&gt;
+&lt;strong&gt;Modular Bot Algorithm&lt;/strong&gt; H. Ahmadzadeh, E. Masehian, Modular robotic systems: Methods and algorithms for abstraction, planning, control, and synchronization, Volume 223, 2015, Pages 27-64, ISSN 0004-3702, doi: 10.1016/j.artint.2015.02.004. &lt;a href=&#34;https://www.sciencedirect.com/science/article/pii/S0004370215000260&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Paper]&lt;/a&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;8&#34;&gt;[8]&lt;/a&gt;
+&lt;strong&gt;KiloBots&lt;/strong&gt; by Self-Organizing Systems Research Group &lt;a href=&#34;https://ssr.seas.harvard.edu/kilobots&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Link]&lt;/a&gt; This is the most simplest swarm system by which we were able to learn about the real problems that we would face in a MultiAgent System.&lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;9&#34;&gt;[9]&lt;/a&gt;
+&lt;strong&gt;KiloBots-MARL&lt;/strong&gt; by Somnath Sendhil Kumar, This is a MultiAgent Reinforcement Learning solution presented for the Kilobots system &lt;a href=&#34;https://github.com/hex-plex/KiloBot-MultiAgent-RL&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Code]&lt;/a&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;10&#34;&gt;[10]&lt;/a&gt;
+&lt;strong&gt;pyBullet&lt;/strong&gt;, This is the simulator that we used to simulate our Robots physics in and built The enviroment on top of it. &lt;a href=&#34;https://pybullet.org/wordpress/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Link]&lt;/a&gt; &lt;a href=&#34;https://docs.google.com/document/d/10sXEhzFRSnvFcl3XxNGhnD4N2SedqwdAvK3dsihxVUA/edit#heading=h.2ye70wns7io3&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Docs]&lt;/a&gt; &lt;a href=&#34;https://github.com/bulletphysics/bullet3&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Code]&lt;/a&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;11&#34;&gt;[11]&lt;/a&gt;
+&lt;strong&gt;Open-AI gym&lt;/strong&gt;, This framework connected the simulators to API&amp;rsquo;s that are standard form in implementing Reinforcement Learning.
+&lt;a href=&#34;https://gym.openai.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Link]&lt;/a&gt; &lt;a href=&#34;https://gym.openai.com/docs/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Docs]&lt;/a&gt; &lt;a href=&#34;https://github.com/openai/gym&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Code]&lt;/a&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;12&#34;&gt;[12]&lt;/a&gt;
+&lt;strong&gt;Pybullet and OpenAI gym&lt;/strong&gt;, This is a tutorial which helps in implementing Pybullet as the backend with OpenAI gym, &lt;a href=&#34;https://www.etedal.net/2020/04/pybullet-panda.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Link]&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;13&#34;&gt;[13]&lt;/a&gt;
+&lt;strong&gt;SW to URDF&lt;/strong&gt;, This is the SolidWorks plugin that we used to convert our SolidWork Designs into importable URDFS which is provided by the ROS community. &lt;a href=&#34;http://wiki.ros.org/sw_urdf_exporter&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Link]&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

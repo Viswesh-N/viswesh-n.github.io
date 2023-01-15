@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PyBullet | Somnath Kumar</title>
+    <link>https://hex-plex.github.io/tag/pybullet/</link>
+      <atom:link href="https://hex-plex.github.io/tag/pybullet/index.xml" rel="self" type="application/rss+xml" />
+    <description>PyBullet</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Somnath Sendhil Kumar `2023`</copyright><lastBuildDate>Sat, 06 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://hex-plex.github.io/images/icon_hucffb9d42d7c693bd257413760c4b1fda_31806_512x512_fill_lanczos_center_2.png</url>
+      <title>PyBullet</title>
+      <link>https://hex-plex.github.io/tag/pybullet/</link>
+    </image>
+    
+    <item>
+      <title>Hand Imitation</title>
+      <link>https://hex-plex.github.io/project/hand-imitation/</link>
+      <pubDate>Sat, 06 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>https://hex-plex.github.io/project/hand-imitation/</guid>
+      <description>&lt;p&gt;RL-based learning for a robotic arm to imitate a given hand in a image feed
+with &lt;a href=&#34;https://github.com/hex-plex/gym-handOfJustice&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;handOfJustice&lt;/a&gt; as our environment&lt;/p&gt;
+&lt;h2 id=&#34;to-setup&#34;&gt;To Setup&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-console&#34;&gt;pip install gym-handOfJustice
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;else&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-console&#34;&gt;git clone https://github.com/hex-plex/gym-handOfJustice
+cd gym-handOfJustice
+pip install -e .
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;to-train&#34;&gt;To Train&lt;/h2&gt;
+&lt;p&gt;we used Actor Critic technique to update the a CNN
+examples are RL-train.py and RL-Test.py&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;In RL-train we have built the Actor and the critic model using tensorflow&lt;/li&gt;
+&lt;li&gt;In RL-Test we have used stable-baselines SAC model with LnCnnpolicy policy&lt;/li&gt;
+&lt;li&gt;Dataset which we used consisted of 50,000 images that meant content for 50,000 episodes.
+to use the same it could be downloaded from the &lt;a href=&#34;https://drive.google.com/file/d/1YeJecxl8LDR_r3JAWfSbDP4X_klVQfrO/view&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;drive link&lt;/a&gt;&lt;br/&gt;
+&amp;mdash;-or&amp;mdash;-&lt;br/&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-console&#34;&gt;wget --no-check-certificate -r &#39;https://docs.google.com/uc?export=download&amp;amp;id=1YeJecxl8LDR_r3JAWfSbDP4X_klVQfrO&#39; -O dataset.7z
+pacman -Sy p7zip-full  
+# Or any package manager you like
+7z e dataset.7z
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;training-metrics&#34;&gt;Training Metrics&lt;/h2&gt;
+&lt;p&gt;The training was completed( only on ~50% of the dataset ) over a span 36 days. Special thanks to Center for Computing and Information Services, IIT (BHU) varanasi to provide the computational power i.e., the Compute Cluster. It ran for about 20,960 episodes making upto 20 Million steps. the following are the log of all the metrics.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Actor Loss&lt;/th&gt;
+&lt;th&gt;Critic Loss&lt;/th&gt;
+&lt;th&gt;Reward&lt;/th&gt;
+&lt;th&gt;Cummulative Reward&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img src=&#34;https://github.com/hex-plex/Hand-Imitation/blob/master/log_images/actor_loss.jpg?raw=True&#34; alt=&#34;Actor_loss&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://github.com/hex-plex/Hand-Imitation/blob/master/log_images/critic_loss.jpg?raw=True&#34; alt=&#34;Critic_loss&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://github.com/hex-plex/Hand-Imitation/blob/master/log_images/reward.jpg?raw=True&#34; alt=&#34;Reward&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://github.com/hex-plex/Hand-Imitation/blob/master/log_images/eps_total_reward.jpg?raw=True&#34; alt=&#34;Cum_reward&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;These results may look decent but we should keep in mind that what i have tried to do is a end to end model for a very complex and really having a few layers after a mobile net is surely not sufficient for learning the forward kinematics of a robotic arm and being able to estimate the pose of the arm in the image.&lt;/p&gt;
+&lt;h2 id=&#34;output&#34;&gt;Output&lt;/h2&gt;
+&lt;p&gt;These are the best result after training over a limited amount of time&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;
+we have used clips from different versions of trained model and environment so there is a edit on these clips that in the gym-handOfJustice==0.0.6 a flip in the environment was added to make feel of the robotic hand more mirror like which can be spotted in the gif files&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/hex-plex/Hand-Imitation/blob/master/normal%26four_diff.gif?raw=true&#34; alt=&#34;Output-1&#34;&gt;
+&lt;img src=&#34;https://github.com/hex-plex/Hand-Imitation/blob/master/3Pose.gif?raw=true&#34; alt=&#34;Output-2&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;the-end&#34;&gt;The End&lt;/h2&gt;
+&lt;p&gt;Thats all from our side&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt; &lt;img src=&#34;https://github.com/hex-plex/Hand-Imitation/blob/master/Thank_You.gif?raw=true&#34; height=&#34;50%&#34; width=&#34;50%&#34;&gt;&lt;/img&gt; &lt;/p&gt;
+&lt;h2 id=&#34;the-team&#34;&gt;The Team&lt;/h2&gt;
+&lt;table&gt;
+ &lt;td align=&#34;center&#34;&gt;
+     &lt;a href=&#34;https://github.com/hex-plex&#34;&gt;
+    &lt;img src=&#34;https://avatars0.githubusercontent.com/u/56990337?s=460&amp;v=4&#34; width=&#34;100px;&#34; alt=&#34;&#34;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Somnath Sendhil Kumar &lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;
+    &lt;/td&gt;
+    &lt;td align=&#34;center&#34;&gt;
+     &lt;a href=&#34;https://github.com/numberbee7070&#34;&gt;
+    &lt;img src=&#34;https://avatars3.githubusercontent.com/u/63304283?s=460&amp;v=4&#34; width=&#34;100px;&#34; alt=&#34;&#34;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Yash Garg&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;
+	&lt;/td&gt;
+	&lt;td align=&#34;center&#34;&gt;
+     &lt;a href=&#34;https://github.com/infini8-13&#34;&gt;
+    &lt;img src=&#34;https://avatars2.githubusercontent.com/u/54203063?s=460&amp;v=4&#34; width=&#34;100px;&#34; alt=&#34;&#34;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;L N Saaswath&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;
+	&lt;/td&gt;
+	&lt;td align=&#34;center&#34;&gt;
+     &lt;a href=&#34;https://github.com/AtuL-KumaR-00&#34;&gt;
+    &lt;img src=&#34;https://avatars3.githubusercontent.com/u/64649440?s=460&amp;v=4&#34; width=&#34;100px;&#34; alt=&#34;&#34;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Atul Kumar&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;
+	&lt;/td&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

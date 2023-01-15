@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Video Game | Somnath Kumar</title>
+    <link>https://hex-plex.github.io/tag/video-game/</link>
+      <atom:link href="https://hex-plex.github.io/tag/video-game/index.xml" rel="self" type="application/rss+xml" />
+    <description>Video Game</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Somnath Sendhil Kumar `2023`</copyright><lastBuildDate>Wed, 06 May 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://hex-plex.github.io/images/icon_hucffb9d42d7c693bd257413760c4b1fda_31806_512x512_fill_lanczos_center_2.png</url>
+      <title>Video Game</title>
+      <link>https://hex-plex.github.io/tag/video-game/</link>
+    </image>
+    
+    <item>
+      <title>Pong Reinforcement Learning</title>
+      <link>https://hex-plex.github.io/project/pong-reinforcementlearning/</link>
+      <pubDate>Wed, 06 May 2020 00:00:00 +0000</pubDate>
+      <guid>https://hex-plex.github.io/project/pong-reinforcementlearning/</guid>
+      <description>&lt;p&gt;I have tried baking a rudimentary RL environment and a agent recipe to learn more about the eco-system.&lt;br/&gt;
+I have made &lt;a href=&#34;https://github.com/hex-plex/Pong-ReinforcementLearning/blob/master/pong.py&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;pong.py&lt;/a&gt; a environment which one can host either locally (localhost) or on  0.0.0.0 (LAN).Allowing to communicate to &lt;a href=&#34;https://github.com/hex-plex/Pong-ReinforcementLearning/blob/master/mainmodel.py&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;mainmodel.py&lt;/a&gt; which has to be connected to the same host and the same port. &lt;br/&gt;
+I have used a simple socket connection to transfer data rather than a flask/django backend as they are based on it giving a advantage of speed of communication. &lt;br/&gt;
+both the scripts have debug mode which allows one to see in which state or stage they are in. &lt;br/&gt;&lt;/p&gt;
+&lt;h2 id=&#34;output&#34;&gt;Output&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/hex-plex/Pong-ReinforcementLearning/raw/master/trained.gif&#34; alt=&#34;pong-agent&#34;&gt;&lt;/p&gt;
+&lt;hr/&gt;
+The one on the left is a RL agent trained for 3 days and the one on right is a hardcoded AI. This is noticible the they nearly have the same level of skills.
+&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;/h2&gt;
+&lt;p&gt;This requires only few basic libraries it only runs on python3, rather a small update can make it compatible with python2.
+The libraries&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;pickle
+numpy
+cv2
+pygame
+# Below are mostly available preinstalled in any python distribution
+socket
+BytesIO # from io in python3 or directly in python2
+_thread # for python 3 and thread in python2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Which are quite rudimentary and neccessary part of the code.&lt;/p&gt;
+&lt;h2 id=&#34;multithreading&#34;&gt;Multithreading&lt;/h2&gt;
+&lt;p&gt;Here I have use many threads to assure that no data is missed while any other calculation or process is running on the main thread as there might be some unwanted lag between inputs.Also another thread on mainmodel exists which take inputs  from the user for pausing and resuming its learning session&lt;/p&gt;
+&lt;h2 id=&#34;sockets&#34;&gt;Sockets&lt;/h2&gt;
+&lt;p&gt;I have used sockets to send data between scripts rather than using a instance of model and the pong env on the same script well that would work just fine (or better removing all the lag of communication) , but my goal was to make it more appealing and to make me learn more real life skills that is if I train a agent with raspberry pi ( or any other weaker mobile device for that matter ) as a part of the environment or in the environment a more viable option than running both simulation and the RL agent would be to do the computation and send in actions to it. This also gave me a good understanding about data compression and network security ,though here there is none used as it just accepts the first connection to the env. &lt;br/&gt;
+&lt;br/&gt;
+with the use of socket one could manually control the environment with keyboard and also have a RL agent learning (half - Duplex).&lt;/p&gt;
+&lt;h2 id=&#34;demo&#34;&gt;Demo&lt;/h2&gt;
+&lt;p&gt;To launch the env with mostly default values just running &lt;a href=&#34;https://github.com/hex-plex/Pong-ReinforcementLearning/blob/master/pong.py&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;pong.py&lt;/a&gt; directly would start the server with default configs.
+Its always recommended to use its instance, apply your configuration you want it to run and start the server.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from pong import Pong
+
+env = Pong( levelodiff=1, ## This is the level of the inbuilt AI that plays against you.
+                          ## Set it to 4 and chill out (really try it!!) the scale is 1-3
+            debug=False,  ## If set to True it will print the stage the environment is in and info the data inputs and outputs
+            render=False, ## It would render the image that is sent to the model, This slows down the process so not a good idea to use it.
+            server=True,  ## This is to set server mode on , if set false the environment will be no different from ordinary pong game.
+            host=&amp;quot;&amp;quot;,      ## This is to specify where you want to host it, &amp;quot;&amp;quot; maps to local host &amp;quot;0.0.0.0&amp;quot; doesnt really map
+                          ## to your ip address yet
+            port=12345    ## This your port no. of the connection.
+          )               ## This is to just initiate the environment
+
+env.start()## This starts the env ie., hosts itself as per the given parameter and waits for a connection in async while continuing the game
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To launch the RL agent running the &lt;a href=&#34;https://github.com/hex-plex/Pong-ReinforcementLearning/blob/master/mainmodel.py&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;mainmodel.py&lt;/a&gt; directly will run it in default config. &lt;br/&gt;
+To customize to your config import and create an instance and run the client. &lt;br/&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from mainmodel import PolicyGradient
+
+## This uses two hidden layer to out-put 2 probabilities
+agent = PolicyGradient( resume=False,  ## This is usefull to continue training from previos checkpoint.
+                        render=True,   ## This will render the image got through the socket,useful if model is in another computer
+                        host=None,     ## If the value is None it trys to find a localhost , else specific host is to be provided as a str
+                        port=12345,    ## default value is 12345 set is as required.
+                        hiddenUnits=250, ## This no of hiddenUnits in first layer depending on the dimension of input.
+                        batch_size=10, ## This is to set batch size for batch reiforcement learning rather than using single episode.
+                        learningRate=1e-3, ## This is to set learning rate
+                        gamma=0.99,    ## This is to set gamma or the discount
+                        decayRate=0.99 ## This is decayRate for RMSprop
+                      )                ## This creates an instance of PolicyGradient algorithm as a client_socket
+
+agent.start()         ## This starts the agent ie., connects to the server and communicates and learns from its experience.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Running them should launch the env and agent would start leaning. There is a propriety control in mainmodel.py which takes input in its terminal as&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;lsquo;p&amp;rsquo;    ==&amp;gt; Pausing/Resuming the training process&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;q&amp;rsquo;    ==&amp;gt; Quit the training process , But this makes a Checkpoint as interrupt.p&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;ping&amp;rsquo; ==&amp;gt; This pings the pong server 10 times and returns the average time it took to send and receive packets.
+else with a better score of agent, the model is saved continuosly as save.p.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;fast-training&#34;&gt;Fast-training&lt;/h2&gt;
+&lt;p&gt;I have experimented the whole thing with networking sockets and asynchronous methods limiting the training process to human level speed for which I have uploaded the pong-fast-train.tar.gz&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;tar -xvzf pong-fast-train.tar.gz
+cd pong-fast
+python mainmodel.py
+mv save.p ../save.p
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So this should train the model and save it into the main directory this should load the trained model in the main algo.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

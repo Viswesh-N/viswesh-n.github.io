@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>StarCraft II | Somnath Kumar</title>
+    <link>https://hex-plex.github.io/tag/starcraft-ii/</link>
+      <atom:link href="https://hex-plex.github.io/tag/starcraft-ii/index.xml" rel="self" type="application/rss+xml" />
+    <description>StarCraft II</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Somnath Sendhil Kumar `2023`</copyright><lastBuildDate>Sun, 05 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://hex-plex.github.io/images/icon_hucffb9d42d7c693bd257413760c4b1fda_31806_512x512_fill_lanczos_center_2.png</url>
+      <title>StarCraft II</title>
+      <link>https://hex-plex.github.io/tag/starcraft-ii/</link>
+    </image>
+    
+    <item>
+      <title>Graph Neural Network for Communication in MARL</title>
+      <link>https://hex-plex.github.io/project/gnn-marl/</link>
+      <pubDate>Sun, 05 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://hex-plex.github.io/project/gnn-marl/</guid>
+      <description>&lt;p&gt;This is an implementation of Communication in MARL using Graph Neural Network. This is been trained and tested on &lt;a href=&#34;https://github.com/deepmind/pysc2&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;StarCraft II&lt;/a&gt;, And this has shown improved training and performance metrics throughout all the maps. I have implemented this on top of &lt;a href=&#34;https://github.com/oxwhirl/pymarl&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PyMARL&lt;/a&gt; for easier comparative study with respect to other algorithms or implementations like &lt;a href=&#34;https://github.com/uoe-agents/epymarl&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ePyMARL&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Currently we have the following algorithms for training.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://arxiv.org/abs/1803.11485&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;QMIX&lt;/strong&gt;: QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://arxiv.org/abs/1705.08926&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;COMA&lt;/strong&gt;: Counterfactual Multi-Agent Policy Gradients&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://arxiv.org/abs/1706.05296&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;VDN&lt;/strong&gt;: Value-Decomposition Networks For Cooperative Multi-Agent Learning&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://arxiv.org/abs/1511.08779&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;IQL&lt;/strong&gt;: Independent Q-Learning&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://arxiv.org/abs/1905.05408&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;QTRAN&lt;/strong&gt;: QTRAN: Learning to Factorize with Transformation for Cooperative Multi-Agent Reinforcement Learning&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For communication we have used to different Architecures&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://arxiv.org/abs/1609.02907&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;GConv&lt;/strong&gt;: Graph Convolutional Network&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://arxiv.org/abs/1710.10903&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;GAT&lt;/strong&gt;: Graph Attention Network&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;graph-neural-network&#34;&gt;Graph Neural Network.&lt;/h3&gt;
+&lt;p&gt;More Information about the architecture and the execution can be found at &lt;a href=&#34;https://hex-plex.github.io/project/gnn-marl/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MultiAgent GNN&lt;/a&gt;
+A brief outline would be as follows&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;gnn.png&#34; /&gt;
+&lt;i&gt;Pipeline for communication using Graph Neural Network&lt;/i&gt;
+&lt;/p&gt;
+&lt;p&gt;The implementation is written in PyTorch and uses a modified version of &lt;a href=&#34;https://github.com/oxwhirl/smac&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SMAC&lt;/a&gt; which could be found in &lt;a href=&#34;https://hex-plex.github.io/smac-py/&#34;&gt;smac-py&lt;/a&gt; to include the adjacency matrix as the observation more detail on it can be found &lt;a href=&#34;#adjacency-matrix&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;For a glimpse of the algorithm in action checkout the &lt;a href=&#34;#output&#34;&gt;&lt;strong&gt;Output&lt;/strong&gt;&lt;/a&gt; section&lt;/p&gt;
+&lt;h2 id=&#34;adjacency-matrix&#34;&gt;Adjacency Matrix&lt;/h2&gt;
+&lt;p&gt;An adjacency matrix simply represents the vertices of the graph. For the current problem we have used a few heuristics for joining two nodes with a vertex. They are as below&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Communication distance&lt;/strong&gt; : - Even though their is no restriction in communication having local communication improves cooperation in shared tasks&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Unit Type&lt;/strong&gt; : - Many task benefit from similar units perfoming certain part of the task than other other units cooperating with each other.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;output&#34;&gt;Output&lt;/h2&gt;
+&lt;p&gt;This is a demo output from the policy whose stats are given above
+&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/GNN-MARL/master/media/output.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;results&#34;&gt;Results&lt;/h2&gt;
+&lt;p&gt;Below are the training and test metric of the presented algorithm with &lt;strong&gt;QMIX&lt;/strong&gt; on map 2s3z. The study is limited to the number of experiments due to limitation in computation at the disposal. The presented algorithm does support parallel envs and boosting the process of training. This would be tested soon&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Train&lt;/th&gt;
+&lt;th&gt;&amp;ndash;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Battle win percentage&lt;/td&gt;
+&lt;td&gt;Average Return&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/GNN-MARL/master/media/train_battle_win_percentage.png&#34; alt=&#34;&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/GNN-MARL/master/media/train_return_mean.png&#34; alt=&#34;&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Test&lt;/th&gt;
+&lt;th&gt;&amp;ndash;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Battle win percentage&lt;/td&gt;
+&lt;td&gt;Average Return&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/GNN-MARL/master/media/test_battle_win_percentage.png&#34; alt=&#34;&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/GNN-MARL/master/media/test_return_mean.png&#34; alt=&#34;&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

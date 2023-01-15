@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>3D Modelling | Somnath Kumar</title>
+    <link>https://hex-plex.github.io/tag/3d-modelling/</link>
+      <atom:link href="https://hex-plex.github.io/tag/3d-modelling/index.xml" rel="self" type="application/rss+xml" />
+    <description>3D Modelling</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Somnath Sendhil Kumar `2023`</copyright><lastBuildDate>Tue, 16 Nov 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://hex-plex.github.io/images/icon_hucffb9d42d7c693bd257413760c4b1fda_31806_512x512_fill_lanczos_center_2.png</url>
+      <title>3D Modelling</title>
+      <link>https://hex-plex.github.io/tag/3d-modelling/</link>
+    </image>
+    
+    <item>
+      <title>MultiAgent Full coverage</title>
+      <link>https://hex-plex.github.io/project/multi-agent-coverage/</link>
+      <pubDate>Tue, 16 Nov 2021 00:00:00 +0000</pubDate>
+      <guid>https://hex-plex.github.io/project/multi-agent-coverage/</guid>
+      <description>&lt;p&gt;The main objective of this project was to make and efficient multi-agent algorithm for cleaning an unknown terrain, for which we built &lt;a href=&#34;https://github.com/hex-plex/Vox-Bot&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&amp;ldquo;Vox-Bot&amp;rdquo;&lt;/a&gt; a ROS package for multi robot platform, A full description about VoxBot can be found here &lt;a href=&#34;#desciption&#34;&gt;Description&lt;/a&gt;. This is our solution submitted for AIITRA robotics challenge 2021, where we &lt;strong&gt;secured second position&lt;/strong&gt; among all other IIT s and prestigious colleges of India.&lt;/p&gt;
+&lt;h2 id=&#34;description&#34;&gt;Description&lt;/h2&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/Vox-Bot/master/media/vox-bot-description.png&#34;/&gt;
+&lt;i&gt;An CAD design of the the Vox-Bot&lt;/i&gt;
+&lt;/p&gt;
+&lt;p&gt;Vox Bot is an 4 wheeled robot with omni wheels for maximum agility and mobility. The main purpose of the robot is to vacumm cleaner autonomously in unknown terrain.
+It houses a lidar for mapping and a SBC for all computational needs, with one high power brushless motor for vacumm generation and 4 brushed motors for exhausts.&lt;/p&gt;
+&lt;p&gt;For the Vacumm system we have done multiple studies for the airflow which can be found here &lt;a href=&#34;#airflowstudy&#34;&gt;Airflow&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Below we explain our solution for the Problem statement&lt;/p&gt;
+&lt;h2 id=&#34;pipeline&#34;&gt;Pipeline&lt;/h2&gt;
+&lt;p&gt;We have modified the Vanilla navigation stack offered in move base ROS. We have used movebase flex for implementing the below architecture of below navigation stack.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/Vox-Bot/master/media/pipeline.png&#34;/&gt;
+&lt;i&gt;Complete Pipeline of our solution&lt;/i&gt;
+&lt;/p&gt;
+&lt;p&gt;we have used &lt;a href=&#34;http://wiki.ros.org/multirobot_map_merge&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;multirobot_map_merge&lt;/a&gt; with &lt;a href=&#34;http://wiki.ros.org/rrt_exploration&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;rrt exploration&lt;/a&gt; for mapping the environment.&lt;/p&gt;
+&lt;p&gt;We have used &lt;a href=&#34;https://github.com/ethz-asl/polygon_coverage_planning&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;polygon_planner&lt;/a&gt; for planning the boustrophedon path.&lt;/p&gt;
+&lt;p&gt;The rest is custom implemented with fortuners algorithm used for computing voronoi diagram. More detail can be found in our proposal &lt;a href=&#34;https://drive.google.com/file/d/1JusOGQFmkjaVjfD4kQLPCjKfHKlH5u1N/preview&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PDF&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Below are a brief result that is not present in the proposal&lt;/p&gt;
+&lt;h3 id=&#34;mapping&#34;&gt;Mapping&lt;/h3&gt;
+&lt;p&gt;We have use RRT exploration instead of simple frontier exploration which made it very efficient&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/Vox-Bot/master/media/mapping_time.png&#34;/&gt;
+&lt;i&gt;Comparision of number of bots and time to explore&lt;/i&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;optimal-coverage&#34;&gt;Optimal coverage&lt;/h3&gt;
+&lt;p&gt;we have used voronoi diagram and weighted centroid algorithm for distributing the task between individual robots, more detail about it can be found in the &lt;a href=&#34;https://drive.google.com/file/d/1JusOGQFmkjaVjfD4kQLPCjKfHKlH5u1N/preview&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Proposal&lt;/a&gt;.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/Vox-Bot/master/media/voronoi.png&#34;/&gt;
+&lt;p&gt;&lt;i&gt;Generating voronoi diagram using Fortners algorithm&lt;/i&gt;&lt;/p&gt;
+&lt;/p&gt;
+&lt;p&gt;We then iterate using weighted center algorithm for calculating the desired voronoi cells and the positions of each agent.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;http://muro.ucsd.edu/img/WCFlowChart.png&#34;/&gt;
+&lt;i&gt;Weighted center Algorithm&lt;/i&gt;
+&lt;/p&gt;
+&lt;p&gt;Gives a result as such&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/Vox-Bot/master/media/optimal_coverage.gif&#34;/&gt;
+&lt;i&gt;Robots computing the path and optimal voronoi cell&lt;/i&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;boustrophoedn-path&#34;&gt;Boustrophoedn path&lt;/h3&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/Vox-Bot/master/media/bpath1.png&#34;/&gt;
+&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;i&gt;Path distribution for arena 1&lt;/i&gt;
+&lt;/p&gt;
+&lt;hr/&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/Vox-Bot/master/media/bpath2.png&#34;/&gt; 
+&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;i&gt;Path distribution for arean 2&lt;/i&gt;
+&lt;/p&gt;
+&lt;p&gt;Generating boustrophoden path for the polygon given by the voronoi diagram the robot resides on.&lt;/p&gt;
+&lt;h2 id=&#34;airflow-study&#34;&gt;Airflow study&lt;/h2&gt;
+&lt;p&gt;The vacuum of the bot works on the principle of the lower fan creating pressure difference to suck in air while the exhaust pushes out the air from the above compartment for efficient vacuum generation.&lt;br&gt;
+The fan has been placed low for efficient cleaning, with a ground clearance measuring approximately less than half of the wheel radius.&lt;/p&gt;
+&lt;p&gt;Analysis of the vacuum mechanism was done using the SolidWorks Flow Simulation tool to get outputs about the kind of behavior shown by our vacuum during actual implementation.&lt;/p&gt;
+&lt;p&gt;The simulation required us to cover our rotating regions with circular bounded bodies to define the rotation boundary. We also defined the inlet and the outlet velocities as 0.6m/s and 0.15m/s below the bot and at the exhausts respectively. As the simulation was an internal one, the image only shows the flow inside our bot but the fact is quite evident through the trajectory of the arrows that in real-world scenarios, vox would certainly be an efficient vacuum design.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/Vox-Bot/master/media/airflow-study.png&#34;/&gt;
+&lt;i&gt;Hypothetical system of the Robot for full suction power&lt;/i&gt;
+&lt;/p&gt;
+&lt;hr/&gt;
+&lt;p&gt;The zoomed-in image of the flow clearly depicts that our exhausts are also working efficiently during closed space tests as the simulation required us to close the lower open space of our bot with a lid. The fans are generating the expected and the required flows quite efficiently.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/Vox-Bot/master/media/airflow-closeup.png&#34;/&gt;
+&lt;i&gt;Airflow inside the central chamber&lt;/i&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;team&#34;&gt;Team&lt;/h2&gt;
+&lt;table&gt;
+ &lt;td align=&#34;center&#34;&gt;
+     &lt;a href=&#34;https://github.com/hex-plex&#34;&gt;
+    &lt;img src=&#34;https://avatars0.githubusercontent.com/u/56990337?s=460&amp;v=4&#34; width=&#34;100px;&#34; alt=&#34;&#34;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Somnath Sendhil Kumar &lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;
+    &lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;
+     &lt;a href=&#34;https://github.com/GeneralVader&#34;&gt;
+    &lt;img src=&#34;https://avatars.githubusercontent.com/u/77744383?s=460&amp;v=4&#34; width=&#34;100px;&#34; alt=&#34;&#34;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Varad Vinayak pandey&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;
+	&lt;/td&gt;
+    &lt;td align=&#34;center&#34;&gt;
+     &lt;a href=&#34;https://github.com/Srini-Rohan&#34;&gt;
+    &lt;img src=&#34;https://avatars.githubusercontent.com/u/76437900?s=460&amp;v=4&#34; width=&#34;100px;&#34; alt=&#34;&#34;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Gujulla Leel Srini Rohan&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;
+	&lt;/td&gt;
+	&lt;td align=&#34;center&#34;&gt;
+     &lt;a href=&#34;https://github.com/jsparrow08&#34;&gt;
+    &lt;img src=&#34;https://avatars.githubusercontent.com/u/77740824?s=460&amp;v=4&#34; width=&#34;100px;&#34; alt=&#34;&#34;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Utkrisht Singh&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;
+	&lt;/td&gt;
+	&lt;td align=&#34;center&#34;&gt;
+     &lt;a href=&#34;https://github.com/phoenixrider12&#34;&gt;
+    &lt;img src=&#34;https://avatars.githubusercontent.com/u/76533398?s=460&amp;v=4&#34; width=&#34;100px;&#34; alt=&#34;&#34;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Aryaman Gupta&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;
+	&lt;/td&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Hierarchical Reinforcement Learning for Swarm of Modular Bot</title>
+      <link>https://hex-plex.github.io/project/modularbot_planner/</link>
+      <pubDate>Mon, 05 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://hex-plex.github.io/project/modularbot_planner/</guid>
+      <description>&lt;p&gt;This is my research project at &lt;a href=&#34;https://robotics-club-iit-bhu.github.io/RoboReG/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;RoBoReg&lt;/a&gt;, on which I have been working for over a year till date since November 2020.&lt;/p&gt;
+&lt;h2 id=&#34;abstract&#34;&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;Abstraction of policy for Multi Agent to generalize the Swarm Behaviour. Allowing easy scaling up and robustness in task. Learning heirarchially optimal policy facilitates meta learning for multi agent setup, resulting in easier learning another task for the swarm. This saves a lot of train time as the policy takes major ammount of time to learn the complex interaction of these individual agents with each other and the environment. As the distribution of the model for these interaction doesnt tend to change drastically between tasks.&lt;/p&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;The testing has been done on a custom robot platform named iOTA. Which is a simple 4 Wheel drive on both top and bottom plates and hypotetically capable of docking(All tests are simulations with constraints added by simulator, this is done to reduce the complexity of physics).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/Robotics-Club-IIT-BHU/gym-iOTA/master/media/bRoll.gif&#34; width=&#34;47%&#34; align=&#34;left&#34;/&gt;&lt;img src=&#34;ModularDock.png&#34; width=&#34;52%&#34; align=&#34;right&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;The whole setup is simulated in PyBullet, and we have made a simple env for our experimental testbed &lt;a href=&#34;https://github.com/Robotics-Club-IIT-BHU/gym-iOTA&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;gym-iOTA&lt;/code&gt;&lt;/a&gt;. There has been on a simpler 2D version of the Env for easier training and debuggin for representation learning of the environment &lt;a href=&#34;https://github.com/hex-plex/gym-iOTA_2D&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;gym-iOTA_2D&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;pipeline&#34;&gt;Pipeline&lt;/h2&gt;
+&lt;img src=&#34;ModularBot.png&#34;/&gt;
+&lt;p&gt;Here we have used multiple classical algorithms with learnt methods.
+The main parts in the algorithm is.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Localization&lt;/li&gt;
+&lt;li&gt;Clusterring&lt;/li&gt;
+&lt;li&gt;High Level Planning using Policy&lt;/li&gt;
+&lt;li&gt;Obstacle Avoidance&lt;/li&gt;
+&lt;li&gt;Control&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;localization&#34;&gt;Localization&lt;/h3&gt;
+&lt;p&gt;Localization is done using detection from multiple cameras, and averaging the position and pose as the estimates where better than just one camera. Then this pose is infused with odometry and imu using an &lt;strong&gt;Extended Kalman filter&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;detection.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;clustering&#34;&gt;Clustering&lt;/h3&gt;
+&lt;p&gt;The clustering is done using &lt;strong&gt;Kmeans clusters&lt;/strong&gt;, The main use of clustering is to divide the Swarm into smaller parts for being able to learn quicker while decreasing the complexity of observation. And also making meaningful interactions as the agent is barely affected by an agent outside it&amp;rsquo;s cluster.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;cluster.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;high-level-planning&#34;&gt;High Level Planning&lt;/h3&gt;
+&lt;p&gt;The high level planning here refers to estimate goal position of the robot complete a certain task. The high level planning is done using Two policies, The first policy Works on individual cluster estimating parameters of an polygon, while the next estimates the distribution over the polygon and then sampling points off the distribution is taken as the target point for the robot for one action step.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;heirPolicy.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;As it can be seen one policy is under the heirarchy of the other policy and as policy $\pi_1$ is updated less frequently compared to $\pi_2$ The return will not be the same for every action taken by $\pi_1$. &lt;strong&gt;Hierarchical Reinforcement Learning&lt;/strong&gt; is much suited in this &lt;strong&gt;Semi-Markov Decision Process&lt;/strong&gt; over traditional Reinforcement Learning.
+This also allows to learn a heirarchically optimal policy that will facilitates meta learning to different tasks.&lt;/p&gt;
+&lt;p&gt;The equation for update for the two policies are given by the following.
+$$ \pi_i = \pi_i + \alpha*\delta_i $$
+$$ \delta_1 = V(s_{t-1}) + \gamma*R_{t} + &amp;hellip; + \gamma^{\tau+1}*R_{t+\tau} - V(s_{t+\tau})$$
+$$ \delta_2 = V(s_{t-1}) + \gamma*R_t - V(s_{t})$$&lt;/p&gt;
+&lt;p&gt;Here $\tau$ is the number of time steps $\pi_2$ steps between consecutive steps of $\pi_1$&lt;/p&gt;
+&lt;p&gt;The final output of both combined is.
+&lt;img src=&#34;probability_distribution.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Where the estimated polygon is seen in green, and the distribution is seen in orange. And the sampled point is seen in red.&lt;/p&gt;
+&lt;h3 id=&#34;obstacle-avoidance&#34;&gt;Obstacle Avoidance&lt;/h3&gt;
+&lt;p&gt;After the action is taken the main task is to find a path to the target position without colliding into one another. This is done using &lt;strong&gt;Potential Field Planning&lt;/strong&gt;, this was the simplest algorithm for path planning that we could use in pybullet. This could easily be replaced by the nav stack in ROS.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;potentialField.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;control&#34;&gt;Control&lt;/h3&gt;
+&lt;p&gt;This was done using simple PD control of a 4WD, Later the docking was done using &lt;strong&gt;Fixed Constraints in simulator&lt;/strong&gt; than actuallying designing and simulating a docking mechanism. While our main goal was to work on it when we would work on the hardware. The working wheels switch when the robot is flipped which is sensed using an IMU.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;docking.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;limitation&#34;&gt;Limitation&lt;/h2&gt;
+&lt;p&gt;After Enumerous reiteration on code, and brainstroming of ideas the project only received limited success. The project was a continual part of learning and implementation of year long journey. There are a few points of failure in the current architecture that I would like to point out.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Insufficient Observation&lt;/strong&gt; :- The observation for individual agent is complex for a policy \pi_2 to learn, and the representation of the cluster is done with insufficient features to policy \pi_1.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Constrained Action Space&lt;/strong&gt; :- The current action space for both the policy are rather no encouraging to move away from the cluster or move towards a specific direction to complete the task. The architecture for the highlevel planning must be improved to allow motion in and out the cluster.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Bugs in the Environment&lt;/strong&gt; :- The potential field algorithm is notourious for its suboptimal or worse infinite loops at corner cases for given parameters. The control is a bare minimum position control using PD and doesnt model the highly complex and dynamic System, hence the interaction of these robots in tightly packed regions are very bad as they are unable to trace the given trajectories. This is mainly true once the robots are docked.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Apart from these the robot platform, as well as the codebase are robust and modular hence can be used in other applications and in future iterations of the project. This project is result of hardwork of its contributors.&lt;/p&gt;
+&lt;h2 id=&#34;contributors&#34;&gt;Contributors&lt;/h2&gt;
+&lt;table&gt;
+  &lt;tr&gt;
+  &lt;td align=&#34;center&#34;&gt;
+     &lt;a href=&#34;https://github.com/hex-plex&#34;&gt;
+    &lt;img src=&#34;https://avatars0.githubusercontent.com/u/56990337?s=460&amp;v=4&#34; width=&#34;100px;&#34; alt=&#34;&#34;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Somnath Sendhil Kumar &lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;
+    &lt;/td&gt;
+    &lt;td align=&#34;center&#34;&gt;
+     &lt;a href=&#34;https://github.com/surabhit-08&#34;&gt;
+    &lt;img src=&#34;https://avatars3.githubusercontent.com/u/62366465?s=460&amp;v=4&#34; width=&#34;100px;&#34; alt=&#34;&#34;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Surabhit Gupta&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;
+	&lt;/td&gt;
+	&lt;td align=&#34;center&#34;&gt;
+     &lt;a href=&#34;https://github.com/rtharungowda&#34;&gt;
+    &lt;img src=&#34;https://avatars1.githubusercontent.com/u/55887709?s=460&amp;v=4&#34; width=&#34;100px;&#34; alt=&#34;&#34;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;R Tharun Gowda&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;
+	&lt;/td&gt;
+	&lt;td align=&#34;center&#34;&gt;
+     &lt;a href=&#34;https://github.com/Kritika-Bansal&#34;&gt;
+    &lt;img src=&#34;https://avatars2.githubusercontent.com/u/57754061?s=460&amp;v=4&#34; width=&#34;100px;&#34; alt=&#34;&#34;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Kritika Bansal&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;
+	&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+  &lt;td&gt;&lt;sub&gt;Lead,Reinforcement Learning&lt;/sub&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;sub&gt;Hardware Design&lt;/sub&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;sub&gt;Clustering&lt;/sub&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;sub&gt;Path Planning&lt;/sub&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>PauciBot</title>
+      <link>https://hex-plex.github.io/project/paucibot/</link>
+      <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
+      <guid>https://hex-plex.github.io/project/paucibot/</guid>
+      <description>&lt;h2 id=&#34;abstract&#34;&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;This Repository contains the hardware designs of the Two Wheeled ROS enabled robot capable of self - balancing and also able to run SLAM and Localize itself with just Odometry, Encoders on the wheel and the Camera used with Depth Maps&lt;a href=&#34;#1&#34;&gt;[1]&lt;/a&gt; to get a partially accurate Depth information of the surronding. This is partially inspired from the Turtlebot&lt;a href=&#34;#2&#34;&gt;[2]&lt;/a&gt; but it must be kept in mind the algorithm has be able to model the two wheeled bot to even account for its self balancing action which was solved using accurate System Modelling&lt;a href=&#34;#3&#34;&gt;[3]&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/PauciBot-Hardware/master/images/Paucibot.jpg&#34; alt=&#34;Bot in all its glory&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;design&#34;&gt;Design&lt;/h2&gt;
+&lt;p&gt;The above is the bot in all its glory, I had built The Hardware before running simulations and testing out its stability as its quite an symmetrical and simple design. This surely resembles turtlebot but has a few changes. Basically the idea was to have a worthy replacement for a turtlebot to test out all the mapping and planning algorithms on it.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;After the construction it was quite easy to make a 3D design for the simulators. My Weapon of choice Phobos&lt;a href=&#34;#4&#34;&gt;[4]&lt;/a&gt; and &lt;a href=&#34;https://www.blender.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Blender&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Below is a simple design of the bot in blender.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/PauciBot-Hardware/master/images/Blender_Modelling.png&#34; alt=&#34;Blender Design&#34;&gt;&lt;/p&gt;
+&lt;p&gt;With some Phobos magics 🎉🎉&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/PauciBot-Hardware/master/images/URDF_generation.png&#34; alt=&#34;Phobos&#34;&gt;&lt;/p&gt;
+&lt;p&gt;We can set the parameters required for generating URDF of the bot.&lt;/p&gt;
+&lt;p&gt;Exporting it just makes the work run naturally with Gazebo, PyBullet and any other Simulator of choice. The below is a simple &lt;strong&gt;PID control on the Pitch&lt;/strong&gt; of the Bot.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/PauciBot-Hardware/master/images/PyBullet-PID.png&#34; alt=&#34;PyBullet PID&#34;&gt;&lt;/p&gt;
+&lt;p&gt;You can get the same output running the following in the terminal.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git clone https://github.com/hex-plex/PauciBot-Hardware.git
+cd PauciBot-Hardware
+python scripts/trial.py
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;under-development&#34;&gt;Under-Development&lt;/h2&gt;
+&lt;p&gt;The Main objective was that I wanted to explore the Difficulties faced when taking the Project from simulation to reality and vice versa. The Main tool is &lt;strong&gt;ROS&lt;/strong&gt; as its a well established community with most useful tools opensourced for all. Hence I would like to release The bot with a ROS package. I have been currently working on the same for the past few months.&lt;/p&gt;
+&lt;p&gt;Hope to see you there soon. : )&lt;/p&gt;
+&lt;h2 id=&#34;components&#34;&gt;Components&lt;/h2&gt;
+&lt;p&gt;The whole body is made of Ply wood and solid wood. And the wheels are just off the shelf RC car wheels with a 11.1 V LiPo battery.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;arduino-mega-2560&#34;&gt;Arduino Mega 2560&lt;/h4&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I have used this for controlling the motor drivers and getting a Odometry and runnning a baseline self balancing algorithm.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;nvidia-jetson-nano-4gb&#34;&gt;Nvidia Jetson Nano 4GB&lt;/h4&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This is the ROS hardware Node on the Robot which communicates to a master on the localhost using UDP protocol. This is also used to give the neccesary computational power for onboard Computer Vision algorithms.
+&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/PauciBot-Hardware/master/images/Jetson.jpg&#34; alt=&#34;Jetson&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;mpu9250&#34;&gt;MPU9250&lt;/h4&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Simple sensor for Odometry.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;l298-motor-driver&#34;&gt;L298 Motor Driver&lt;/h4&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Motor driver for controlling 2 Motors&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;lm2596s-buck&#34;&gt;LM2596S Buck&lt;/h4&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For regulating voltage comming from the battery.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;logitech-c290&#34;&gt;Logitech C290&lt;/h4&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This is a high quality webcam that can be easily used for capturing images at incredibly high resolution and quality.
+&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/PauciBot-Hardware/master/images/Logi_C290.jpg&#34; alt=&#34;Camera&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;p&gt;&lt;a id=&#34;1&#34;&gt;[1]&lt;/a&gt; Unsupervised Learning of Depth and Ego-Motion from Monocular Video Using 3D Geometric Constraints. Reza Mahjourian, Martin Wicke, Anelia Angelova &lt;a href=&#34;https://sites.google.com/view/vid2depth&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[link]&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;2&#34;&gt;[2]&lt;/a&gt; Turtlebot is a ROS standard platform robot. &lt;a href=&#34;https://emanual.robotis.com/docs/en/platform/turtlebot3/overview/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[link]&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;3&#34;&gt;[3]&lt;/a&gt;
+A Tutorial on Modelling and Control of Two- Wheeled Self-Balancing Robot with Stepper Motor &lt;a href=&#34;https://www.researchgate.net/publication/334731253_A_Tutorial_on_Modelling_and_Control_of_Two-_Wheeled_Self-Balancing_Robot_with_Stepper_Motor&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[link]&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;4&#34;&gt;[4]&lt;/a&gt; Phobos is an add-on for Blender. &lt;a href=&#34;https://github.com/dfki-ric/phobos&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[link]&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Hand Imitation</title>
+      <link>https://hex-plex.github.io/project/hand-imitation/</link>
+      <pubDate>Sat, 06 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>https://hex-plex.github.io/project/hand-imitation/</guid>
+      <description>&lt;p&gt;RL-based learning for a robotic arm to imitate a given hand in a image feed
+with &lt;a href=&#34;https://github.com/hex-plex/gym-handOfJustice&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;handOfJustice&lt;/a&gt; as our environment&lt;/p&gt;
+&lt;h2 id=&#34;to-setup&#34;&gt;To Setup&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-console&#34;&gt;pip install gym-handOfJustice
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;else&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-console&#34;&gt;git clone https://github.com/hex-plex/gym-handOfJustice
+cd gym-handOfJustice
+pip install -e .
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;to-train&#34;&gt;To Train&lt;/h2&gt;
+&lt;p&gt;we used Actor Critic technique to update the a CNN
+examples are RL-train.py and RL-Test.py&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;In RL-train we have built the Actor and the critic model using tensorflow&lt;/li&gt;
+&lt;li&gt;In RL-Test we have used stable-baselines SAC model with LnCnnpolicy policy&lt;/li&gt;
+&lt;li&gt;Dataset which we used consisted of 50,000 images that meant content for 50,000 episodes.
+to use the same it could be downloaded from the &lt;a href=&#34;https://drive.google.com/file/d/1YeJecxl8LDR_r3JAWfSbDP4X_klVQfrO/view&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;drive link&lt;/a&gt;&lt;br/&gt;
+&amp;mdash;-or&amp;mdash;-&lt;br/&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-console&#34;&gt;wget --no-check-certificate -r &#39;https://docs.google.com/uc?export=download&amp;amp;id=1YeJecxl8LDR_r3JAWfSbDP4X_klVQfrO&#39; -O dataset.7z
+pacman -Sy p7zip-full  
+# Or any package manager you like
+7z e dataset.7z
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;training-metrics&#34;&gt;Training Metrics&lt;/h2&gt;
+&lt;p&gt;The training was completed( only on ~50% of the dataset ) over a span 36 days. Special thanks to Center for Computing and Information Services, IIT (BHU) varanasi to provide the computational power i.e., the Compute Cluster. It ran for about 20,960 episodes making upto 20 Million steps. the following are the log of all the metrics.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Actor Loss&lt;/th&gt;
+&lt;th&gt;Critic Loss&lt;/th&gt;
+&lt;th&gt;Reward&lt;/th&gt;
+&lt;th&gt;Cummulative Reward&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img src=&#34;https://github.com/hex-plex/Hand-Imitation/blob/master/log_images/actor_loss.jpg?raw=True&#34; alt=&#34;Actor_loss&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://github.com/hex-plex/Hand-Imitation/blob/master/log_images/critic_loss.jpg?raw=True&#34; alt=&#34;Critic_loss&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://github.com/hex-plex/Hand-Imitation/blob/master/log_images/reward.jpg?raw=True&#34; alt=&#34;Reward&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://github.com/hex-plex/Hand-Imitation/blob/master/log_images/eps_total_reward.jpg?raw=True&#34; alt=&#34;Cum_reward&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;These results may look decent but we should keep in mind that what i have tried to do is a end to end model for a very complex and really having a few layers after a mobile net is surely not sufficient for learning the forward kinematics of a robotic arm and being able to estimate the pose of the arm in the image.&lt;/p&gt;
+&lt;h2 id=&#34;output&#34;&gt;Output&lt;/h2&gt;
+&lt;p&gt;These are the best result after training over a limited amount of time&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;
+we have used clips from different versions of trained model and environment so there is a edit on these clips that in the gym-handOfJustice==0.0.6 a flip in the environment was added to make feel of the robotic hand more mirror like which can be spotted in the gif files&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/hex-plex/Hand-Imitation/blob/master/normal%26four_diff.gif?raw=true&#34; alt=&#34;Output-1&#34;&gt;
+&lt;img src=&#34;https://github.com/hex-plex/Hand-Imitation/blob/master/3Pose.gif?raw=true&#34; alt=&#34;Output-2&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;the-end&#34;&gt;The End&lt;/h2&gt;
+&lt;p&gt;Thats all from our side&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt; &lt;img src=&#34;https://github.com/hex-plex/Hand-Imitation/blob/master/Thank_You.gif?raw=true&#34; height=&#34;50%&#34; width=&#34;50%&#34;&gt;&lt;/img&gt; &lt;/p&gt;
+&lt;h2 id=&#34;the-team&#34;&gt;The Team&lt;/h2&gt;
+&lt;table&gt;
+ &lt;td align=&#34;center&#34;&gt;
+     &lt;a href=&#34;https://github.com/hex-plex&#34;&gt;
+    &lt;img src=&#34;https://avatars0.githubusercontent.com/u/56990337?s=460&amp;v=4&#34; width=&#34;100px;&#34; alt=&#34;&#34;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Somnath Sendhil Kumar &lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;
+    &lt;/td&gt;
+    &lt;td align=&#34;center&#34;&gt;
+     &lt;a href=&#34;https://github.com/numberbee7070&#34;&gt;
+    &lt;img src=&#34;https://avatars3.githubusercontent.com/u/63304283?s=460&amp;v=4&#34; width=&#34;100px;&#34; alt=&#34;&#34;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Yash Garg&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;
+	&lt;/td&gt;
+	&lt;td align=&#34;center&#34;&gt;
+     &lt;a href=&#34;https://github.com/infini8-13&#34;&gt;
+    &lt;img src=&#34;https://avatars2.githubusercontent.com/u/54203063?s=460&amp;v=4&#34; width=&#34;100px;&#34; alt=&#34;&#34;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;L N Saaswath&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;
+	&lt;/td&gt;
+	&lt;td align=&#34;center&#34;&gt;
+     &lt;a href=&#34;https://github.com/AtuL-KumaR-00&#34;&gt;
+    &lt;img src=&#34;https://avatars3.githubusercontent.com/u/64649440?s=460&amp;v=4&#34; width=&#34;100px;&#34; alt=&#34;&#34;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Atul Kumar&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;
+	&lt;/td&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Light Gun</title>
+      <link>https://hex-plex.github.io/project/light-gun/</link>
+      <pubDate>Thu, 02 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://hex-plex.github.io/project/light-gun/</guid>
+      <description>&lt;p&gt;Bored in the quarantine period, revisiting my old video games with light gun inspired an idea of light gun with a LCD display , I went on to build it mainly as a android package as it would be more accessable to anyone. Then ended up using a Raspberry Pi as a standalone device to enable it&amp;rsquo;s use accross many platforms and devices.&lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The Explanation for the working can be found in &lt;a href=&#34;https://github.com/hex-plex/Light-Gun/blob/master/EXPLANATION.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;EXPLANATION.md&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;glimpse&#34;&gt;Glimpse:&lt;/h2&gt;
+&lt;p&gt;This is the glimpse of the prototype made with Raspberry pi on a toy gun with all the number-munching done on the Raspberry and transmites messages to the local server through bluetooth. The previous method of running the proccessing and the actions is documented in &lt;strong&gt;Win-Py&lt;/strong&gt; directory.&lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/Light-Gun/master/images/Complete_setup.jpg&#34; width=&#34;370&#34; align=&#34;right&#34; border=&#34;20&#34;&gt;&lt;/img&gt;
+&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;p align=&#34;left&#34;&gt;This is a prototype of the light gun with a camera module attached onto a toy-gun and with a Raspberry pi 3 b+ (unneccessary I know) and a 7.4 V li-ion battery, regulated with a buck converter to which two switches are connected on the Raspi&#39;s interrupt pins.&lt;/p&gt;&lt;hr/&gt;
+&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/Light-Gun/master/images/display_setup.jpg&#34; width=&#34;370&#34; align=&#34;left&#34;&gt;&lt;/img&gt;
+&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
+This is the display setup with 4 IR-LEDs attached to the corners of the display which makes it very easy for detection in a wide range of lighting conditions.&lt;hr/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
+&lt;p&gt;And after Installation the main code using &lt;a href=&#34;https://github.com/hex-plex/Light-Gun/tree/master/Raspi-c&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Raspi&lt;/a&gt; version or &lt;a href=&#34;https://github.com/hex-plex/Light-Gun/tree/master/Win-py&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Local&lt;/a&gt; version, continue using it according to the guide lines for the same which is present in their respective folders itself.&lt;/p&gt;
+&lt;p&gt;The Modules then should create a virtual mouse and start following the edge vector of the camera module.
+The following is a demonstration of it in action&amp;hellip;. (😅 coming up shortly, as I am fixing few deviation errors.)&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://drive.google.com/file/d/1hIYBv8l2JCylOfQS9Cc5D5Hp50Ui55D-/view?usp=sharing&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Demo Link&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;contribution&#34;&gt;Contribution&lt;/h2&gt;
+&lt;p&gt;Any kind of Contribution is always welcomed. The rules for any Contribution for now is Non existent as I am the only one working on it and I have not really structurized the project so well as mostly in its prototyping stage, So its not possible to do a lot(Anyways feel free to report any errors or bugs 😄 ), Any Idea for a better implementation is also welcomed.&lt;/p&gt;
+&lt;h2 id=&#34;reference&#34;&gt;Reference:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;This is for getting R and t matrix  &lt;a href=&#34;https://www.learnopencv.com/head-pose-estimation-using-opencv-and-dlib/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;This is for adjusting focal length (approximation) &lt;a href=&#34;https://www.learnopencv.com/approximate-focal-length-for-webcams-and-cell-phone-cameras/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;This is for getting accurate intrensic matrix &lt;a href=&#34;https://www.learnopencv.com/camera-calibration-using-opencv/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Cmake&lt;/li&gt;
+&lt;li&gt;Bluez&lt;/li&gt;
+&lt;li&gt;Raspberry pi interupts&lt;/li&gt;
+&lt;li&gt;Asynchronous coding&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
