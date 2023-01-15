@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories | Somnath Kumar</title>
+    <link>https://hex-plex.github.io/categories/</link>
+      <atom:link href="https://viswesh-n.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <description>Categories</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Viswesh N `2024`</copyright><lastBuildDate>Sat, 17 Jul 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://viswesh-n.github.io/images/icon_hucffb9d42d7c693bd257413760c4b1fda_31806_512x512_fill_lanczos_center_2.png</url>
+      <title>Categories</title>
+      <link>https://viswesh-n.github.io/categories/</link>
+    </image>
+    
+  </channel>
+</rss>

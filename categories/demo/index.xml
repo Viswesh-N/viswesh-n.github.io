@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Demo on </title>
+    <link>/categories/demo/</link>
+    <description>Recent content in Demo on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 13 Dec 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/demo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Welcome to Wowchemy, the website builder for Hugo</title>
+      <link>/post/getting-started/</link>
+      <pubDate>Sun, 13 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/getting-started/</guid>
+      <description>Overview  The Wowchemy website builder for Hugo, along with its starter templates, is designed for professional creators, educators, and teams/organizations - although it can be used to create any kind of site The template can be modified and customised to suit your needs. It&amp;rsquo;s a good platform for anyone looking to take control of their data and online identity whilst having the convenience to start off with a no-code solution (write in Markdown and customize with YAML parameters) and having flexibility to later add even deeper personalization with HTML and CSS You can work with all your favourite tools and apps with hundreds of plugins and integrations to speed up your workflows, interact with your readers, and much more    The template is mobile first with a responsive design to ensure that your site looks stunning on every device.</description>
+    </item>
+    
+  </channel>
+</rss>
