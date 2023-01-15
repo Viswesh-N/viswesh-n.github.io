@@ -1,0 +1,957 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects | Somnath Kumar</title>
+    <link>https://hex-plex.github.io/project/</link>
+      <atom:link href="https://hex-plex.github.io/project/index.xml" rel="self" type="application/rss+xml" />
+    <description>Projects</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Somnath Sendhil Kumar `2023`</copyright><lastBuildDate>Thu, 03 Mar 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://hex-plex.github.io/images/icon_hucffb9d42d7c693bd257413760c4b1fda_31806_512x512_fill_lanczos_center_2.png</url>
+      <title>Projects</title>
+      <link>https://hex-plex.github.io/project/</link>
+    </image>
+    
+    <item>
+      <title>Black Box Model Extraction</title>
+      <link>https://hex-plex.github.io/project/model-extraction/</link>
+      <pubDate>Thu, 03 Mar 2022 00:00:00 +0000</pubDate>
+      <guid>https://hex-plex.github.io/project/model-extraction/</guid>
+      <description>&lt;p&gt;Please go through the slides linked above or watch through our presentation below.&lt;/p&gt;
+&lt;iframe src=&#34;https://drive.google.com/file/d/1l75HNPUfXPEQmIOUbBsiiD6kHIoHM8gi/preview?t=2823&amp;end=3080&#34; width=&#34;720&#34; height=&#34;405&#34; &gt;&lt;/iframe&gt;
+&lt;h2 id=&#34;end-to-end-approach&#34;&gt;End to End Approach&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/COPS-IITBHU/Model-Extraction-Attacks-Video-Classification/master/media/end_to_end.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ pip install vidmodex ## Stable version
+$ pip install git+https://github.com/hex-plex/Model-Extraction-Attacks-Video-Classification ## Latest development
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
+&lt;p&gt;Simple snippet explaining the usage :&lt;/p&gt;
+&lt;h3 id=&#34;blackbox-extraction&#34;&gt;BlackBox Extraction&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Black Box Victim: SwinT, Student: ViViT, Generator: Tgan
+
+from vidmodex.models import ViViT as Student
+from vidmodex.models import SwinT as Victim
+from vidmodex.generator import Tgan as Generator
+
+custom_config = {}
+custom_config[&amp;quot;num_classes&amp;quot;] = 400
+
+blackbox_main(custom_config)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;greybox-extraction&#34;&gt;GreyBox Extraction&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Grey Box Victim: SwinT, Student: ViViT, Generator: Tgan, Dataset: Kinetics 400
+
+from vidmodex.models import ViViT as Student
+from vidmodex.models import SwinT as Victim
+from vidmodex.generator import Tgan as Generator
+
+custom_config = {}
+custom_config[&amp;quot;csv_file&amp;quot;] = &amp;quot;ENTER-THE-LOCATION-OF-DATA-CSV&amp;quot;
+custom_config[&amp;quot;root_dir&amp;quot;] = &amp;quot;ENTER-THE-LOCATION-OF-DATA-ROOT&amp;quot;
+custom_config[&amp;quot;ucf_gan_weights&amp;quot;] = &amp;quot;ENTER-THE-LOCATION-OF-UCF-WEIGHTS&amp;quot; or &amp;quot;state_normal81000.ckpt&amp;quot;
+custom_config[&amp;quot;num_classes&amp;quot;] = 400
+
+greybox_main(custom_config)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;#1&#34;&gt;[1]&lt;/a&gt; &lt;strong&gt;ViViT: A Video Vision Transformer&lt;/strong&gt; [https://arxiv.org/abs/2103.15691] [cs.CV] 1 Nov 2021&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;#2&#34;&gt;[2]&lt;/a&gt; &lt;strong&gt;MoViNets: Mobile Video Networks for Efficient Video Recognition&lt;/strong&gt; [https://arxiv.org/abs/2103.11511] [cs.CV] 18 Apr 2021&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;#3&#34;&gt;[3]&lt;/a&gt; &lt;strong&gt;Swin Transformer: Hierarchical Vision Transformer using Shifted Windows&lt;/strong&gt; [https://arxiv.org/abs/2103.14030] [cs.CV] 17 Aug 2021&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;#4&#34;&gt;[4]&lt;/a&gt; &lt;strong&gt;Temporal Generative Adversarial Nets with Singular Value Clipping&lt;/strong&gt; [https://arxiv.org/abs/1611.06624] [cs.LG] 18 Aug 2017&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;#5&#34;&gt;[5]&lt;/a&gt; &lt;strong&gt;Data-Free Model Extraction&lt;/strong&gt; [https://arxiv.org/abs/2011.14779] [cs.LG] 31 Mar 2021&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;#6&#34;&gt;[6]&lt;/a&gt; &lt;strong&gt;MAZE: Data-Free Model Stealing Attack Using Zeroth-Order Gradient Estimation&lt;/strong&gt; [https://arxiv.org/abs/2005.03161] [stat.ML] 6 May 2020&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;#7&#34;&gt;[7]&lt;/a&gt; &lt;strong&gt;Robustness and Diversity Seeking Data-Free Knowledge Distillation&lt;/strong&gt; [https://arxiv.org/abs/2011.03749] [cs.LG] 10 Feb 2021&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Graph Neural Network for Communication in MARL</title>
+      <link>https://hex-plex.github.io/project/gnn-marl/</link>
+      <pubDate>Sun, 05 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://hex-plex.github.io/project/gnn-marl/</guid>
+      <description>&lt;p&gt;This is an implementation of Communication in MARL using Graph Neural Network. This is been trained and tested on &lt;a href=&#34;https://github.com/deepmind/pysc2&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;StarCraft II&lt;/a&gt;, And this has shown improved training and performance metrics throughout all the maps. I have implemented this on top of &lt;a href=&#34;https://github.com/oxwhirl/pymarl&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PyMARL&lt;/a&gt; for easier comparative study with respect to other algorithms or implementations like &lt;a href=&#34;https://github.com/uoe-agents/epymarl&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ePyMARL&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Currently we have the following algorithms for training.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://arxiv.org/abs/1803.11485&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;QMIX&lt;/strong&gt;: QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://arxiv.org/abs/1705.08926&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;COMA&lt;/strong&gt;: Counterfactual Multi-Agent Policy Gradients&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://arxiv.org/abs/1706.05296&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;VDN&lt;/strong&gt;: Value-Decomposition Networks For Cooperative Multi-Agent Learning&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://arxiv.org/abs/1511.08779&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;IQL&lt;/strong&gt;: Independent Q-Learning&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://arxiv.org/abs/1905.05408&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;QTRAN&lt;/strong&gt;: QTRAN: Learning to Factorize with Transformation for Cooperative Multi-Agent Reinforcement Learning&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For communication we have used to different Architecures&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://arxiv.org/abs/1609.02907&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;GConv&lt;/strong&gt;: Graph Convolutional Network&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://arxiv.org/abs/1710.10903&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;GAT&lt;/strong&gt;: Graph Attention Network&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;graph-neural-network&#34;&gt;Graph Neural Network.&lt;/h3&gt;
+&lt;p&gt;More Information about the architecture and the execution can be found at &lt;a href=&#34;https://hex-plex.github.io/project/gnn-marl/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MultiAgent GNN&lt;/a&gt;
+A brief outline would be as follows&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;gnn.png&#34; /&gt;
+&lt;i&gt;Pipeline for communication using Graph Neural Network&lt;/i&gt;
+&lt;/p&gt;
+&lt;p&gt;The implementation is written in PyTorch and uses a modified version of &lt;a href=&#34;https://github.com/oxwhirl/smac&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SMAC&lt;/a&gt; which could be found in &lt;a href=&#34;https://hex-plex.github.io/smac-py/&#34;&gt;smac-py&lt;/a&gt; to include the adjacency matrix as the observation more detail on it can be found &lt;a href=&#34;#adjacency-matrix&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;For a glimpse of the algorithm in action checkout the &lt;a href=&#34;#output&#34;&gt;&lt;strong&gt;Output&lt;/strong&gt;&lt;/a&gt; section&lt;/p&gt;
+&lt;h2 id=&#34;adjacency-matrix&#34;&gt;Adjacency Matrix&lt;/h2&gt;
+&lt;p&gt;An adjacency matrix simply represents the vertices of the graph. For the current problem we have used a few heuristics for joining two nodes with a vertex. They are as below&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Communication distance&lt;/strong&gt; : - Even though their is no restriction in communication having local communication improves cooperation in shared tasks&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Unit Type&lt;/strong&gt; : - Many task benefit from similar units perfoming certain part of the task than other other units cooperating with each other.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;output&#34;&gt;Output&lt;/h2&gt;
+&lt;p&gt;This is a demo output from the policy whose stats are given above
+&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/GNN-MARL/master/media/output.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;results&#34;&gt;Results&lt;/h2&gt;
+&lt;p&gt;Below are the training and test metric of the presented algorithm with &lt;strong&gt;QMIX&lt;/strong&gt; on map 2s3z. The study is limited to the number of experiments due to limitation in computation at the disposal. The presented algorithm does support parallel envs and boosting the process of training. This would be tested soon&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Train&lt;/th&gt;
+&lt;th&gt;&amp;ndash;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Battle win percentage&lt;/td&gt;
+&lt;td&gt;Average Return&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/GNN-MARL/master/media/train_battle_win_percentage.png&#34; alt=&#34;&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/GNN-MARL/master/media/train_return_mean.png&#34; alt=&#34;&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Test&lt;/th&gt;
+&lt;th&gt;&amp;ndash;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Battle win percentage&lt;/td&gt;
+&lt;td&gt;Average Return&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/GNN-MARL/master/media/test_battle_win_percentage.png&#34; alt=&#34;&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/GNN-MARL/master/media/test_return_mean.png&#34; alt=&#34;&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MultiAgent Full coverage</title>
+      <link>https://hex-plex.github.io/project/multi-agent-coverage/</link>
+      <pubDate>Tue, 16 Nov 2021 00:00:00 +0000</pubDate>
+      <guid>https://hex-plex.github.io/project/multi-agent-coverage/</guid>
+      <description>&lt;p&gt;The main objective of this project was to make and efficient multi-agent algorithm for cleaning an unknown terrain, for which we built &lt;a href=&#34;https://github.com/hex-plex/Vox-Bot&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&amp;ldquo;Vox-Bot&amp;rdquo;&lt;/a&gt; a ROS package for multi robot platform, A full description about VoxBot can be found here &lt;a href=&#34;#desciption&#34;&gt;Description&lt;/a&gt;. This is our solution submitted for AIITRA robotics challenge 2021, where we &lt;strong&gt;secured second position&lt;/strong&gt; among all other IIT s and prestigious colleges of India.&lt;/p&gt;
+&lt;h2 id=&#34;description&#34;&gt;Description&lt;/h2&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/Vox-Bot/master/media/vox-bot-description.png&#34;/&gt;
+&lt;i&gt;An CAD design of the the Vox-Bot&lt;/i&gt;
+&lt;/p&gt;
+&lt;p&gt;Vox Bot is an 4 wheeled robot with omni wheels for maximum agility and mobility. The main purpose of the robot is to vacumm cleaner autonomously in unknown terrain.
+It houses a lidar for mapping and a SBC for all computational needs, with one high power brushless motor for vacumm generation and 4 brushed motors for exhausts.&lt;/p&gt;
+&lt;p&gt;For the Vacumm system we have done multiple studies for the airflow which can be found here &lt;a href=&#34;#airflowstudy&#34;&gt;Airflow&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Below we explain our solution for the Problem statement&lt;/p&gt;
+&lt;h2 id=&#34;pipeline&#34;&gt;Pipeline&lt;/h2&gt;
+&lt;p&gt;We have modified the Vanilla navigation stack offered in move base ROS. We have used movebase flex for implementing the below architecture of below navigation stack.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/Vox-Bot/master/media/pipeline.png&#34;/&gt;
+&lt;i&gt;Complete Pipeline of our solution&lt;/i&gt;
+&lt;/p&gt;
+&lt;p&gt;we have used &lt;a href=&#34;http://wiki.ros.org/multirobot_map_merge&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;multirobot_map_merge&lt;/a&gt; with &lt;a href=&#34;http://wiki.ros.org/rrt_exploration&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;rrt exploration&lt;/a&gt; for mapping the environment.&lt;/p&gt;
+&lt;p&gt;We have used &lt;a href=&#34;https://github.com/ethz-asl/polygon_coverage_planning&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;polygon_planner&lt;/a&gt; for planning the boustrophedon path.&lt;/p&gt;
+&lt;p&gt;The rest is custom implemented with fortuners algorithm used for computing voronoi diagram. More detail can be found in our proposal &lt;a href=&#34;https://drive.google.com/file/d/1JusOGQFmkjaVjfD4kQLPCjKfHKlH5u1N/preview&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PDF&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Below are a brief result that is not present in the proposal&lt;/p&gt;
+&lt;h3 id=&#34;mapping&#34;&gt;Mapping&lt;/h3&gt;
+&lt;p&gt;We have use RRT exploration instead of simple frontier exploration which made it very efficient&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/Vox-Bot/master/media/mapping_time.png&#34;/&gt;
+&lt;i&gt;Comparision of number of bots and time to explore&lt;/i&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;optimal-coverage&#34;&gt;Optimal coverage&lt;/h3&gt;
+&lt;p&gt;we have used voronoi diagram and weighted centroid algorithm for distributing the task between individual robots, more detail about it can be found in the &lt;a href=&#34;https://drive.google.com/file/d/1JusOGQFmkjaVjfD4kQLPCjKfHKlH5u1N/preview&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Proposal&lt;/a&gt;.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/Vox-Bot/master/media/voronoi.png&#34;/&gt;
+&lt;p&gt;&lt;i&gt;Generating voronoi diagram using Fortners algorithm&lt;/i&gt;&lt;/p&gt;
+&lt;/p&gt;
+&lt;p&gt;We then iterate using weighted center algorithm for calculating the desired voronoi cells and the positions of each agent.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;http://muro.ucsd.edu/img/WCFlowChart.png&#34;/&gt;
+&lt;i&gt;Weighted center Algorithm&lt;/i&gt;
+&lt;/p&gt;
+&lt;p&gt;Gives a result as such&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/Vox-Bot/master/media/optimal_coverage.gif&#34;/&gt;
+&lt;i&gt;Robots computing the path and optimal voronoi cell&lt;/i&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;boustrophoedn-path&#34;&gt;Boustrophoedn path&lt;/h3&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/Vox-Bot/master/media/bpath1.png&#34;/&gt;
+&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;i&gt;Path distribution for arena 1&lt;/i&gt;
+&lt;/p&gt;
+&lt;hr/&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/Vox-Bot/master/media/bpath2.png&#34;/&gt; 
+&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;i&gt;Path distribution for arean 2&lt;/i&gt;
+&lt;/p&gt;
+&lt;p&gt;Generating boustrophoden path for the polygon given by the voronoi diagram the robot resides on.&lt;/p&gt;
+&lt;h2 id=&#34;airflow-study&#34;&gt;Airflow study&lt;/h2&gt;
+&lt;p&gt;The vacuum of the bot works on the principle of the lower fan creating pressure difference to suck in air while the exhaust pushes out the air from the above compartment for efficient vacuum generation.&lt;br&gt;
+The fan has been placed low for efficient cleaning, with a ground clearance measuring approximately less than half of the wheel radius.&lt;/p&gt;
+&lt;p&gt;Analysis of the vacuum mechanism was done using the SolidWorks Flow Simulation tool to get outputs about the kind of behavior shown by our vacuum during actual implementation.&lt;/p&gt;
+&lt;p&gt;The simulation required us to cover our rotating regions with circular bounded bodies to define the rotation boundary. We also defined the inlet and the outlet velocities as 0.6m/s and 0.15m/s below the bot and at the exhausts respectively. As the simulation was an internal one, the image only shows the flow inside our bot but the fact is quite evident through the trajectory of the arrows that in real-world scenarios, vox would certainly be an efficient vacuum design.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/Vox-Bot/master/media/airflow-study.png&#34;/&gt;
+&lt;i&gt;Hypothetical system of the Robot for full suction power&lt;/i&gt;
+&lt;/p&gt;
+&lt;hr/&gt;
+&lt;p&gt;The zoomed-in image of the flow clearly depicts that our exhausts are also working efficiently during closed space tests as the simulation required us to close the lower open space of our bot with a lid. The fans are generating the expected and the required flows quite efficiently.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/Vox-Bot/master/media/airflow-closeup.png&#34;/&gt;
+&lt;i&gt;Airflow inside the central chamber&lt;/i&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;team&#34;&gt;Team&lt;/h2&gt;
+&lt;table&gt;
+ &lt;td align=&#34;center&#34;&gt;
+     &lt;a href=&#34;https://github.com/hex-plex&#34;&gt;
+    &lt;img src=&#34;https://avatars0.githubusercontent.com/u/56990337?s=460&amp;v=4&#34; width=&#34;100px;&#34; alt=&#34;&#34;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Somnath Sendhil Kumar &lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;
+    &lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;
+     &lt;a href=&#34;https://github.com/GeneralVader&#34;&gt;
+    &lt;img src=&#34;https://avatars.githubusercontent.com/u/77744383?s=460&amp;v=4&#34; width=&#34;100px;&#34; alt=&#34;&#34;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Varad Vinayak pandey&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;
+	&lt;/td&gt;
+    &lt;td align=&#34;center&#34;&gt;
+     &lt;a href=&#34;https://github.com/Srini-Rohan&#34;&gt;
+    &lt;img src=&#34;https://avatars.githubusercontent.com/u/76437900?s=460&amp;v=4&#34; width=&#34;100px;&#34; alt=&#34;&#34;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Gujulla Leel Srini Rohan&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;
+	&lt;/td&gt;
+	&lt;td align=&#34;center&#34;&gt;
+     &lt;a href=&#34;https://github.com/jsparrow08&#34;&gt;
+    &lt;img src=&#34;https://avatars.githubusercontent.com/u/77740824?s=460&amp;v=4&#34; width=&#34;100px;&#34; alt=&#34;&#34;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Utkrisht Singh&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;
+	&lt;/td&gt;
+	&lt;td align=&#34;center&#34;&gt;
+     &lt;a href=&#34;https://github.com/phoenixrider12&#34;&gt;
+    &lt;img src=&#34;https://avatars.githubusercontent.com/u/76533398?s=460&amp;v=4&#34; width=&#34;100px;&#34; alt=&#34;&#34;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Aryaman Gupta&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;
+	&lt;/td&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>NanoDrone RL Aided MPC</title>
+      <link>https://hex-plex.github.io/project/nanodrone-rlampc/</link>
+      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>https://hex-plex.github.io/project/nanodrone-rlampc/</guid>
+      <description>&lt;h2 id=&#34;modding-the-hardware-platform&#34;&gt;Modding the hardware platform&lt;/h2&gt;
+&lt;p&gt;With a simple a simple RC drone with modified &lt;a href=&#34;https://github.com/betaflight/betaflight&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;BetaFlight&lt;/a&gt; Firmware to allow mavlink communication and a external companion PC such as Banana pi zero m2 we plan to deploy swarm of these drones in to real world problems.&lt;/p&gt;
+&lt;p&gt;Our Major targets were,&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Visual odometry&lt;/li&gt;
+&lt;li&gt;Optimal Controller for tracing trajectory&lt;/li&gt;
+&lt;li&gt;Trajectory optimization for multi agent systems.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;We have been able to answer 2 of the above.&lt;/p&gt;
+&lt;h3 id=&#34;visual-odometry&#34;&gt;Visual odometry&lt;/h3&gt;
+&lt;p&gt;We have been able to modify the &lt;a href=&#34;http://wiki.ros.org/viso2_ros&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Viso2ROS&lt;/a&gt; to run with a less number of feature points and with reduced map foot print for easier localization with help of few apriltags, for global coordinates and not using the whole map.
+We also to utilize the MALI GPU of the onboard computer compiled opencv with OpenCL to get a slightly better performance in the framerate of the localization. There is not much more novelty introduced from our end.&lt;/p&gt;
+&lt;h3 id=&#34;optimal-controller---rl-aided-mpc&#34;&gt;Optimal controller - RL Aided MPC&lt;/h3&gt;
+&lt;p&gt;With limited computation, running an onboard MPC with non-linear Dynamics will fail to provide responsive control. Another Famous approach is RL-based controllers, where the feedback is a learned approximation of an expert demonstration from something like an MPC. But these policies are many layers deep and make it difficult to run in constrained hardware. Shallower policies tend to approximate the dynamics a lot and learn a sub-optimal policy that fails to work in many scenarios that are not desirable in multi-agent systems.&lt;/p&gt;
+&lt;p&gt;Hence I propose use of a small RL policies output as the hot solution to the MPC. Conceptually its a very simple task but this requires a responsive pipeline for being able to execute at a desired Rate. Below is our pipeline in Simulation and in Hardware.&lt;/p&gt;
+&lt;img src=&#34;pipeline.png&#34;/&gt;
+&lt;p&gt;I have used the &lt;a href=&#34;https://github.com/utiasDSL/gym-pybullet-drones&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;gym-pybullet-drones&lt;/a&gt;, as the base environment for our drone. We have imported our designs into the environment, Along with parameters for the drone like Air Drag coefficients.&lt;/p&gt;
+&lt;p&gt;For the MPC I have used the mpc.pytorch library from locuslab. As this uses pytorch backend for computation and optimization. This increased the efficiency and drastically decreased train time from 2 hrs to 45 mins.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;mpc_pytorch.png&#34;/&gt;
+&lt;/p&gt;
+&lt;p&gt;For the training I implemented a simple 3 layer deep policy implemented using Pytorch and I used simple Policy Gradient algorithm, I trained using Ray Library with multiple workers while extending the dimension of the control of the MPC for optimizing the Training Loop.&lt;/p&gt;
+&lt;p&gt;We have tried using both the linear and the non-linear dynamics of the MPC, we resorted on using the linear dynamics along with RL for better deployment keeping the hardware limitation in mind&lt;/p&gt;
+&lt;h4 id=&#34;reward&#34;&gt;Reward&lt;/h4&gt;
+&lt;p&gt;We have used a simple curriculum of running the RL based estimations of the optimal force values for each properllers.
+As a low level PID controller is running for maintaining the altitude altitude, our main goal was to learn the force value estimation directly from a expert policy like the mpc, and later we could work on how the RL algorithm would optimize hot solutions than estimating better optimal control inputs. This is a key difference as here it would not have to model higher non-linearity of the horizon while optimizing the hot solution to the MPC.&lt;/p&gt;
+&lt;p&gt;Later in the curriculum we add and extra term for decreasing the number of iterations taken to converge by an MPC. This reward is given from the MPC node and is just taken along side the state reward given from the environment.&lt;/p&gt;
+&lt;p&gt;Hence our net Reward is as follows&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.codecogs.com/eqnedit.php?latex=\dpi{150}&amp;space;\bg_white&amp;space;\large&amp;space;R&amp;space;=&amp;space;\alpha_1|\ddot{x}|&amp;space;&amp;plus;&amp;space;\alpha_2|x-x_{des}|&amp;space;&amp;plus;&amp;space;\alpha_3|u|&amp;space;&amp;plus;&amp;space;\alpha_4\omega^2&amp;space;&amp;plus;\alpha_5(\dot{x}-\dot{x}_{des})^2&amp;space;&amp;plus;&amp;space;\kappa&amp;space;t_{conv}&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://latex.codecogs.com/png.latex?\dpi{150}&amp;space;\bg_white&amp;space;\large&amp;space;R&amp;space;=&amp;space;\alpha_1|\ddot{x}|&amp;space;&amp;plus;&amp;space;\alpha_2|x-x_{des}|&amp;space;&amp;plus;&amp;space;\alpha_3|u|&amp;space;&amp;plus;&amp;space;\alpha_4\omega^2&amp;space;&amp;plus;\alpha_5(\dot{x}-\dot{x}_{des})^2&amp;space;&amp;plus;&amp;space;\kappa&amp;space;t_{conv}&#34; title=&#34;\large R = \alpha_1|\ddot{x}| + \alpha_2|x-x_{des}| + \alpha_3|u| + \alpha_4\omega^2 +\alpha_5(\dot{x}-\dot{x}_{des})^2 + \kappa t_{conv}&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;results&#34;&gt;Results&lt;/h4&gt;
+&lt;p&gt;After training for 8000 episodes we reach a decent point with high enough reward and good amount of speculation to use our Policy with current Architecture. Below is the demonstration of the robot trying to trace a figure 8 using the current Control architecture.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;Drone_RLAMPC.gif&#34;/&gt;&lt;i&gt;tracing the figure 8 while running at 70 Hz&lt;/i&gt;
+&lt;/p&gt;
+&lt;p&gt;As it can be seen this is able to trace the given trajectory. Below is the example of the Optimization the MPC provides over the RL Estimations&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;RL_estimated.png&#34;/&gt;
+&lt;i&gt;Policy Estimations for significant angles of Rolls and Pitches&lt;/i&gt;
+&lt;img src=&#34;MPC_optimized.png&#34;/&gt;
+&lt;i&gt;MPC based optimization reducing the Unsafe values of the Thrusts for smoother long horizon performance&lt;/i&gt;
+&lt;/p&gt;
+&lt;p&gt;A more analytic study shows the improvement in performance by the need of steps to converge the optimization and the rate of diverge or failure in optimizing the policy within the limit.&lt;/p&gt;
+&lt;img src=&#34;mpc_conv.png&#34;/&gt;  
+&lt;p&gt;For feasible run time of the MPC we use a threshold of optimal 5 iterations and maximum of 10 iterations would allow use to run the Pipeline on our desired system. Here we are optimizing the trajectories within a certain amount of cost which are experimented for suiting both performance and efficiency.&lt;/p&gt;
+&lt;p&gt;As can be seen from the curve performance of Pipeline increases continuing to train it further hence a proportional correlation confirms the proof of concept.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;mpc_fail.png&#34; align=&#34;left&#34; width=&#34;60%&#34; style=&#34;padding-right: 20px&#34;/&gt;&lt;img src=&#34;mpc_fail_log.png&#34; align=&#34;right&#34; width=&#34;60%&#34; style=&#34;padding-left: 10px&#34;/&gt;
+&lt;/p&gt;
+&lt;p&gt;The second metrics we are using the rate of failures in either not being able to find a solution or not converging before the 10 iterations threshold, as we have used the approximated linear dynamics of the Drone we are entitled to diverge in prediction of the future states and hence give an sub optimal response, We see this is also improved with the current architecture and is able to robustly work in a bigger configuration space.&lt;/p&gt;
+&lt;p&gt;Given the improvement of the performance against only MPC based control makes it a very good fit for our application. Currently hardware code structured would have to finalized as we would have to make utilize most of all the onboard computation for both the RL policy forward propagation and the MPC optimization. Hence we are working on modifing &lt;a href=&#34;https://github.com/ethz-asl/mav_control_rw&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Mav_Control_RW&lt;/a&gt; for our needs to use a betaflight firmware as the lowlevel controller and communicated through MavLink.&lt;/p&gt;
+&lt;h2 id=&#34;future-works&#34;&gt;Future works&lt;/h2&gt;
+&lt;p&gt;We are currently working on implementing the hardware pipline for feasible hardware results. And constantly estimating optimal parameters to run the pipe line with.&lt;/p&gt;
+&lt;p&gt;As Specified in the start of the post we are also trying to solve the problem of trajectory optimization of Multi-Agent systems for which we would be more than happy to collaborate or hear from you.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Mini Swarm Bot</title>
+      <link>https://hex-plex.github.io/project/dot-bot/</link>
+      <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://hex-plex.github.io/project/dot-bot/</guid>
+      <description>&lt;p&gt;This is fully ROS integrated robot, which can be used in various purposes our main use case was to test out multiagent algorithms. We used it to take part in the national level competition, FlipKart Grid 3.0 Robotics challenge 2021.&lt;/p&gt;
+&lt;p&gt;I have worked on building the platform and the integrating ROS with the following robot. The localization was done using a Apriltag_ros and a array of cameras. Also worked on implementing autonomously navigating in the environment and computing the optimal path while considering other robots in the arena.&lt;/p&gt;
+&lt;p&gt;The complete package including the controller and the planner can be found at &lt;a href=&#34;https://github.com/Robotics-Club-IIT-BHU/Dot-Bot&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Dot-Bot&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;robot-control&#34;&gt;Robot control&lt;/h2&gt;
+&lt;p&gt;The robots control architecture is a state-of-the-art implementation using a microprocessor and a microcontroller along with sensor fusion for position estimation with external cameras for deteciton of apriltags that denote the robot.&lt;/p&gt;
+&lt;p&gt;The exact control architecture is briefly given in the below image which later is elaborated in 3 bulletin points&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;dotbot_control.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Communication: Communication between the robot and the remote PC is done through &lt;a href=&#34;http://wiki.ros.org/ROS/Tutorials/MultipleMachines&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Networking of multiple machines&lt;/a&gt;. The communication between the microprocessor and the Microcontroller is done through UART at a baudrate of 2000000.&lt;/li&gt;
+&lt;li&gt;Pose Estimation: Pose estimation is done through using Encoder and Imu fusion for odometry(i.e., odom to base frame). Then we use and external camera for ground truth (i.e., map to base frame).&lt;/li&gt;
+&lt;li&gt;Controller: We have used a simple velocity based 3 wheel omni drive to control the robot. The omni drive node works at 100 hz on the raspberrypi and the micro controller controls individual motors to trace the given velocity this made it very easy to transfer from the simulation to real world.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The whole implementation of the control architecture can be found at &lt;a href=&#34;https://github.com/Robotics-Club-IIT-BHU/Swarm-Bot-Hardware&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Swarm-bot-hardware&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;simulation&#34;&gt;Simulation&lt;/h2&gt;
+&lt;p&gt;We have setup the whole simulation for these robots as we have modelled the real robot. We have also added the 2DOF droppers that can be seen on top of each robot.&lt;/p&gt;
+&lt;p&gt;We have setup Rviz to visualize the robots both in simulation and hardware.
+&lt;img src=&#34;gazebo.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;i&gt;An demo of the robot in gazebo&lt;/i&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;flipkart-grid-challenge&#34;&gt;Flipkart grid Challenge&lt;/h2&gt;
+&lt;p&gt;The main task was to drop packages using the most optimal path, We had used &lt;a href=&#34;https://github.com/PathPlanning/Continuous-CBS&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CBS&lt;/a&gt; with minor changes to best suite our problem statement. We also used &lt;a href=&#34;https://github.com/nobleo/tracking_pid&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Tracking PID&lt;/a&gt; for tracing these trajectories and making it more general and robust to be used with other algorithms and systems.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;arena.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;i&gt;Example of the arena in which it drops the package&lt;/i&gt;
+&lt;/p&gt;
+&lt;p&gt;The robot is now a developmental platform for other multiagent research at Indian Institute of Technology, Varanasi
+The robot is now about to have minor upgrades for it be used in a more real world use case by addition of lidars and better on board computation.&lt;/p&gt;
+&lt;p&gt;A preliminary result of the path planning algorithm with package dropping can be seen below.&lt;/p&gt;
+&lt;iframe src=&#34;https://drive.google.com/file/d/1NhuapFy1Y12LVFoKoIaRP3BYm-ReoEHW/preview&#34; width=&#34;700&#34; height=&#34;500&#34;/&gt;</description>
+    </item>
+    
+    <item>
+      <title>Optimal control and trajectory optimization for Quadruped</title>
+      <link>https://hex-plex.github.io/project/optimal-control_quadruped/</link>
+      <pubDate>Sat, 03 Jul 2021 00:00:00 +0000</pubDate>
+      <guid>https://hex-plex.github.io/project/optimal-control_quadruped/</guid>
+      <description>&lt;p&gt;This post is a collection of Optimal Control algorithm that I either implemented or Integrated with the quadruped &amp;lsquo;Stochlite&amp;rsquo; at Stochlab, IISc. These are implemented in ROS so that we can deploy them directly on the hardware. My major contribution was to integrate these well established optimal control algorithms with the ROS framework of the Quadruped.&lt;/p&gt;
+&lt;p&gt;Majority of the Optimal control do not have significant difference in performance in Hardware as I was unable to test them in many scenarios through the simulators.&lt;/p&gt;
+&lt;h2 id=&#34;model-predictive-control&#34;&gt;Model Predictive Control&lt;/h2&gt;
+&lt;p&gt;Inspired from &lt;a href=&#34;#1&#34;&gt;[1]&lt;/a&gt; implemented the convex mpc for the quadruped. along with &lt;a href=&#34;#2&#34;&gt;[2]&lt;/a&gt; a whole body impulse Controller which will help to trace the estimated foot forces estimated from the Controller. While the MPC uses an approximate Linear model of the quadruped. The whole body impulse controller considers the Floating base dynamics of the robot, while the MPC uses the Single Rigid body Dynamics. I also implemented a modified version of the State Estimator for the quadruped need for the Algorithms&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;stochlite_mpc.gif&#34;/&gt;
+&lt;i&gt;Estimated Foot forces from the MPC&lt;/i&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;output&#34;&gt;Output&lt;/h3&gt;
+&lt;p&gt;Below are a few clips where the MPC stablizes the torso and attains a&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;stochlite_convmpc_hill.gif&#34;/&gt;
+&lt;i&gt;Using the MPC on the Hilly terrain, with no prior knowledge of the terrain&lt;/i&gt;
+&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;stochlite_convmpc_rough.gif&#34;/&gt;
+&lt;i&gt;Using the MPC and WBiC on Rough terrain, with no prior knowledge of the terrain&lt;/i&gt;
+&lt;/p&gt;
+&lt;p&gt;As it can be seen from the above output the quadruped stablizes itself instantaniously as it has no prior knowledge like an heightmap of the world.&lt;/p&gt;
+&lt;h2 id=&#34;trajectory-optimization&#34;&gt;Trajectory optimization&lt;/h2&gt;
+&lt;p&gt;We have used TOWR&lt;a href=&#34;#3&#34;&gt;[3]&lt;/a&gt; for trajectory optimization, Below is the output from the towr gui, for the quadruped.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;stochlite_towr.gif&#34;/&gt;
+&lt;i&gt;Stochlite in TOWR&lt;/i&gt;
+&lt;/p&gt;
+&lt;p&gt;As seen in the above output towr is able to produce feasible trajectories of foot positions and forces for the quadruped in differnt terrains.&lt;/p&gt;
+&lt;p&gt;Integrating towr would require a heightmap of the world which would need an online 3D Mapping of the world using a depth camera which currently was not available on the platform hence limiting the developing towards it.&lt;/p&gt;
+&lt;p&gt;But later I integrate towr, only for Flat ground and ran it at 4 Hz for updating the optimal foot positions. As the rate is too slow and the difference between the state at the start of the optimization and current would be drastically different, I implemented towr to run parallely with estimation of the current state of the robot based on the control input of the previous optimized solution and the dynamics model of the robot solved to fetch the state at a future timestep.&lt;/p&gt;
+&lt;h2 id=&#34;reinforcement-learning&#34;&gt;Reinforcement Learning&lt;/h2&gt;
+&lt;p&gt;We are further working towards improving the performance of these algorithm by using Reinforcement Learning with formulations to work along side these algorithms and also in tandom with these algorithm.&lt;/p&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;p&gt;&lt;a id=&#34;1&#34;&gt;[1]&lt;/a&gt;&lt;strong&gt;Dynamic Locomotion in the MIT Cheetah 3 Through Convex Model-Predictive Control&lt;/strong&gt;, DOI: 10.1109/IROS.2018.8594448, Jared Di Carlo, Patrick Wensing, Benjamin Katz, Sangbae Kim&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;2&#34;&gt;[2]&lt;/a&gt;&lt;strong&gt;Highly Dynamic Quadruped Locomotion via Whole-Body Impulse Control and Model Predictive Control&lt;/strong&gt;, Donghyun Kim, Jared Di Carlo, Benjamin Katz, Gerado Bledt, Sangbae Kim&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;3&#34;&gt;[3]&lt;/a&gt;&lt;strong&gt;Gait and Trajectory Optimization for Legged Systems Through Phase-Based End-Effector Parameterization&lt;/strong&gt;, Alexander W. Winkler, C. Dario Bellicoso, Marco Hutter, jonas Buchli&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Hierarchical Reinforcement Learning for Swarm of Modular Bot</title>
+      <link>https://hex-plex.github.io/project/modularbot_planner/</link>
+      <pubDate>Mon, 05 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://hex-plex.github.io/project/modularbot_planner/</guid>
+      <description>&lt;p&gt;This is my research project at &lt;a href=&#34;https://robotics-club-iit-bhu.github.io/RoboReG/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;RoBoReg&lt;/a&gt;, on which I have been working for over a year till date since November 2020.&lt;/p&gt;
+&lt;h2 id=&#34;abstract&#34;&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;Abstraction of policy for Multi Agent to generalize the Swarm Behaviour. Allowing easy scaling up and robustness in task. Learning heirarchially optimal policy facilitates meta learning for multi agent setup, resulting in easier learning another task for the swarm. This saves a lot of train time as the policy takes major ammount of time to learn the complex interaction of these individual agents with each other and the environment. As the distribution of the model for these interaction doesnt tend to change drastically between tasks.&lt;/p&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;The testing has been done on a custom robot platform named iOTA. Which is a simple 4 Wheel drive on both top and bottom plates and hypotetically capable of docking(All tests are simulations with constraints added by simulator, this is done to reduce the complexity of physics).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/Robotics-Club-IIT-BHU/gym-iOTA/master/media/bRoll.gif&#34; width=&#34;47%&#34; align=&#34;left&#34;/&gt;&lt;img src=&#34;ModularDock.png&#34; width=&#34;52%&#34; align=&#34;right&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;The whole setup is simulated in PyBullet, and we have made a simple env for our experimental testbed &lt;a href=&#34;https://github.com/Robotics-Club-IIT-BHU/gym-iOTA&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;gym-iOTA&lt;/code&gt;&lt;/a&gt;. There has been on a simpler 2D version of the Env for easier training and debuggin for representation learning of the environment &lt;a href=&#34;https://github.com/hex-plex/gym-iOTA_2D&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;gym-iOTA_2D&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;pipeline&#34;&gt;Pipeline&lt;/h2&gt;
+&lt;img src=&#34;ModularBot.png&#34;/&gt;
+&lt;p&gt;Here we have used multiple classical algorithms with learnt methods.
+The main parts in the algorithm is.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Localization&lt;/li&gt;
+&lt;li&gt;Clusterring&lt;/li&gt;
+&lt;li&gt;High Level Planning using Policy&lt;/li&gt;
+&lt;li&gt;Obstacle Avoidance&lt;/li&gt;
+&lt;li&gt;Control&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;localization&#34;&gt;Localization&lt;/h3&gt;
+&lt;p&gt;Localization is done using detection from multiple cameras, and averaging the position and pose as the estimates where better than just one camera. Then this pose is infused with odometry and imu using an &lt;strong&gt;Extended Kalman filter&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;detection.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;clustering&#34;&gt;Clustering&lt;/h3&gt;
+&lt;p&gt;The clustering is done using &lt;strong&gt;Kmeans clusters&lt;/strong&gt;, The main use of clustering is to divide the Swarm into smaller parts for being able to learn quicker while decreasing the complexity of observation. And also making meaningful interactions as the agent is barely affected by an agent outside it&amp;rsquo;s cluster.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;cluster.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;high-level-planning&#34;&gt;High Level Planning&lt;/h3&gt;
+&lt;p&gt;The high level planning here refers to estimate goal position of the robot complete a certain task. The high level planning is done using Two policies, The first policy Works on individual cluster estimating parameters of an polygon, while the next estimates the distribution over the polygon and then sampling points off the distribution is taken as the target point for the robot for one action step.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;heirPolicy.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;As it can be seen one policy is under the heirarchy of the other policy and as policy $\pi_1$ is updated less frequently compared to $\pi_2$ The return will not be the same for every action taken by $\pi_1$. &lt;strong&gt;Hierarchical Reinforcement Learning&lt;/strong&gt; is much suited in this &lt;strong&gt;Semi-Markov Decision Process&lt;/strong&gt; over traditional Reinforcement Learning.
+This also allows to learn a heirarchically optimal policy that will facilitates meta learning to different tasks.&lt;/p&gt;
+&lt;p&gt;The equation for update for the two policies are given by the following.
+$$ \pi_i = \pi_i + \alpha*\delta_i $$
+$$ \delta_1 = V(s_{t-1}) + \gamma*R_{t} + &amp;hellip; + \gamma^{\tau+1}*R_{t+\tau} - V(s_{t+\tau})$$
+$$ \delta_2 = V(s_{t-1}) + \gamma*R_t - V(s_{t})$$&lt;/p&gt;
+&lt;p&gt;Here $\tau$ is the number of time steps $\pi_2$ steps between consecutive steps of $\pi_1$&lt;/p&gt;
+&lt;p&gt;The final output of both combined is.
+&lt;img src=&#34;probability_distribution.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Where the estimated polygon is seen in green, and the distribution is seen in orange. And the sampled point is seen in red.&lt;/p&gt;
+&lt;h3 id=&#34;obstacle-avoidance&#34;&gt;Obstacle Avoidance&lt;/h3&gt;
+&lt;p&gt;After the action is taken the main task is to find a path to the target position without colliding into one another. This is done using &lt;strong&gt;Potential Field Planning&lt;/strong&gt;, this was the simplest algorithm for path planning that we could use in pybullet. This could easily be replaced by the nav stack in ROS.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;potentialField.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;control&#34;&gt;Control&lt;/h3&gt;
+&lt;p&gt;This was done using simple PD control of a 4WD, Later the docking was done using &lt;strong&gt;Fixed Constraints in simulator&lt;/strong&gt; than actuallying designing and simulating a docking mechanism. While our main goal was to work on it when we would work on the hardware. The working wheels switch when the robot is flipped which is sensed using an IMU.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;docking.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;limitation&#34;&gt;Limitation&lt;/h2&gt;
+&lt;p&gt;After Enumerous reiteration on code, and brainstroming of ideas the project only received limited success. The project was a continual part of learning and implementation of year long journey. There are a few points of failure in the current architecture that I would like to point out.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Insufficient Observation&lt;/strong&gt; :- The observation for individual agent is complex for a policy \pi_2 to learn, and the representation of the cluster is done with insufficient features to policy \pi_1.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Constrained Action Space&lt;/strong&gt; :- The current action space for both the policy are rather no encouraging to move away from the cluster or move towards a specific direction to complete the task. The architecture for the highlevel planning must be improved to allow motion in and out the cluster.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Bugs in the Environment&lt;/strong&gt; :- The potential field algorithm is notourious for its suboptimal or worse infinite loops at corner cases for given parameters. The control is a bare minimum position control using PD and doesnt model the highly complex and dynamic System, hence the interaction of these robots in tightly packed regions are very bad as they are unable to trace the given trajectories. This is mainly true once the robots are docked.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Apart from these the robot platform, as well as the codebase are robust and modular hence can be used in other applications and in future iterations of the project. This project is result of hardwork of its contributors.&lt;/p&gt;
+&lt;h2 id=&#34;contributors&#34;&gt;Contributors&lt;/h2&gt;
+&lt;table&gt;
+  &lt;tr&gt;
+  &lt;td align=&#34;center&#34;&gt;
+     &lt;a href=&#34;https://github.com/hex-plex&#34;&gt;
+    &lt;img src=&#34;https://avatars0.githubusercontent.com/u/56990337?s=460&amp;v=4&#34; width=&#34;100px;&#34; alt=&#34;&#34;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Somnath Sendhil Kumar &lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;
+    &lt;/td&gt;
+    &lt;td align=&#34;center&#34;&gt;
+     &lt;a href=&#34;https://github.com/surabhit-08&#34;&gt;
+    &lt;img src=&#34;https://avatars3.githubusercontent.com/u/62366465?s=460&amp;v=4&#34; width=&#34;100px;&#34; alt=&#34;&#34;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Surabhit Gupta&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;
+	&lt;/td&gt;
+	&lt;td align=&#34;center&#34;&gt;
+     &lt;a href=&#34;https://github.com/rtharungowda&#34;&gt;
+    &lt;img src=&#34;https://avatars1.githubusercontent.com/u/55887709?s=460&amp;v=4&#34; width=&#34;100px;&#34; alt=&#34;&#34;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;R Tharun Gowda&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;
+	&lt;/td&gt;
+	&lt;td align=&#34;center&#34;&gt;
+     &lt;a href=&#34;https://github.com/Kritika-Bansal&#34;&gt;
+    &lt;img src=&#34;https://avatars2.githubusercontent.com/u/57754061?s=460&amp;v=4&#34; width=&#34;100px;&#34; alt=&#34;&#34;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Kritika Bansal&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;
+	&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+  &lt;td&gt;&lt;sub&gt;Lead,Reinforcement Learning&lt;/sub&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;sub&gt;Hardware Design&lt;/sub&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;sub&gt;Clustering&lt;/sub&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;sub&gt;Path Planning&lt;/sub&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Gait-Occlusion-Reconstrution</title>
+      <link>https://hex-plex.github.io/project/gait-occlusion-gan/</link>
+      <pubDate>Fri, 05 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://hex-plex.github.io/project/gait-occlusion-gan/</guid>
+      <description>&lt;h1 id=&#34;gait-occlusion-gan&#34;&gt;Gait-Occlusion-GAN&lt;/h1&gt;
+&lt;p&gt;&lt;em&gt;UnPublished: made public temporally&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Original code for the paper &lt;strong&gt;&amp;ldquo;BGaitR-Net: Occluded Gait Sequence reconstruction with temporally constrained model for gait recognition&amp;rdquo;&lt;/strong&gt; under Prof. Pratik Chattopadhyay.&lt;/p&gt;
+&lt;p&gt;This work proposes simple BiDirectional Filtering of the latent vectors of The silhouettes. TimeSeries Data of the latent space is been filter for reconstruction using a simple Bi-LSTM trained with A sophisticated method proposed in the paper.
+The Conversion of the Spatio Data to latent space was done using a  conditional Variational AutoEncoder.
+We have used a 3 Datasets : for training 2 namely, CASIA-B, OU-ISIR large population, and testing 1 namely, TumIITKGP.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;A conditional GAN based approach is also been presented in code&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;proposed-approach&#34;&gt;Proposed approach&lt;/h2&gt;
+&lt;p&gt;We have used a Model based approach for feature extraction using &lt;strong&gt;Temporally constrained Kmeans Clustering&lt;/strong&gt; and &lt;strong&gt;Short Path in a Weighted Graph&lt;/strong&gt; for assigning Keypose for the Sequence even in case of Occlusion. This achieved substantially better results&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/Gait-Occlusion-GAN/master/results/pa.png&#34;/&gt;
+Propoesed Approach
+&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/Gait-Occlusion-GAN/master/results/en.png&#34;/&gt;
+  Model Architecture
+&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;BiLSTM.png&#34;/&gt;
+  Model Architecture - 2
+&lt;/p&gt;
+&lt;h2 id=&#34;results&#34;&gt;Results&lt;/h2&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img heigth=&#34;300&#34; src=&#34;https://raw.githubusercontent.com/hex-plex/Gait-Occlusion-GAN/master/results/7333occlu.jpg&#34;/&gt;
+Visual inspection of Reconstruction for a sequence with over 73 occlusion.&lt;br/&gt;
+(a) Input Sequence&lt;br/&gt;
+(b) Reconstructed Sequence&lt;br/&gt;
+(c) Ground Truth&lt;br/&gt;
+&lt;p&gt;Successfully able to Reconstruct 22 Frames from just 8 Frames with a Dice score 0.98&lt;/p&gt;
+&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/Gait-Occlusion-GAN/master/results/cmc_plot.png&#34;/&gt;
+&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+  CMC Accuracy of Gait Recognition for TUM-IITKGP Dataset
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>PauciBot</title>
+      <link>https://hex-plex.github.io/project/paucibot/</link>
+      <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
+      <guid>https://hex-plex.github.io/project/paucibot/</guid>
+      <description>&lt;h2 id=&#34;abstract&#34;&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;This Repository contains the hardware designs of the Two Wheeled ROS enabled robot capable of self - balancing and also able to run SLAM and Localize itself with just Odometry, Encoders on the wheel and the Camera used with Depth Maps&lt;a href=&#34;#1&#34;&gt;[1]&lt;/a&gt; to get a partially accurate Depth information of the surronding. This is partially inspired from the Turtlebot&lt;a href=&#34;#2&#34;&gt;[2]&lt;/a&gt; but it must be kept in mind the algorithm has be able to model the two wheeled bot to even account for its self balancing action which was solved using accurate System Modelling&lt;a href=&#34;#3&#34;&gt;[3]&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/PauciBot-Hardware/master/images/Paucibot.jpg&#34; alt=&#34;Bot in all its glory&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;design&#34;&gt;Design&lt;/h2&gt;
+&lt;p&gt;The above is the bot in all its glory, I had built The Hardware before running simulations and testing out its stability as its quite an symmetrical and simple design. This surely resembles turtlebot but has a few changes. Basically the idea was to have a worthy replacement for a turtlebot to test out all the mapping and planning algorithms on it.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;After the construction it was quite easy to make a 3D design for the simulators. My Weapon of choice Phobos&lt;a href=&#34;#4&#34;&gt;[4]&lt;/a&gt; and &lt;a href=&#34;https://www.blender.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Blender&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Below is a simple design of the bot in blender.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/PauciBot-Hardware/master/images/Blender_Modelling.png&#34; alt=&#34;Blender Design&#34;&gt;&lt;/p&gt;
+&lt;p&gt;With some Phobos magics 🎉🎉&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/PauciBot-Hardware/master/images/URDF_generation.png&#34; alt=&#34;Phobos&#34;&gt;&lt;/p&gt;
+&lt;p&gt;We can set the parameters required for generating URDF of the bot.&lt;/p&gt;
+&lt;p&gt;Exporting it just makes the work run naturally with Gazebo, PyBullet and any other Simulator of choice. The below is a simple &lt;strong&gt;PID control on the Pitch&lt;/strong&gt; of the Bot.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/PauciBot-Hardware/master/images/PyBullet-PID.png&#34; alt=&#34;PyBullet PID&#34;&gt;&lt;/p&gt;
+&lt;p&gt;You can get the same output running the following in the terminal.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git clone https://github.com/hex-plex/PauciBot-Hardware.git
+cd PauciBot-Hardware
+python scripts/trial.py
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;under-development&#34;&gt;Under-Development&lt;/h2&gt;
+&lt;p&gt;The Main objective was that I wanted to explore the Difficulties faced when taking the Project from simulation to reality and vice versa. The Main tool is &lt;strong&gt;ROS&lt;/strong&gt; as its a well established community with most useful tools opensourced for all. Hence I would like to release The bot with a ROS package. I have been currently working on the same for the past few months.&lt;/p&gt;
+&lt;p&gt;Hope to see you there soon. : )&lt;/p&gt;
+&lt;h2 id=&#34;components&#34;&gt;Components&lt;/h2&gt;
+&lt;p&gt;The whole body is made of Ply wood and solid wood. And the wheels are just off the shelf RC car wheels with a 11.1 V LiPo battery.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;arduino-mega-2560&#34;&gt;Arduino Mega 2560&lt;/h4&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I have used this for controlling the motor drivers and getting a Odometry and runnning a baseline self balancing algorithm.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;nvidia-jetson-nano-4gb&#34;&gt;Nvidia Jetson Nano 4GB&lt;/h4&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This is the ROS hardware Node on the Robot which communicates to a master on the localhost using UDP protocol. This is also used to give the neccesary computational power for onboard Computer Vision algorithms.
+&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/PauciBot-Hardware/master/images/Jetson.jpg&#34; alt=&#34;Jetson&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;mpu9250&#34;&gt;MPU9250&lt;/h4&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Simple sensor for Odometry.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;l298-motor-driver&#34;&gt;L298 Motor Driver&lt;/h4&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Motor driver for controlling 2 Motors&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;lm2596s-buck&#34;&gt;LM2596S Buck&lt;/h4&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For regulating voltage comming from the battery.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;logitech-c290&#34;&gt;Logitech C290&lt;/h4&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This is a high quality webcam that can be easily used for capturing images at incredibly high resolution and quality.
+&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/PauciBot-Hardware/master/images/Logi_C290.jpg&#34; alt=&#34;Camera&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;p&gt;&lt;a id=&#34;1&#34;&gt;[1]&lt;/a&gt; Unsupervised Learning of Depth and Ego-Motion from Monocular Video Using 3D Geometric Constraints. Reza Mahjourian, Martin Wicke, Anelia Angelova &lt;a href=&#34;https://sites.google.com/view/vid2depth&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[link]&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;2&#34;&gt;[2]&lt;/a&gt; Turtlebot is a ROS standard platform robot. &lt;a href=&#34;https://emanual.robotis.com/docs/en/platform/turtlebot3/overview/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[link]&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;3&#34;&gt;[3]&lt;/a&gt;
+A Tutorial on Modelling and Control of Two- Wheeled Self-Balancing Robot with Stepper Motor &lt;a href=&#34;https://www.researchgate.net/publication/334731253_A_Tutorial_on_Modelling_and_Control_of_Two-_Wheeled_Self-Balancing_Robot_with_Stepper_Motor&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[link]&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&#34;4&#34;&gt;[4]&lt;/a&gt; Phobos is an add-on for Blender. &lt;a href=&#34;https://github.com/dfki-ric/phobos&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[link]&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>KiloBot MultiAgent Reinforcement Learning</title>
+      <link>https://hex-plex.github.io/project/kilobot-multiagentrl/</link>
+      <pubDate>Thu, 03 Sep 2020 00:00:00 +0000</pubDate>
+      <guid>https://hex-plex.github.io/project/kilobot-multiagentrl/</guid>
+      <description>&lt;p&gt;This is an experimentation to learn about Swarm Robotics with help of MultiAgent Reinforcement learning. We have used KiloBot as a platform as these are very simple in the actions space and have very high degree of symmetry. The Main inspiration of this project is this paper&lt;a href=&#34;#1&#34;&gt;[1]&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;setting-up&#34;&gt;Setting Up&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git clone https://github.com/hex-plex/KiloBot-MultiAgent-RL
+cd KiloBot-MultiAgent-RL
+pip install --upgrade absl-python \
+                      tensorflow \
+                      gym \
+                      opencv-python \
+                      tensorflow_probability \
+                      keras \
+                      pygame
+pip install -e gym-kiloBot
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This should fetch and install the basics packages needed and should install the environment&lt;/p&gt;
+&lt;h3 id=&#34;sample-of-environment&#34;&gt;Sample of environment&lt;/h3&gt;
+&lt;p&gt;These envs are running on a constant &lt;strong&gt;Dummy-actions!!&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Env with Graph Objective&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;Env with Localization Objective&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img src=&#34;https://github.com/hex-plex/KiloBot-MultiAgent-RL/blob/master/images/env_test_graph_compress.gif?raw=true&#34; alt=&#34;Output-1&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://github.com/hex-plex/KiloBot-MultiAgent-RL/blob/master/images/env_test_localize_compress.gif?raw=true&#34; alt=&#34;Output-2&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;python env-test.py ## This will help you check the functionality of the environement and should give the sample code to understand the apis as well.
+python model-train.py \
+        --headless=True \             ## for headless training default False
+        --objective=&amp;quot;localization&amp;quot; \  ## defines the objective default is graph
+        --modules=10 \                ## This defines the no of modules to be initialized default 10
+        --time_steps=100000 \         ## This is the total no of steps the agent will take while learning
+        --histRange=10 \              ## This is the no of mu values for the histograms
+        --logdir=&amp;quot;logs&amp;quot; \             ## This specifies the log location for TensorBoard
+        --checkpoints=&amp;quot;checkpoints&amp;quot;   ## This is for defining the location where the model is to be saved
+        --load_checkpoint=&amp;quot;checkpoints/iter-500&amp;quot; ## This loads the specified iteration
+
+python play-model.py \ ## This should load trained weights and show the performance
+        --load_checkpoint=&amp;quot;checkpoints/graphs/10&amp;quot; \ ## loads this model
+        --modules=10  \                             ## no of modules in the env
+        --objective=&amp;quot;localization&amp;quot; \                ## Sets the objective function
+        --time_steps=10000 \                        ## No of iterations to be run
+        --histRange=10                              ## Same def as above
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;results&#34;&gt;Results&lt;/h2&gt;
+&lt;p&gt;After a exhaustive amount of training on varies combinations of no_of_modules and task in hand I have obtained results of the following algorithm for these parameters.
+I have used &lt;code&gt;[5, 10, 15, 20, 25, 50]&lt;/code&gt; number of modules to carryout the tests.&lt;/p&gt;
+&lt;p&gt;One may find the Tensorboard log files here:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://drive.google.com/file/d/11NtimYoXOBGopIxziAojti0k1kfbaVBQ/view?usp=sharing&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; log_kilobot [Drive Link] (403MB)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;and the Model Weights for each parameters here:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://drive.google.com/file/d/12qpbPIOrC-hLGVn2a8GETrkNL89bt8Dt/view?usp=sharing&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt; checkpoint_kilobot [Drive Link] (63.3MB)&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;graph-problem&#34;&gt;Graph Problem&lt;/h3&gt;
+&lt;p&gt;The below table is based on the number of modules used but for result tabulation I am considering
+&lt;code&gt;[5, 10, 20, 50]&lt;/code&gt;
+number of modules. To infer many insights of the algorithm in hand.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;&lt;b&gt;Please click on the image to zoom in&lt;/b&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Model Trained on &lt;strong&gt;\&lt;/strong&gt; Model Run on&lt;/th&gt;
+&lt;th&gt;10&lt;/th&gt;
+&lt;th&gt;20&lt;/th&gt;
+&lt;th&gt;50&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;10&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://github.com/hex-plex/KiloBot-MultiAgent-RL/blob/master/images/10trainon10.gif?raw=true&#34; alt=&#34;Success1&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://github.com/hex-plex/KiloBot-MultiAgent-RL/blob/master/images/10trainon20.gif?raw=true&#34; alt=&#34;Success2&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://github.com/hex-plex/KiloBot-MultiAgent-RL/blob/master/images/10trainon50.gif?raw=true&#34; alt=&#34;Success3&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;20&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://github.com/hex-plex/KiloBot-MultiAgent-RL/blob/master/images/20trainon20.gif?raw=true&#34; alt=&#34;Random1&#34;&gt;&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;50&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://github.com/hex-plex/KiloBot-MultiAgent-RL/blob/master/images/50trainon50.gif?raw=true&#34; alt=&#34;Random2&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+The policies trained on 20 and 50 module system is completely random in sense it just goes forward.
+&lt;p&gt;We can see clearly the policy trained with 10 modules have yield a very good amount of coordination between each other that is the critic model taking in the input image of the system is able to specify the bots and guide them, Hence a very good amount of generalization is found when we use this model with system with different number of modules as can be seen with the 20 module system but the non stationarity of a higher order system makes it complex for the critic to reward or give baseline to the actor, As the&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The order of the reward changes drastically.&lt;/li&gt;
+&lt;li&gt;The Reading from the histogram becomes Muddy.&lt;/li&gt;
+&lt;li&gt;The correlation of a reward to action of a single agent reduces drastically.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;Hence the Model trained with 10 modules is not able to generalize to the 50 module system, &lt;strong&gt;BUT&lt;/strong&gt; It looks more promising than the policy trained for the 50 module system itself, hence a curiculum learning based approach seems promising to solve such a transfer learning problem.&lt;/p&gt;
+&lt;h4 id=&#34;plots-for-training-with-10-modules&#34;&gt;Plots for Training with 10 modules&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Actor Loss&lt;/th&gt;
+&lt;th&gt;Critic Loss&lt;/th&gt;
+&lt;th&gt;Reward&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img src=&#34;https://github.com/hex-plex/KiloBot-MultiAgent-RL/blob/master/images/actor10.jpg?raw=true&#34; alt=&#34;Actor Loss&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://github.com/hex-plex/KiloBot-MultiAgent-RL/blob/master/images/critic10.jpg?raw=true&#34; alt=&#34;Critic Loss&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://github.com/hex-plex/KiloBot-MultiAgent-RL/blob/master/images/reward10.jpg?raw=true&#34; alt=&#34;Reward&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;for-5-modules&#34;&gt;For 5 modules&lt;/h4&gt;
+&lt;p&gt;The system can&amp;rsquo;t comphensate for the negetive reward got by using fuel as the reward got for graphing is much smaller in order than it that it chooses to be stagnent.
+&lt;img src=&#34;https://github.com/hex-plex/KiloBot-MultiAgent-RL/blob/master/images/5trainon5.gif?raw=true&#34; alt=&#34;Failed&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;localization-problem&#34;&gt;Localization Problem&lt;/h3&gt;
+&lt;p&gt;Here the task was much easier but the training didnt yield any satisfactory result as.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;there were a lot of non stationarities and the fact the system was modelled based on a fashion which couldn&amp;rsquo;t extend more than a small system of at best 10 modules &lt;a href=&#34;1&#34;&gt;[1]&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;And the fact that the reward of localization couldnt exceed the negetive reward for moving the bot that is the bots choose to stand still to save fuel over exploring in most of the senarios.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Below are few runs with &lt;code&gt;[10, 25]&lt;/code&gt;
+Number of modules.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Localization trained for small n(=10)&lt;/th&gt;
+&lt;th&gt;Localization trained for big n(=25)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img src=&#34;https://github.com/hex-plex/KiloBot-MultiAgent-RL/blob/master/images/15loc15.gif?raw=True&#34; alt=&#34;loc10&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://github.com/hex-plex/KiloBot-MultiAgent-RL/blob/master/images/25loc25.gif?raw=True&#34; alt=&#34;loc25&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Here it is clearly visible that because of randomness and the fact more number of can cover a larger space of the system exploration is much easier than being greedy to stay at a point and save fuel.&lt;/p&gt;
+&lt;h2 id=&#34;acknowledgment&#34;&gt;Acknowledgment&lt;/h2&gt;
+&lt;p&gt;To Center for Computing and Information Services, IIT (BHU) varanasi to provide the computational power, i.e., The Super Computer on which I was able to train for over &lt;strong&gt;10 Million Timesteps&lt;/strong&gt; for about 1.5 months.&lt;/p&gt;
+&lt;p&gt;For any other query feel free to reachout.&lt;/p&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;p&gt;&lt;a id=&#34;1&#34;&gt;[1]&lt;/a&gt;
+&lt;strong&gt;Guided Deep Reinforcement Learning for Swarm Systems&lt;/strong&gt; &lt;a href=&#34;https://arxiv.org/abs/1709.06011&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[arXiv:1709.06011v1]&lt;/a&gt; [cs.MA] 18 Sep 2017&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Hand Imitation</title>
+      <link>https://hex-plex.github.io/project/hand-imitation/</link>
+      <pubDate>Sat, 06 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>https://hex-plex.github.io/project/hand-imitation/</guid>
+      <description>&lt;p&gt;RL-based learning for a robotic arm to imitate a given hand in a image feed
+with &lt;a href=&#34;https://github.com/hex-plex/gym-handOfJustice&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;handOfJustice&lt;/a&gt; as our environment&lt;/p&gt;
+&lt;h2 id=&#34;to-setup&#34;&gt;To Setup&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-console&#34;&gt;pip install gym-handOfJustice
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;else&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-console&#34;&gt;git clone https://github.com/hex-plex/gym-handOfJustice
+cd gym-handOfJustice
+pip install -e .
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;to-train&#34;&gt;To Train&lt;/h2&gt;
+&lt;p&gt;we used Actor Critic technique to update the a CNN
+examples are RL-train.py and RL-Test.py&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;In RL-train we have built the Actor and the critic model using tensorflow&lt;/li&gt;
+&lt;li&gt;In RL-Test we have used stable-baselines SAC model with LnCnnpolicy policy&lt;/li&gt;
+&lt;li&gt;Dataset which we used consisted of 50,000 images that meant content for 50,000 episodes.
+to use the same it could be downloaded from the &lt;a href=&#34;https://drive.google.com/file/d/1YeJecxl8LDR_r3JAWfSbDP4X_klVQfrO/view&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;drive link&lt;/a&gt;&lt;br/&gt;
+&amp;mdash;-or&amp;mdash;-&lt;br/&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-console&#34;&gt;wget --no-check-certificate -r &#39;https://docs.google.com/uc?export=download&amp;amp;id=1YeJecxl8LDR_r3JAWfSbDP4X_klVQfrO&#39; -O dataset.7z
+pacman -Sy p7zip-full  
+# Or any package manager you like
+7z e dataset.7z
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;training-metrics&#34;&gt;Training Metrics&lt;/h2&gt;
+&lt;p&gt;The training was completed( only on ~50% of the dataset ) over a span 36 days. Special thanks to Center for Computing and Information Services, IIT (BHU) varanasi to provide the computational power i.e., the Compute Cluster. It ran for about 20,960 episodes making upto 20 Million steps. the following are the log of all the metrics.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Actor Loss&lt;/th&gt;
+&lt;th&gt;Critic Loss&lt;/th&gt;
+&lt;th&gt;Reward&lt;/th&gt;
+&lt;th&gt;Cummulative Reward&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img src=&#34;https://github.com/hex-plex/Hand-Imitation/blob/master/log_images/actor_loss.jpg?raw=True&#34; alt=&#34;Actor_loss&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://github.com/hex-plex/Hand-Imitation/blob/master/log_images/critic_loss.jpg?raw=True&#34; alt=&#34;Critic_loss&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://github.com/hex-plex/Hand-Imitation/blob/master/log_images/reward.jpg?raw=True&#34; alt=&#34;Reward&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;https://github.com/hex-plex/Hand-Imitation/blob/master/log_images/eps_total_reward.jpg?raw=True&#34; alt=&#34;Cum_reward&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;These results may look decent but we should keep in mind that what i have tried to do is a end to end model for a very complex and really having a few layers after a mobile net is surely not sufficient for learning the forward kinematics of a robotic arm and being able to estimate the pose of the arm in the image.&lt;/p&gt;
+&lt;h2 id=&#34;output&#34;&gt;Output&lt;/h2&gt;
+&lt;p&gt;These are the best result after training over a limited amount of time&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;
+we have used clips from different versions of trained model and environment so there is a edit on these clips that in the gym-handOfJustice==0.0.6 a flip in the environment was added to make feel of the robotic hand more mirror like which can be spotted in the gif files&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/hex-plex/Hand-Imitation/blob/master/normal%26four_diff.gif?raw=true&#34; alt=&#34;Output-1&#34;&gt;
+&lt;img src=&#34;https://github.com/hex-plex/Hand-Imitation/blob/master/3Pose.gif?raw=true&#34; alt=&#34;Output-2&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;the-end&#34;&gt;The End&lt;/h2&gt;
+&lt;p&gt;Thats all from our side&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt; &lt;img src=&#34;https://github.com/hex-plex/Hand-Imitation/blob/master/Thank_You.gif?raw=true&#34; height=&#34;50%&#34; width=&#34;50%&#34;&gt;&lt;/img&gt; &lt;/p&gt;
+&lt;h2 id=&#34;the-team&#34;&gt;The Team&lt;/h2&gt;
+&lt;table&gt;
+ &lt;td align=&#34;center&#34;&gt;
+     &lt;a href=&#34;https://github.com/hex-plex&#34;&gt;
+    &lt;img src=&#34;https://avatars0.githubusercontent.com/u/56990337?s=460&amp;v=4&#34; width=&#34;100px;&#34; alt=&#34;&#34;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Somnath Sendhil Kumar &lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;
+    &lt;/td&gt;
+    &lt;td align=&#34;center&#34;&gt;
+     &lt;a href=&#34;https://github.com/numberbee7070&#34;&gt;
+    &lt;img src=&#34;https://avatars3.githubusercontent.com/u/63304283?s=460&amp;v=4&#34; width=&#34;100px;&#34; alt=&#34;&#34;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Yash Garg&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;
+	&lt;/td&gt;
+	&lt;td align=&#34;center&#34;&gt;
+     &lt;a href=&#34;https://github.com/infini8-13&#34;&gt;
+    &lt;img src=&#34;https://avatars2.githubusercontent.com/u/54203063?s=460&amp;v=4&#34; width=&#34;100px;&#34; alt=&#34;&#34;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;L N Saaswath&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;
+	&lt;/td&gt;
+	&lt;td align=&#34;center&#34;&gt;
+     &lt;a href=&#34;https://github.com/AtuL-KumaR-00&#34;&gt;
+    &lt;img src=&#34;https://avatars3.githubusercontent.com/u/64649440?s=460&amp;v=4&#34; width=&#34;100px;&#34; alt=&#34;&#34;/&gt;&lt;br /&gt;&lt;sub&gt;&lt;b&gt;Atul Kumar&lt;/b&gt;&lt;/sub&gt;&lt;/a&gt;&lt;br /&gt;
+	&lt;/td&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Pong Reinforcement Learning</title>
+      <link>https://hex-plex.github.io/project/pong-reinforcementlearning/</link>
+      <pubDate>Wed, 06 May 2020 00:00:00 +0000</pubDate>
+      <guid>https://hex-plex.github.io/project/pong-reinforcementlearning/</guid>
+      <description>&lt;p&gt;I have tried baking a rudimentary RL environment and a agent recipe to learn more about the eco-system.&lt;br/&gt;
+I have made &lt;a href=&#34;https://github.com/hex-plex/Pong-ReinforcementLearning/blob/master/pong.py&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;pong.py&lt;/a&gt; a environment which one can host either locally (localhost) or on  0.0.0.0 (LAN).Allowing to communicate to &lt;a href=&#34;https://github.com/hex-plex/Pong-ReinforcementLearning/blob/master/mainmodel.py&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;mainmodel.py&lt;/a&gt; which has to be connected to the same host and the same port. &lt;br/&gt;
+I have used a simple socket connection to transfer data rather than a flask/django backend as they are based on it giving a advantage of speed of communication. &lt;br/&gt;
+both the scripts have debug mode which allows one to see in which state or stage they are in. &lt;br/&gt;&lt;/p&gt;
+&lt;h2 id=&#34;output&#34;&gt;Output&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/hex-plex/Pong-ReinforcementLearning/raw/master/trained.gif&#34; alt=&#34;pong-agent&#34;&gt;&lt;/p&gt;
+&lt;hr/&gt;
+The one on the left is a RL agent trained for 3 days and the one on right is a hardcoded AI. This is noticible the they nearly have the same level of skills.
+&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;/h2&gt;
+&lt;p&gt;This requires only few basic libraries it only runs on python3, rather a small update can make it compatible with python2.
+The libraries&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;pickle
+numpy
+cv2
+pygame
+# Below are mostly available preinstalled in any python distribution
+socket
+BytesIO # from io in python3 or directly in python2
+_thread # for python 3 and thread in python2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Which are quite rudimentary and neccessary part of the code.&lt;/p&gt;
+&lt;h2 id=&#34;multithreading&#34;&gt;Multithreading&lt;/h2&gt;
+&lt;p&gt;Here I have use many threads to assure that no data is missed while any other calculation or process is running on the main thread as there might be some unwanted lag between inputs.Also another thread on mainmodel exists which take inputs  from the user for pausing and resuming its learning session&lt;/p&gt;
+&lt;h2 id=&#34;sockets&#34;&gt;Sockets&lt;/h2&gt;
+&lt;p&gt;I have used sockets to send data between scripts rather than using a instance of model and the pong env on the same script well that would work just fine (or better removing all the lag of communication) , but my goal was to make it more appealing and to make me learn more real life skills that is if I train a agent with raspberry pi ( or any other weaker mobile device for that matter ) as a part of the environment or in the environment a more viable option than running both simulation and the RL agent would be to do the computation and send in actions to it. This also gave me a good understanding about data compression and network security ,though here there is none used as it just accepts the first connection to the env. &lt;br/&gt;
+&lt;br/&gt;
+with the use of socket one could manually control the environment with keyboard and also have a RL agent learning (half - Duplex).&lt;/p&gt;
+&lt;h2 id=&#34;demo&#34;&gt;Demo&lt;/h2&gt;
+&lt;p&gt;To launch the env with mostly default values just running &lt;a href=&#34;https://github.com/hex-plex/Pong-ReinforcementLearning/blob/master/pong.py&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;pong.py&lt;/a&gt; directly would start the server with default configs.
+Its always recommended to use its instance, apply your configuration you want it to run and start the server.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from pong import Pong
+
+env = Pong( levelodiff=1, ## This is the level of the inbuilt AI that plays against you.
+                          ## Set it to 4 and chill out (really try it!!) the scale is 1-3
+            debug=False,  ## If set to True it will print the stage the environment is in and info the data inputs and outputs
+            render=False, ## It would render the image that is sent to the model, This slows down the process so not a good idea to use it.
+            server=True,  ## This is to set server mode on , if set false the environment will be no different from ordinary pong game.
+            host=&amp;quot;&amp;quot;,      ## This is to specify where you want to host it, &amp;quot;&amp;quot; maps to local host &amp;quot;0.0.0.0&amp;quot; doesnt really map
+                          ## to your ip address yet
+            port=12345    ## This your port no. of the connection.
+          )               ## This is to just initiate the environment
+
+env.start()## This starts the env ie., hosts itself as per the given parameter and waits for a connection in async while continuing the game
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To launch the RL agent running the &lt;a href=&#34;https://github.com/hex-plex/Pong-ReinforcementLearning/blob/master/mainmodel.py&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;mainmodel.py&lt;/a&gt; directly will run it in default config. &lt;br/&gt;
+To customize to your config import and create an instance and run the client. &lt;br/&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from mainmodel import PolicyGradient
+
+## This uses two hidden layer to out-put 2 probabilities
+agent = PolicyGradient( resume=False,  ## This is usefull to continue training from previos checkpoint.
+                        render=True,   ## This will render the image got through the socket,useful if model is in another computer
+                        host=None,     ## If the value is None it trys to find a localhost , else specific host is to be provided as a str
+                        port=12345,    ## default value is 12345 set is as required.
+                        hiddenUnits=250, ## This no of hiddenUnits in first layer depending on the dimension of input.
+                        batch_size=10, ## This is to set batch size for batch reiforcement learning rather than using single episode.
+                        learningRate=1e-3, ## This is to set learning rate
+                        gamma=0.99,    ## This is to set gamma or the discount
+                        decayRate=0.99 ## This is decayRate for RMSprop
+                      )                ## This creates an instance of PolicyGradient algorithm as a client_socket
+
+agent.start()         ## This starts the agent ie., connects to the server and communicates and learns from its experience.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Running them should launch the env and agent would start leaning. There is a propriety control in mainmodel.py which takes input in its terminal as&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;lsquo;p&amp;rsquo;    ==&amp;gt; Pausing/Resuming the training process&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;q&amp;rsquo;    ==&amp;gt; Quit the training process , But this makes a Checkpoint as interrupt.p&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;ping&amp;rsquo; ==&amp;gt; This pings the pong server 10 times and returns the average time it took to send and receive packets.
+else with a better score of agent, the model is saved continuosly as save.p.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;fast-training&#34;&gt;Fast-training&lt;/h2&gt;
+&lt;p&gt;I have experimented the whole thing with networking sockets and asynchronous methods limiting the training process to human level speed for which I have uploaded the pong-fast-train.tar.gz&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;tar -xvzf pong-fast-train.tar.gz
+cd pong-fast
+python mainmodel.py
+mv save.p ../save.p
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So this should train the model and save it into the main directory this should load the trained model in the main algo.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Light Gun</title>
+      <link>https://hex-plex.github.io/project/light-gun/</link>
+      <pubDate>Thu, 02 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://hex-plex.github.io/project/light-gun/</guid>
+      <description>&lt;p&gt;Bored in the quarantine period, revisiting my old video games with light gun inspired an idea of light gun with a LCD display , I went on to build it mainly as a android package as it would be more accessable to anyone. Then ended up using a Raspberry Pi as a standalone device to enable it&amp;rsquo;s use accross many platforms and devices.&lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The Explanation for the working can be found in &lt;a href=&#34;https://github.com/hex-plex/Light-Gun/blob/master/EXPLANATION.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;EXPLANATION.md&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;glimpse&#34;&gt;Glimpse:&lt;/h2&gt;
+&lt;p&gt;This is the glimpse of the prototype made with Raspberry pi on a toy gun with all the number-munching done on the Raspberry and transmites messages to the local server through bluetooth. The previous method of running the proccessing and the actions is documented in &lt;strong&gt;Win-Py&lt;/strong&gt; directory.&lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/Light-Gun/master/images/Complete_setup.jpg&#34; width=&#34;370&#34; align=&#34;right&#34; border=&#34;20&#34;&gt;&lt;/img&gt;
+&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;p align=&#34;left&#34;&gt;This is a prototype of the light gun with a camera module attached onto a toy-gun and with a Raspberry pi 3 b+ (unneccessary I know) and a 7.4 V li-ion battery, regulated with a buck converter to which two switches are connected on the Raspi&#39;s interrupt pins.&lt;/p&gt;&lt;hr/&gt;
+&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/Light-Gun/master/images/display_setup.jpg&#34; width=&#34;370&#34; align=&#34;left&#34;&gt;&lt;/img&gt;
+&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
+This is the display setup with 4 IR-LEDs attached to the corners of the display which makes it very easy for detection in a wide range of lighting conditions.&lt;hr/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
+&lt;p&gt;And after Installation the main code using &lt;a href=&#34;https://github.com/hex-plex/Light-Gun/tree/master/Raspi-c&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Raspi&lt;/a&gt; version or &lt;a href=&#34;https://github.com/hex-plex/Light-Gun/tree/master/Win-py&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Local&lt;/a&gt; version, continue using it according to the guide lines for the same which is present in their respective folders itself.&lt;/p&gt;
+&lt;p&gt;The Modules then should create a virtual mouse and start following the edge vector of the camera module.
+The following is a demonstration of it in action&amp;hellip;. (😅 coming up shortly, as I am fixing few deviation errors.)&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://drive.google.com/file/d/1hIYBv8l2JCylOfQS9Cc5D5Hp50Ui55D-/view?usp=sharing&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Demo Link&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;contribution&#34;&gt;Contribution&lt;/h2&gt;
+&lt;p&gt;Any kind of Contribution is always welcomed. The rules for any Contribution for now is Non existent as I am the only one working on it and I have not really structurized the project so well as mostly in its prototyping stage, So its not possible to do a lot(Anyways feel free to report any errors or bugs 😄 ), Any Idea for a better implementation is also welcomed.&lt;/p&gt;
+&lt;h2 id=&#34;reference&#34;&gt;Reference:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;This is for getting R and t matrix  &lt;a href=&#34;https://www.learnopencv.com/head-pose-estimation-using-opencv-and-dlib/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;This is for adjusting focal length (approximation) &lt;a href=&#34;https://www.learnopencv.com/approximate-focal-length-for-webcams-and-cell-phone-cameras/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;This is for getting accurate intrensic matrix &lt;a href=&#34;https://www.learnopencv.com/camera-calibration-using-opencv/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Cmake&lt;/li&gt;
+&lt;li&gt;Bluez&lt;/li&gt;
+&lt;li&gt;Raspberry pi interupts&lt;/li&gt;
+&lt;li&gt;Asynchronous coding&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
