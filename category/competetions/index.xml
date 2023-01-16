@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Competetions | Somnath Kumar</title>
-    <link>https://hex-plex.github.io/category/competetions/</link>
-      <atom:link href="https://hex-plex.github.io/category/competetions/index.xml" rel="self" type="application/rss+xml" />
+    <title>Competetions | Viswesh N</title>
+    <link>https://viswesh-n.github.io/category/competetions/</link>
+      <atom:link href="https://viswesh-n.github.io/category/competetions/index.xml" rel="self" type="application/rss+xml" />
     <description>Competetions</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Somnath Sendhil Kumar `2023`</copyright><lastBuildDate>Sat, 17 Jul 2021 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Viswesh N `2024`</copyright><lastBuildDate>Sat, 17 Jul 2021 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://hex-plex.github.io/images/icon_hucffb9d42d7c693bd257413760c4b1fda_31806_512x512_fill_lanczos_center_2.png</url>
+      <url>https://viswesh-n.github.io/images/icon_hucffb9d42d7c693bd257413760c4b1fda_31806_512x512_fill_lanczos_center_2.png</url>
       <title>Competetions</title>
-      <link>https://hex-plex.github.io/category/competetions/</link>
+      <link>https://viswesh-n.github.io/category/competetions/</link>
     </image>
     
     <item>
       <title>Proposal for Flipkart Grid 3.0</title>
-      <link>https://hex-plex.github.io/post/fundraiser/</link>
+      <link>https://viswesh-n.github.io/post/fundraiser/</link>
       <pubDate>Sat, 17 Jul 2021 00:00:00 +0000</pubDate>
-      <guid>https://hex-plex.github.io/post/fundraiser/</guid>
+      <guid>https://viswesh-n.github.io/post/fundraiser/</guid>
       <description>&lt;p&gt;Flipkart Grid is a national robotics challenge that is organised by Flipkart annually. It is a distinguished event in which &lt;strong&gt;2000+ teams&lt;/strong&gt; representing different institutes participate from &lt;strong&gt;across the nation&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;Grid 3.0 is being organised by Flipkart this year and the problem statement requires a swarm of hardware bots to be built. Here is the link to this year’s problem statement-&lt;div style=&#34;text-align: center;&#34;&gt;
 &lt;a href=&#34;https://dare2compete.com/api/competition/get-attachment/60e573fc7e126_Grid_3.0_Problem_Statement.pdf&#34;&gt;Flipkart Grid 3.0 - Robotics Challenge : Problem Statement&lt;/a&gt;&lt;/p&gt;
