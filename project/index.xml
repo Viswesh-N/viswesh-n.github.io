@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects | Viswesh N</title>
-    <link>https://hex-plex.github.io/project/</link>
+    <link>https://viswesh-n.github.io/project/</link>
       <atom:link href="https://viswesh-n.github.io/project/index.xml" rel="self" type="application/rss+xml" />
     <description>Projects</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Viswesh N `2023`</copyright><lastBuildDate>Thu, 03 Mar 2022 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://hex-plex.github.io/images/icon_hucffb9d42d7c693bd257413760c4b1fda_31806_512x512_fill_lanczos_center_2.png</url>
+      <url>https://viswesh-n.github.io/images/icon_hucffb9d42d7c693bd257413760c4b1fda_31806_512x512_fill_lanczos_center_2.png</url>
       <title>Projects</title>
       <link>https://viswesh-n.github.io/project/</link>
     </image>
     
     <item>
       <title>Human Trajectory Forecasting</title>
-      <link>https://hex-plex.github.io/project/model-extraction/</link>
+      <link>https://viswesh-n.github.io/project/mlrc/</link>
       <pubDate>Thu, 03 Mar 2022 00:00:00 +0000</pubDate>
-      <guid>https://hex-plex.github.io/project/model-extraction/</guid>
+      <guid>https://viswesh-n.github.io/project/mlrc/</guid>
       <description>&lt;p&gt;Please go through the slides linked above or watch through our presentation below.&lt;/p&gt;
 &lt;iframe src=&#34;https://drive.google.com/file/d/1l75HNPUfXPEQmIOUbBsiiD6kHIoHM8gi/preview?t=2823&amp;end=3080&#34; width=&#34;720&#34; height=&#34;405&#34; &gt;&lt;/iframe&gt;
 &lt;h2 id=&#34;end-to-end-approach&#34;&gt;End to End Approach&lt;/h2&gt;
@@ -67,9 +67,9 @@ greybox_main(custom_config)
     
     <item>
       <title>Graph Neural Network for Communication in MARL</title>
-      <link>https://hex-plex.github.io/project/gnn-marl/</link>
+      <link>https://viswesh-n.github.io/project/gnn-marl/</link>
       <pubDate>Sun, 05 Dec 2021 00:00:00 +0000</pubDate>
-      <guid>https://hex-plex.github.io/project/gnn-marl/</guid>
+      <guid>https://viswesh-n.github.io/project/gnn-marl/</guid>
       <description>&lt;p&gt;This is an implementation of Communication in MARL using Graph Neural Network. This is been trained and tested on &lt;a href=&#34;https://github.com/deepmind/pysc2&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;StarCraft II&lt;/a&gt;, And this has shown improved training and performance metrics throughout all the maps. I have implemented this on top of &lt;a href=&#34;https://github.com/oxwhirl/pymarl&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PyMARL&lt;/a&gt; for easier comparative study with respect to other algorithms or implementations like &lt;a href=&#34;https://github.com/uoe-agents/epymarl&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ePyMARL&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Currently we have the following algorithms for training.&lt;/p&gt;
 &lt;ul&gt;
@@ -85,13 +85,13 @@ greybox_main(custom_config)
 &lt;li&gt;&lt;a href=&#34;https://arxiv.org/abs/1710.10903&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;GAT&lt;/strong&gt;: Graph Attention Network&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;graph-neural-network&#34;&gt;Graph Neural Network.&lt;/h3&gt;
-&lt;p&gt;More Information about the architecture and the execution can be found at &lt;a href=&#34;https://hex-plex.github.io/project/gnn-marl/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MultiAgent GNN&lt;/a&gt;
+&lt;p&gt;More Information about the architecture and the execution can be found at &lt;a href=&#34;https://viswesh-n.github.io/project/gnn-marl/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MultiAgent GNN&lt;/a&gt;
 A brief outline would be as follows&lt;/p&gt;
 &lt;p align=&#34;center&#34;&gt;
 &lt;img src=&#34;gnn.png&#34; /&gt;
 &lt;i&gt;Pipeline for communication using Graph Neural Network&lt;/i&gt;
 &lt;/p&gt;
-&lt;p&gt;The implementation is written in PyTorch and uses a modified version of &lt;a href=&#34;https://github.com/oxwhirl/smac&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SMAC&lt;/a&gt; which could be found in &lt;a href=&#34;https://hex-plex.github.io/smac-py/&#34;&gt;smac-py&lt;/a&gt; to include the adjacency matrix as the observation more detail on it can be found &lt;a href=&#34;#adjacency-matrix&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The implementation is written in PyTorch and uses a modified version of &lt;a href=&#34;https://github.com/oxwhirl/smac&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SMAC&lt;/a&gt; which could be found in &lt;a href=&#34;https://viswesh-n.github.io/smac-py/&#34;&gt;smac-py&lt;/a&gt; to include the adjacency matrix as the observation more detail on it can be found &lt;a href=&#34;#adjacency-matrix&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;For a glimpse of the algorithm in action checkout the &lt;a href=&#34;#output&#34;&gt;&lt;strong&gt;Output&lt;/strong&gt;&lt;/a&gt; section&lt;/p&gt;
 &lt;h2 id=&#34;adjacency-matrix&#34;&gt;Adjacency Matrix&lt;/h2&gt;
 &lt;p&gt;An adjacency matrix simply represents the vertices of the graph. For the current problem we have used a few heuristics for joining two nodes with a vertex. They are as below&lt;/p&gt;
@@ -145,9 +145,9 @@ A brief outline would be as follows&lt;/p&gt;
     
     <item>
       <title>MultiAgent Full coverage</title>
-      <link>https://hex-plex.github.io/project/multi-agent-coverage/</link>
+      <link>https://viswesh-n.github.io/project/multi-agent-coverage/</link>
       <pubDate>Tue, 16 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>https://hex-plex.github.io/project/multi-agent-coverage/</guid>
+      <guid>https://viswesh-n.github.io/project/multi-agent-coverage/</guid>
       <description>&lt;p&gt;The main objective of this project was to make and efficient multi-agent algorithm for cleaning an unknown terrain, for which we built &lt;a href=&#34;https://github.com/hex-plex/Vox-Bot&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&amp;ldquo;Vox-Bot&amp;rdquo;&lt;/a&gt; a ROS package for multi robot platform, A full description about VoxBot can be found here &lt;a href=&#34;#desciption&#34;&gt;Description&lt;/a&gt;. This is our solution submitted for AIITRA robotics challenge 2021, where we &lt;strong&gt;secured second position&lt;/strong&gt; among all other IIT s and prestigious colleges of India.&lt;/p&gt;
 &lt;h2 id=&#34;description&#34;&gt;Description&lt;/h2&gt;
 &lt;p align=&#34;center&#34;&gt;
@@ -248,9 +248,9 @@ The fan has been placed low for efficient cleaning, with a ground clearance meas
     
     <item>
       <title>NanoDrone RL Aided MPC</title>
-      <link>https://hex-plex.github.io/project/nanodrone-rlampc/</link>
+      <link>https://viswesh-n.github.io/project/nanodrone-rlampc/</link>
       <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>https://hex-plex.github.io/project/nanodrone-rlampc/</guid>
+      <guid>https://viswesh-n.github.io/project/nanodrone-rlampc/</guid>
       <description>&lt;h2 id=&#34;modding-the-hardware-platform&#34;&gt;Modding the hardware platform&lt;/h2&gt;
 &lt;p&gt;With a simple a simple RC drone with modified &lt;a href=&#34;https://github.com/betaflight/betaflight&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;BetaFlight&lt;/a&gt; Firmware to allow mavlink communication and a external companion PC such as Banana pi zero m2 we plan to deploy swarm of these drones in to real world problems.&lt;/p&gt;
 &lt;p&gt;Our Major targets were,&lt;/p&gt;
@@ -309,9 +309,9 @@ As a low level PID controller is running for maintaining the altitude altitude, 
     
     <item>
       <title>Mini Swarm Bot</title>
-      <link>https://hex-plex.github.io/project/dot-bot/</link>
+      <link>https://viswesh-n.github.io/project/dot-bot/</link>
       <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://hex-plex.github.io/project/dot-bot/</guid>
+      <guid>https://viswesh-n.github.io/project/dot-bot/</guid>
       <description>&lt;p&gt;This is fully ROS integrated robot, which can be used in various purposes our main use case was to test out multiagent algorithms. We used it to take part in the national level competition, FlipKart Grid 3.0 Robotics challenge 2021.&lt;/p&gt;
 &lt;p&gt;I have worked on building the platform and the integrating ROS with the following robot. The localization was done using a Apriltag_ros and a array of cameras. Also worked on implementing autonomously navigating in the environment and computing the optimal path while considering other robots in the arena.&lt;/p&gt;
 &lt;p&gt;The complete package including the controller and the planner can be found at &lt;a href=&#34;https://github.com/Robotics-Club-IIT-BHU/Dot-Bot&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Dot-Bot&lt;/a&gt;.&lt;/p&gt;
@@ -346,9 +346,9 @@ The robot is now about to have minor upgrades for it be used in a more real worl
     
     <item>
       <title>Optimal control and trajectory optimization for Quadruped</title>
-      <link>https://hex-plex.github.io/project/optimal-control_quadruped/</link>
+      <link>https://viswesh-n.github.io/project/optimal-control_quadruped/</link>
       <pubDate>Sat, 03 Jul 2021 00:00:00 +0000</pubDate>
-      <guid>https://hex-plex.github.io/project/optimal-control_quadruped/</guid>
+      <guid>https://viswesh-n.github.io/project/optimal-control_quadruped/</guid>
       <description>&lt;p&gt;This post is a collection of Optimal Control algorithm that I either implemented or Integrated with the quadruped &amp;lsquo;Stochlite&amp;rsquo; at Stochlab, IISc. These are implemented in ROS so that we can deploy them directly on the hardware. My major contribution was to integrate these well established optimal control algorithms with the ROS framework of the Quadruped.&lt;/p&gt;
 &lt;p&gt;Majority of the Optimal control do not have significant difference in performance in Hardware as I was unable to test them in many scenarios through the simulators.&lt;/p&gt;
 &lt;h2 id=&#34;model-predictive-control&#34;&gt;Model Predictive Control&lt;/h2&gt;
@@ -388,9 +388,9 @@ The robot is now about to have minor upgrades for it be used in a more real worl
     
     <item>
       <title>Hierarchical Reinforcement Learning for Swarm of Modular Bot</title>
-      <link>https://hex-plex.github.io/project/modularbot_planner/</link>
+      <link>https://viswesh-n.github.io/project/modularbot_planner/</link>
       <pubDate>Mon, 05 Apr 2021 00:00:00 +0000</pubDate>
-      <guid>https://hex-plex.github.io/project/modularbot_planner/</guid>
+      <guid>https://viswesh-n.github.io/project/modularbot_planner/</guid>
       <description>&lt;p&gt;This is my research project at &lt;a href=&#34;https://robotics-club-iit-bhu.github.io/RoboReG/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;RoBoReg&lt;/a&gt;, on which I have been working for over a year till date since November 2020.&lt;/p&gt;
 &lt;h2 id=&#34;abstract&#34;&gt;Abstract&lt;/h2&gt;
 &lt;p&gt;Abstraction of policy for Multi Agent to generalize the Swarm Behaviour. Allowing easy scaling up and robustness in task. Learning heirarchially optimal policy facilitates meta learning for multi agent setup, resulting in easier learning another task for the swarm. This saves a lot of train time as the policy takes major ammount of time to learn the complex interaction of these individual agents with each other and the environment. As the distribution of the model for these interaction doesnt tend to change drastically between tasks.&lt;/p&gt;
@@ -474,9 +474,9 @@ $$ \delta_2 = V(s_{t-1}) + \gamma*R_t - V(s_{t})$$&lt;/p&gt;
     
     <item>
       <title>Gait-Occlusion-Reconstrution</title>
-      <link>https://hex-plex.github.io/project/gait-occlusion-gan/</link>
+      <link>https://viswesh-n.github.io/project/gait-occlusion-gan/</link>
       <pubDate>Fri, 05 Mar 2021 00:00:00 +0000</pubDate>
-      <guid>https://hex-plex.github.io/project/gait-occlusion-gan/</guid>
+      <guid>https://viswesh-n.github.io/project/gait-occlusion-gan/</guid>
       <description>&lt;h1 id=&#34;gait-occlusion-gan&#34;&gt;Gait-Occlusion-GAN&lt;/h1&gt;
 &lt;p&gt;&lt;em&gt;UnPublished: made public temporally&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Original code for the paper &lt;strong&gt;&amp;ldquo;BGaitR-Net: Occluded Gait Sequence reconstruction with temporally constrained model for gait recognition&amp;rdquo;&lt;/strong&gt; under Prof. Pratik Chattopadhyay.&lt;/p&gt;
@@ -518,9 +518,9 @@ Visual inspection of Reconstruction for a sequence with over 73 occlusion.&lt;br
     
     <item>
       <title>PauciBot</title>
-      <link>https://hex-plex.github.io/project/paucibot/</link>
+      <link>https://viswesh-n.github.io/project/paucibot/</link>
       <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
-      <guid>https://hex-plex.github.io/project/paucibot/</guid>
+      <guid>https://viswesh-n.github.io/project/paucibot/</guid>
       <description>&lt;h2 id=&#34;abstract&#34;&gt;Abstract&lt;/h2&gt;
 &lt;p&gt;This Repository contains the hardware designs of the Two Wheeled ROS enabled robot capable of self - balancing and also able to run SLAM and Localize itself with just Odometry, Encoders on the wheel and the Camera used with Depth Maps&lt;a href=&#34;#1&#34;&gt;[1]&lt;/a&gt; to get a partially accurate Depth information of the surronding. This is partially inspired from the Turtlebot&lt;a href=&#34;#2&#34;&gt;[2]&lt;/a&gt; but it must be kept in mind the algorithm has be able to model the two wheeled bot to even account for its self balancing action which was solved using accurate System Modelling&lt;a href=&#34;#3&#34;&gt;[3]&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/hex-plex/PauciBot-Hardware/master/images/Paucibot.jpg&#34; alt=&#34;Bot in all its glory&#34;&gt;&lt;/p&gt;
@@ -594,9 +594,9 @@ A Tutorial on Modelling and Control of Two- Wheeled Self-Balancing Robot with St
     
     <item>
       <title>KiloBot MultiAgent Reinforcement Learning</title>
-      <link>https://hex-plex.github.io/project/kilobot-multiagentrl/</link>
+      <link>https://viswesh-n.github.io/project/kilobot-multiagentrl/</link>
       <pubDate>Thu, 03 Sep 2020 00:00:00 +0000</pubDate>
-      <guid>https://hex-plex.github.io/project/kilobot-multiagentrl/</guid>
+      <guid>https://viswesh-n.github.io/project/kilobot-multiagentrl/</guid>
       <description>&lt;p&gt;This is an experimentation to learn about Swarm Robotics with help of MultiAgent Reinforcement learning. We have used KiloBot as a platform as these are very simple in the actions space and have very high degree of symmetry. The Main inspiration of this project is this paper&lt;a href=&#34;#1&#34;&gt;[1]&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;setting-up&#34;&gt;Setting Up&lt;/h2&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git clone https://github.com/hex-plex/KiloBot-MultiAgent-RL
@@ -754,9 +754,9 @@ Number of modules.&lt;/p&gt;
     
     <item>
       <title>Hand Imitation</title>
-      <link>https://hex-plex.github.io/project/hand-imitation/</link>
+      <link>https://viswesh-n.github.io/project/hand-imitation/</link>
       <pubDate>Sat, 06 Jun 2020 00:00:00 +0000</pubDate>
-      <guid>https://hex-plex.github.io/project/hand-imitation/</guid>
+      <guid>https://viswesh-n.github.io/project/hand-imitation/</guid>
       <description>&lt;p&gt;RL-based learning for a robotic arm to imitate a given hand in a image feed
 with &lt;a href=&#34;https://github.com/hex-plex/gym-handOfJustice&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;handOfJustice&lt;/a&gt; as our environment&lt;/p&gt;
 &lt;h2 id=&#34;to-setup&#34;&gt;To Setup&lt;/h2&gt;
@@ -836,9 +836,9 @@ we have used clips from different versions of trained model and environment so t
     
     <item>
       <title>Pong Reinforcement Learning</title>
-      <link>https://hex-plex.github.io/project/pong-reinforcementlearning/</link>
+      <link>https://viswesh-n.github.io/project/pong-reinforcementlearning/</link>
       <pubDate>Wed, 06 May 2020 00:00:00 +0000</pubDate>
-      <guid>https://hex-plex.github.io/project/pong-reinforcementlearning/</guid>
+      <guid>https://viswesh-n.github.io/project/pong-reinforcementlearning/</guid>
       <description>&lt;p&gt;I have tried baking a rudimentary RL environment and a agent recipe to learn more about the eco-system.&lt;br/&gt;
 I have made &lt;a href=&#34;https://github.com/hex-plex/Pong-ReinforcementLearning/blob/master/pong.py&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;pong.py&lt;/a&gt; a environment which one can host either locally (localhost) or on  0.0.0.0 (LAN).Allowing to communicate to &lt;a href=&#34;https://github.com/hex-plex/Pong-ReinforcementLearning/blob/master/mainmodel.py&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;mainmodel.py&lt;/a&gt; which has to be connected to the same host and the same port. &lt;br/&gt;
 I have used a simple socket connection to transfer data rather than a flask/django backend as they are based on it giving a advantage of speed of communication. &lt;br/&gt;
@@ -921,9 +921,9 @@ mv save.p ../save.p
     
     <item>
       <title>Light Gun</title>
-      <link>https://hex-plex.github.io/project/light-gun/</link>
+      <link>https://viswesh-n.github.io/project/light-gun/</link>
       <pubDate>Thu, 02 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>https://hex-plex.github.io/project/light-gun/</guid>
+      <guid>https://viswesh-n.github.io/project/light-gun/</guid>
       <description>&lt;p&gt;Bored in the quarantine period, revisiting my old video games with light gun inspired an idea of light gun with a LCD display , I went on to build it mainly as a android package as it would be more accessable to anyone. Then ended up using a Raspberry Pi as a standalone device to enable it&amp;rsquo;s use accross many platforms and devices.&lt;br/&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;The Explanation for the working can be found in &lt;a href=&#34;https://github.com/hex-plex/Light-Gun/blob/master/EXPLANATION.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;EXPLANATION.md&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;h2 id=&#34;glimpse&#34;&gt;Glimpse:&lt;/h2&gt;
