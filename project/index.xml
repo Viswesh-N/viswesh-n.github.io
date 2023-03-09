@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Projects | Somnath Kumar</title>
+    <title>Projects | Viswesh N</title>
     <link>https://hex-plex.github.io/project/</link>
-      <atom:link href="https://hex-plex.github.io/project/index.xml" rel="self" type="application/rss+xml" />
+      <atom:link href="https://viswesh-n.github.io/project/index.xml" rel="self" type="application/rss+xml" />
     <description>Projects</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Somnath Sendhil Kumar `2023`</copyright><lastBuildDate>Thu, 03 Mar 2022 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Viswesh N `2023`</copyright><lastBuildDate>Thu, 03 Mar 2022 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://hex-plex.github.io/images/icon_hucffb9d42d7c693bd257413760c4b1fda_31806_512x512_fill_lanczos_center_2.png</url>
       <title>Projects</title>
-      <link>https://hex-plex.github.io/project/</link>
+      <link>https://viswesh-n.github.io/project/</link>
     </image>
     
     <item>
-      <title>Black Box Model Extraction</title>
+      <title>Human Trajectory Forecasting</title>
       <link>https://hex-plex.github.io/project/model-extraction/</link>
       <pubDate>Thu, 03 Mar 2022 00:00:00 +0000</pubDate>
       <guid>https://hex-plex.github.io/project/model-extraction/</guid>
